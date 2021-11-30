@@ -1,19 +1,21 @@
 .Rproj.user
 .DS_Store
-public/
+/public/
+/resources/
+Thumbs.db
 
-website-data/~$course-schedule.xlsx
+/website-data/~$course-schedule.xlsx
 
-nopublish/
-data/kaggle-data/
+/nopublish/
+/data/kaggle-data/
 
-static/slides/w5p1_cache/
-data/crime.csv
+/static/slides/w5p1_cache/
+/data/crime.csv
 
-content/post/lab-1/index.Rmarkdown
-content/post/lab-2/index.Rmarkdown
-content/post/lab-3/index.Rmarkdown
+/content/post/lab-1/index.Rmarkdown
+/content/post/lab-2/index.Rmarkdown
+/content/post/lab-3/index.Rmarkdown
 
-content/post/homework-1/index.Rmarkdown
-content/post/homework-2/index.Rmarkdown
-static/slides/w9p1_cache/
+/content/post/homework-1/index.Rmarkdown
+/content/post/homework-2/index.Rmarkdown
+/static/slides/w9p1_cache/
