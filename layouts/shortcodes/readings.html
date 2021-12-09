@@ -9,23 +9,23 @@
 <!-- Create correct link -->
 	{{ if eq $arg1 "happygit" }}
 
-		<span class = "readings"><a class = "happygit" href= "https://happygitwithr.com/{{ .Get 1 }}"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
+		<span class = "readings"><a class = "happygit" href= "https://happygitwithr.com/{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
 	
 	{{ else if eq $arg1 "r4ds" }}
 
-		<span class = "readings"><a class = "r4ds" href="https://r4ds.had.co.nz/{{ .Get 1 }}"> <i data-feather="book"></i> {{ .Get 2}} </a></span>
+		<span class = "readings"><a class = "r4ds" href="https://r4ds.had.co.nz/{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2}} </a></span>
 
 	{{ else if eq $arg1 "socviz" }}
 
-		<span class = "readings"><a class = "socviz" href="https://socviz.co/{{ .Get 1 }}"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
+		<span class = "readings"><a class = "socviz" href="https://socviz.co/{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
 
 	{{ else if eq $arg1 "dataviz" }}
 
-		<span class = "readings"><a class = "dataviz" href="https://clauswilke.com/dataviz/{{ .Get 1 }}"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
+		<span class = "readings"><a class = "dataviz" href="https://clauswilke.com/dataviz/{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
 
 	{{ else if eq $arg1 "other" }}
 
-		<span class = "readings"><a class = "other" href="{{ .Get 1 }}"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
+		<span class = "readings"><a class = "other" href="{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
 
 	{{end}}
 
