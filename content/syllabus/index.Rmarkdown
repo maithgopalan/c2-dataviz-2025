@@ -15,9 +15,9 @@ knitr::opts_chunk$set(message = FALSE,
 
 Below are the meeting times for our class
 
-* **Term:** Winter 2021
-* **Time:** M/W, 10-11:20
-* **Classroom:** REMOTE
+* **Term:** Winter 2022
+* **Time:** Mondays, 1:00-3:50
+* **Classroom:** 115 Lokey Education
 * **Instructor:** Daniel Anderson, PhD
   + *email:* (preferred contact method) [daniela@uoregon.edu](mailto:daniela@uoregon.edu)
   + *office hours*: By appointment
@@ -32,15 +32,14 @@ Below are the meeting times for our class
 </div>
 
 ## Course Overview
-Welcome to the second course in the [Educational Data Science Specialization](https://education.uoregon.edu/data-science-specialization-educational-leadership) taught at the University of Oregon through the College of Education. This course will be taught through [R](https://cran.r-project.org), a free and open-source statistical computing environment, and will provide students with  the foundational principles and practice of data visualization, particularly as applied to scientific and technical data. We will have weekly lectures, covering a wide variety of topics including human perception, color theory, and principles of visual design. We will also cover mediums for communication across diverse audiences with an emphasis on different web applications. Weekly hands-on laboratory sessions provide students the opportunity to put the lecture material into practice.
+Welcome to the second course in the [Educational Data Science Specialization](https://education.uoregon.edu/data-science-specialization-educational-leadership) taught at the University of Oregon through the College of Education. This course will be taught through [R](https://cran.r-project.org), a free and open-source statistical computing environment, and will provide students with the foundational principles and practice of data visualization, particularly as applied to scientific and technical data. We will have weekly lectures, covering a wide variety of topics including human perception, color theory, and principles of visual design. We will also cover mediums for communication across diverse audiences with an emphasis on web deployment. Hands-on laboratory sessions provide students the opportunity to put the lecture material into practice.
 
 ### Student Learning objectives
 By the end of this course, students should be able to:
 
 * Transform data in a variety of ways to create effective data visualizations
-* Understand and fluently apply different types of data joins
 * Create and customize graphics in a variety of ways using best practices (e.g., color choices, text annotations, categorical axis ordering)
-* Create an online data visualization portfolio 
+* Build web-based platforms for sharing data visualizations
 
 ## Course Readings 
 All course readings are freely available online or will be provided by the
@@ -54,65 +53,53 @@ Each of the above links to the full book. These are excellent resources that I h
 
 
 ## Assignments and Grading
-Your final grade will be composed of five components: 
+There are 150 points possible. Your final grade will be composed of five components: 
 
-* 3 labs at 10 points each (30 points; 15%) 
-* 2 homework assignments at 20 points each (40 points; 20%) 
-* five-minute data visualization "in the wild" presentation (10 points; 5%) 
-* Final Project (120 points; 60%)
-  + Proposal (10 points; 5%)
-  + Draft (15 points; 7.5%)
-  + Peer review (25 points; 12.5%)
-  + Presentation (10 points; 5%)
-  + Product (60 points; 30%)
+* 3 labs at 15 points each (45 points; 30%) 
+* 1 homework assignments at 30 points each (20%)
+* 1 Data Viz in the Wild (5 points; 3%)
+* Final Project (70 points; 50%)
+  + Proposal (5 points; 3%)
+  + Draft (10 points; 7%)
+  + Peer review (10 points; 7%)
+  + Presentation (5 points; 3%)
+  + Product (40 points; 27%)
 
-I would like to, as much a possible, stick to the deadlines for all assignments as listed in the [schedule](../schedule) page. This will allow us to go over the material together as a group *after* everyone has submitted their assignment. However, **if you need additional time for any reason** please just send me a note letting me know. You do not need to justify why. This is a very weird time we're living in and I am more than happy to work with you however I can. I would just ask that you please **not** attend class during the time we are going over the assignment (but please do attend the rest of the class if you are able).
+I would like to, as much a possible, stick to the deadlines for all assignments as listed in the [schedule](../schedule) page. This will allow us to go over the material together as a group *after* everyone has submitted their assignment. However, **if you need additional time for any reason** please just send me a note letting me know. You do not need to justify why. I am more than happy to work with you however I can. I would just ask that you please **not** attend class during the time we are going over the assignment (but please do attend the rest of the class if you are able).
 
 ### Labs
-There are 3 labs during the course, scored at 10 points each, which must be
+There are 3 labs during the course, scored at 15 points each, which must be
 submitted within one week of being assigned. Labs will include designated
 in-class time, but any work not completed during class must be completed
 on your own. Labs will be scored on a "best honest effort" basis, which
-generally implies zero or full credit (i.e.,the assignment was or was not fully 
-completed). **However**, many of the labs require completion of specific
+generally implies zero or full credit. Many of the labs require completion of specific
 portions before moving on to the next sections. If you find yourself stuck and
 unable to proceed, **please contact the instructor for help rather than
 submitting incomplete work**. Contacting the instructor is part of the "best 
 honest effort". **If the assignment is not complete, and the student 
-has not contacted the instructor for help and obtained approval for submitting incomplete work, only partial credit will be awarded**.
+has not contacted the instructor for help and obtained approval for submitting incomplete work, only partial credit will be awarded**. Partially completed labs that have been discussed with the instructor may receive partial credit.
 
-Generally, you can choose to work on any and all labs individually or in small groups. There is one exception, however, which is the first lab, which will be required to be in a small group. 
+Generally, you can choose to work on any and all labs individually or in small groups. However, given that the final is a group project, I highly encourage you to find a small group (no more than 3) and work on all labs and the final together.
 
 If you choose to work in a small group, you **must** work through a shared GitHub repo and all members of the group should have commits in the repo.
 
 ### Homework
-Homework assignments are essentially extended labs, with two exceptions: 
+There is one homework assignment, which is essentially an extended lab, with two exceptions: 
 
 * No time will be designated during class for homework completion
-* Homework will be scored on a correct/incorrect basis. 
+* Homework will be scored on a correct/incorrect basis (not on effort). 
 
 Similar to the labs, you can choose to work on the homework individually or as a small group. If you choose to work in a small group, you **must** work through a shared GitHub repo and all members of the group should have commits in the repo.
 
-### Data visualizations "in the wild" presentation (10 points; 5%)
-On the first day of the class you will be randomly assigned a date for a 
-presentation. 
-
-Presentations will start with the second meeting of class. The assignment requires:
-
-* Identifying two data visualizations intended for different audiences (e.g.,
-  scientific community, popular culture, data users [teachers/educators, etc.])
-* Sharing the data visualizations with the class, and discussing the following:
-  + What is trying to be communicated?
-  + How effective do you judge the visualization at communicating the content? Why?
-  + At least one area of strength.
-  + At least one potential area for improvement.
+### Data visualizations "in the wild" presentation (5 points; 3%)
+On the first day of the class you will be randomly assigned a date to share two data visualizations you have found in publications or websites or anywhere else IRL (in real life). This is not a formal presentation. You share the links to the data visualizations with me, and I will project them. You will then discuss where you found each visual and what you like/dislike about it. We will then have a brief discussion as a class for each of the two visuals.
 
 Note that this project is aimed at identifying a range of data visualizations.
 It would be ideal if both model data visualizations and poor data visualizations
 were presented from a variety of sources. 
 
 ### Final Project
-Please see the [schedule](../schedule) page for full details on the final project, which will include a portfolio of your data visualizations. At least **three** different data visualizations must be included, as well as the  history of how the visualization changed over time (initial draft to final product). Among these three  visualizations, at least one continuous variable and one categorical variable must be included. The portfolios must be housed on *GitHub* and be  reproducible. In occasional situations, it can be helpful to make final  modifications to your plot through systems outside of R (e.g., Adobe  Illustrator, Inkscape). If you choose to make these modifications (not required) they are the one (and only) acceptable exception to full reproducibility. 
+Please see the [assignments](../assignments/) page for full details on the final project, which will include a portfolio of your data visualizations. At least **three** different data visualizations must be included, as well as the  history of how the visualization changed over time (initial draft to final product). The portfolios must be housed on *GitHub* and be  reproducible. It can be helpful to make final  modifications to your plot through systems outside of R (e.g., Adobe  Illustrator, Inkscape). If you choose to make these modifications (not required) they are the one (and only) acceptable exception to full reproducibility. 
 
 The due date for the proposal can be (somewhat) flexible. However, unlike the labs and homework, the remaining aspects of the final project cannot be changed and you will lose points if your work is submitted late without prior approval. This is mostly because of concerns related peer-review and completing the project by the end of the term.
 
@@ -124,46 +111,57 @@ The components of the final project are as follow:
 * Presentation
 * Product
 
+The final project must be completed in a small group of 2-3 students. You will work together from a common dataset to create these visuals.
+
+### Data visualization competition
+This term we have a unique opportunity to partner with [USAFacts](https://usafacts.org/). They have supplied us with a considerable amount of data, which all groups will be required to use for their final project. However, students additionally have the option to opt-in or opt-out of a data visualization competition. The competition is intended to be a fun way to challenge you to do your best work and should not be interpreted as being high stakes or stress-inducing. The work you will be required to complete for the term will be virtually identical regardless of whether your group decides to participate in the competition or not, with one exception: Student groups participating in the competition must commit to styling their plots according to USAFacts standards. You may have, and present on, multiple versions of a plot, including one that is styled to your preferences and another styled according to USAFacts standards. However, you must adhere to USAFacts for the final visualization you submit to the competition. This final styling may take place after the actual competition.
+
+Student groups opting to participate in the competition should be prepared to present to a group of three judges in Week 10 of the term. The judges will be representatives from UO (though not me), USAFacts, and one external to both organizations. Judges will respond to a few rating scale items, provide notes on strengths and weaknesses of each visualization shown, and provide an overall holistic judgment. Judges will make their ratings independently. 
+
+At the conclusion of all presentations, the judges will briefly meet to discuss their ratings and declare a winner. The winning group will receive copies of [Alberto Cairo](http://albertocairo.com/)'s [The Truthful Art](https://www.goodreads.com/book/show/26401716-the-truthful-art). 
+
+In addition, the winning group will have their highest rated visualization displayed on the [USAFacts website](https://usafacts.org/) (though where exactly is TBD) and **all particpating groups will have their visuals shared through a blog post either on the USAFacts website or linked from the USAFacts website**.
+
 ### Extra Credit
-There is one opportunity for extra credit, which is worth up to 10 
-points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide an (approximately) 10 minute presentation on their chosen topic to the class (presentations are likely to occur on lab days). For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) are powerful and fun. Network visualizations and applications with textual data are examples of other topics that will not be covered but are nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data). 
+There is one opportunity for extra credit, which is worth up to 5 
+points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide a 5-10 minute presentation on their chosen topic to the class. For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) are powerful and fun. Network visualizations is another examples of a topic that will not be covered but is nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data). 
 
-If you are interested in giving a 10 minute talk on a topic of your choice, please contact me as soon as possible to obtain approval on the topic and set a date for the presentation.
+If you are interested in giving a brief talk on a topic of your choice, please contact me as soon as possible to obtain approval on the topic and set a date for the presentation.
 
 
-## Grading Components (200 points possible)
+## Grading Components (150 points possible)
 
-{{< bootstrap-table "table table-hover" >}}
+`r blogdown::shortcode_open("bootstrap-table", "table table-hover", .type = "html")`
 
 |  **Lower percent** |**Lower point range**  | **Grade** | **Upper point range**  | **Upper percent**|
-|  :------: | :------   | :-:| :-------: | ----:|
-|  0.97     | (194 pts) | A+ |           |      |
-|  0.93     | (186 pts) | A  | (194 pts) | 0.97 |
-|  0.90     | (180 pts) | A- | (186 pts) | 0.93 |
-|  0.87     | (174 pts) | B+ | (180 pts) | 0.90 |
-|  0.83     | (166 pts) | B  | (174 pts) | 0.87 |
-|  0.80     | (160 pts) | B- | (166 pts) | 0.83 |
-|  0.77     | (154 pts) | C+ | (160 pts) | 0.80 |
-|  0.73     | (146 pts) | C  | (154 pts) | 0.77 |
-|  0.70     | (140 pts) | C- | (146 pts) | 0.73 |
-|           |           | F  | (140 pts) | 0.70 |
+|  :-------: | :-----------------| :-:| :---------------: | -----:|
+|  0.970+    | (146 pts or more) | A+ |                   |       |
+|  0.930     | (140 pts)         | A  | (145 pts)         | 0.969 |
+|  0.900     | (135 pts)         | A- | (139 pts)         | 0.929 |
+|  0.870     | (131 pts)         | B+ | (134 pts)         | 0.899 |
+|  0.830     | (125 pts)         | B  | (130 pts)         | 0.869 |
+|  0.800     | (120 pts)         | B- | (124 pts)         | 0.829 |
+|  0.770     | (116 pts)         | C+ | (119 pts)         | 0.799 |
+|  0.730     | (110 pts)         | C  | (115 pts)         | 0.769 |
+|  0.700     | (105 pts)         | C- | (109 pts)         | 0.739 |
+|            |                   | F  | (104 pts or less) | 0.699 |
 
-{{< /bootstrap-table >}}
+`r blogdown::shortcode_close("bootstrap-table", .type = "html")`
 
 ## Student Engagement Inventory
 Graduate: 1 credit hour = 40 hours of student engagement (3 credit hours = 120 hours of student engagement) 
 
-{{< bootstrap-table "table table-hover" >}}
+`r blogdown::shortcode_open("bootstrap-table", "table table-hover", .type = "html")`
 
-| **Educational activity** | **Hours student engaged** | **Explanatory comments (if any):**                                                                               |
-| :----------------------- | :-----------------------: | :--------------------------------------------------------------------------------------------------------------- |
-| Course attendance        |            26.5           | 20 meetings, at 80 minutes per meeting                                                                           |
-| Assigned readings        |            26.5           | Weekly readings are assigned, and are expected to take roughly as long to complete as the in-seat time per week. |
-| Projects                 |            35             | Proposal (~2 hrs), draft (~20 hrs), Peer review (~8 hrs), finalization (~5 hrs)                                                                                |
-| Homework                 |            27             | 3 Labs, at approximately two hours per lab spent out of class (~6 hrs),  plus two homework assignments at approximately 10 hours each |
-| Total hours:             |            120            |                                                                                                                  |
+| **Educational activity** | **Hours student engaged** | **Explanatory comments (if any):**                                                                                               |
+| :----------------------- | :-----------------------: | :------------------------------------------------------------------------------------------------------------------------------- |
+| Course attendance        |            28.5           | 10 meetings, at 170 minutes per meeting                                                                                          |
+| Assigned readings        |            28.5           | Weekly readings are assigned, and are expected to take roughly as long to complete as the in-seat time per week.                 |
+| Projects                 |            45             | Proposal (~2 hrs), draft (~30 hrs), Peer review (~8 hrs), finalization (~5 hrs)                                                  |
+| Homework                 |            18             | 3 Labs, at approximately two hours per lab spent out of class (~6 hrs),  plus one homework assignments of approximately 12 hours |
+| Total hours:             |            120            |                                                                                                                                  |
 
-{{< /bootstrap-table >}}
+`r blogdown::shortcode_close("bootstrap-table", .type = "html")`
 
 
 ##  Campus Emergency
