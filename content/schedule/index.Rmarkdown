@@ -30,14 +30,16 @@ library(dplyr)
 content <- readxl::read_xlsx(
   here::here("website-data", "course-schedule.xlsx")
 )
-content$date <- gsub("^2021-", "", as.character(content$date))
+
+content$date <- gsub("^2022-", "", as.character(content$date))
 content <- content %>% 
   mutate(
-    across(starts_with("assigned") | 
-             starts_with("due") | 
-             starts_with("slides") |
-             starts_with("lecture"),
-           ~ifelse(is.na(.x), "", .x))
+    across(
+      starts_with("assigned") | 
+        starts_with("due") | 
+        starts_with("slides") |
+        starts_with("lecture"),
+      ~ifelse(is.na(.x), "", .x))
     ) 
 by_week <- split(content, content$week)
 
@@ -98,27 +100,21 @@ week <- function(row, odd = TRUE) {
         sep = "\n")
 }
 
-week_content <- function(week_classes) {
+week_content <- function(week_classes, odd = TRUE) {
   op <- shortcode_open("schedule", .type = "html")
-    week_odd <- week(week_classes[1, ])
-    if(nrow(week_classes) == 2) {
-      week_even <- week(week_classes[2, ], FALSE)
-      close <- shortcode_close("schedule", .type = "html")
-      paste(op, week_odd, week_even, close, sep = "\n\n")  
-    } else {
-      close <- shortcode_close("schedule", .type = "html")
-      paste(op, week_odd, close, sep = "\n\n") 
-    }
+    week_odd <- week(week_classes, odd)
+    close <- shortcode_close("schedule", .type = "html")
+    paste(op, week_odd, close, sep = "\n\n") 
 }
 
-print_weeks <- function(week_data) {
+print_weeks <- function(week_data, odd) {
   cat("\n", 
       paste("## Week", unique(week_data$week)),
       "\n",
-      week_content(week_data)
+      week_content(week_data, odd)
       )
 }
 
-purrr::walk(by_week, print_weeks)
+purrr::walk2(by_week, as.logical(seq_along(by_week) %% 2), print_weeks)
 ```
 
