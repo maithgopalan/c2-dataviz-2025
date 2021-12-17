@@ -98,31 +98,35 @@ Note that this project is aimed at identifying a range of data visualizations.
 It would be ideal if both model data visualizations and poor data visualizations
 were presented from a variety of sources.
 
-### Final Project
+### Final Project (70 points; 46%)
 
-Please see the [assignments](../assignments/) page for full details on the final project, which will include a portfolio of your data visualizations. At least **three** different data visualizations must be included, as well as the history of how the visualization changed over time (initial draft to final product). The portfolios must be housed on *GitHub* and be reproducible. It can be helpful to make final modifications to your plot through systems outside of R (e.g., Adobe Illustrator, Inkscape). If you choose to make these modifications (not required) they are the one (and only) acceptable exception to full reproducibility.
+Please see the [assignments](../assignments/) page for full details on the final project, which will include a portfolio of your data visualizations using the [course data](../2021-12-10-accessing-the-data/). At least **three** different data visualizations must be included, as well as the history of how the visualization changed over time (initial draft to final product). The portfolios must be housed on *GitHub* and be reproducible. It can be helpful to make final modifications to your plot through systems outside of R (e.g., Adobe Illustrator, Inkscape). If you choose to make these modifications (not required) they are the one (and only) acceptable exception to full reproducibility.
 
 The due date for the proposal can be (somewhat) flexible. However, unlike the labs and homework, the remaining aspects of the final project cannot be changed and you will lose points if your work is submitted late without prior approval. This is mostly because of concerns related peer-review and completing the project by the end of the term.
 
 The components of the final project are as follow:
 
--   Proposal
--   Draft
--   Peer Review
--   Presentation
--   Product
+-   Proposal (5 points; 3%)
+-   Draft (10 points; 7%)
+-   Peer Review (10 points; 7%)
+-   Presentation (5 points; 3%)
+-   Product (40 points; 27%)
 
 The final project must be completed in a small group of 2-3 students. You will work together from a common dataset to create these visuals.
 
 ### Data visualization competition
 
-This term we have a unique opportunity to partner with [USAFacts](https://usafacts.org/). They have supplied us with a considerable amount of data, which all groups will be required to use for their final project. However, students additionally have the option to opt-in or opt-out of a data visualization competition. The competition is intended to be a fun way to challenge you to do your best work and should not be interpreted as being high stakes or stress-inducing. The work you will be required to complete for the term will be virtually identical regardless of whether your group decides to participate in the competition or not, with one exception: Student groups participating in the competition must commit to styling their plots according to USAFacts standards. You may have, and present on, multiple versions of a plot, including one that is styled to your preferences and another styled according to USAFacts standards. However, you must adhere to USAFacts for the final visualization you submit to the competition. This final styling may take place after the actual competition.
+This term we have a unique opportunity to partner with [USAFacts](https://usafacts.org/). They have supplied us with a [considerable amount of data](../post/2021-12-10-accessing-the-data/), which all groups will be required to use for their final project. However, students additionally have the **option** to opt-in or opt-out of a data visualization competition. The competition is intended to be a fun way to challenge you to do your best work and should not be interpreted as being high stakes or stress-inducing. The work you will be required to complete for the term will be virtually identical regardless of whether your group decides to participate in the competition or not, with one exception: Student groups participating in the competition must commit to styling their plots according to USAFacts standards. You may have, and present on, multiple versions of a plot, including one that is styled to your preferences and another styled according to USAFacts standards. However, you must adhere to USAFacts for the final visualization you submit to the competition. This final styling may take place after the actual competition.
 
 Student groups opting to participate in the competition should be prepared to present to a group of three judges in Week 10 of the term. The judges will be representatives from UO (though not me), USAFacts, and one external to both organizations. Judges will respond to a few rating scale items, provide notes on strengths and weaknesses of each visualization shown, and provide an overall holistic judgment. Judges will make their ratings independently.
 
 At the conclusion of all presentations, the judges will briefly meet to discuss their ratings and declare a winner. The winning group will receive copies of [Alberto Cairo](http://albertocairo.com/)’s [The Truthful Art](https://www.goodreads.com/book/show/26401716-the-truthful-art).
 
-In addition, the winning group will have their highest rated visualization displayed on the [USAFacts website](https://usafacts.org/) (though where exactly is TBD) and **all particpating groups will have their visuals shared through a blog post either on the USAFacts website or linked from the USAFacts website**.
+In addition, [USAFacts website](https://usafacts.org/) will display the visuals for the winning team on their website. USAFacts also states
+
+> Depending on the analysis, we’re also open to working with one or more teams to turn their project into a report on our site as well.
+
+> For any projects to qualify for consideration, they will need to follow our style guide and stick to USAFacts’ approach of unbiased analysis of government data.
 
 ### Extra Credit
 
