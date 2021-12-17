@@ -4,51 +4,50 @@ toc: true
 ---
 
 
-We will have a mix of labs and homeworks. The two will be very similar with two primary differences: (a) The labs will include designated time in class, and (b) all labs will be scored on a ["best honest effort"](../syllabus/#labs) basis, while homework will be scored based on accuracy.
+We will have three labs and one homework assignment. The two will be very similar with two primary differences: (a) The labs will include designated time in class, though potentially not enough to complete the entire lab, and (b) all labs will be scored on a ["best honest effort"](../syllabus/#labs) basis, while homework will be scored based on accuracy. Note - all labs and homework assignments may be completed independently or in small groups. I encourage the latter, and suggest working with the group you will be working with for your final project. However, all assignments completed as a group must use a shared GitHub repository.
 
 #### A note on deadlines
 I would like to, as much a possible, stick to the deadlines below so we can go over them together as a group *after* everyone has submitted their assignment. However, **if you need additional time for any reason** please just send me a note letting me know. You do not need to justify why. I would just ask that you not attend class during the time we are going over the assignment (but please attend the rest of the class if you are able).
 
 ## Labs
 
-Each lab is worth 10 points. Please do not turn in partial work. Instead, please ask for help and, if needed, an extension on the deadline. 
+Each lab is worth 15 points. Please do not turn in partial work. Instead, please ask for help and, if needed, an extension on the deadline. 
 
 {{< bootstrap-table "table table-hover" >}}
 
-| Lab|Date Assigned    |Date Due         |Topic                                                      |
-|---:|:----------------|:----------------|:----------------------------------------------------------|
-|   1|Wed, January 13  |Wed, January 20  |[Distributions, git, and basic plot refinements](../lab-1) |
-|   2|Wed, January 27  |Wed, February 03 |[Visual perception & reproducing plots](../lab-2)          |
-|   3|Wed, February 03 |Wed, February 10 |[Uses of color to enhance interpretability](../lab-3)      |
+| Lab|Date Assigned   |Date Due         |Topic                                                      |
+|---:|:---------------|:----------------|:----------------------------------------------------------|
+|   1|Mon, January 10 |Mon, January 17  |Distributions, git, and working with strings and text data |
+|   2|Mon, January 24 |Mon, January 31  |Visual perception & reproducing plots                      |
+|   3|Mon, January 31 |Mon, February 07 |Uses of color to enhance interpretability                  |
 
 {{< /bootstrap-table >}}
 
 ## Homework
 
-There are two homework assignments in the class, each worth 20 points. These assignments will be graded on accuracy.
+There is one homework assignments in the class, which is worth 30 points. The homework will be graded on accuracy.
 
 {{< bootstrap-table "table table-hover" >}}
 
-| Homework|Date Assigned    |Date Due         |Topic                                                       |
-|--------:|:----------------|:----------------|:-----------------------------------------------------------|
-|        1|Wed, January 20  |Wed, February 03 |[Producing new visualizations through joins](../homework-1) |
-|        2|Wed, February 10 |Wed, February 24 |[Uncertainty, tables, and plot refinement](../homework-2)   |
+| Homework|Date Assigned    |Date Due         |Topic                                    |
+|--------:|:----------------|:----------------|:----------------------------------------|
+|        1|Mon, February 07 |Mon, February 21 |Uncertainty, tables, and plot refinement |
 
 {{< /bootstrap-table >}}
 
 ## Final Project
 
-The final project includes multiple components, culminating in a data visualization portfolio. The portfolio must include at least three data visualizations, communicate the history of each visualization, and be deployed to the web. The due dates for each component are as follows:
+The final project includes multiple components and is worth 70 points total (46% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least three data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You must use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
 
 {{< bootstrap-table "table table-hover" >}}
 
-|Component    |Date Due         |
-|:------------|:----------------|
-|Proposal     |Wed, January 27  |
-|Draft        |Wed, February 24 |
-|Peer Review  |Wed, March 03    |
-|Presentation |Mon, March 08    |
-|Product      |Wed, March 17    |
+|Component    |Date Due         | Points | Overall Grade Percentage|
+|:------------|:----------------|:------:|------------------------:|
+|Proposal     |Mon, January 24  |   5    |                     3.3%|
+|Draft        |Mon, February 21 |   10   |                     6.6%|
+|Peer Review  |Mon, February 28 |   10   |                     6.6%|
+|Presentation |Mon, March 07    |   5    |                     3.3%|
+|Product      |Mon, March 14    |   40   |                    26.6%|
 
 {{< /bootstrap-table >}}
 
@@ -57,21 +56,23 @@ The due date for the proposal can be (somewhat) flexible. However, unlike the la
 ### Proposal
 The proposal process is a chance for you to get feedback  from me on your plans for the final project. The more information you provide me, the better feedback I will be able to provide you. The proposal is scored on a best honest effort basis. For full credit, please include each of the following:
 
-* Description of the data source (must be publicly available)
+* Research questions (probably 1-3)
 * Preliminary ideas (even hand sketches) of different visualizations
+* Some documentation that you have played with the course data some
+* Names of the datasets you're thinking of using and what keys you'll need for joining the data
 * Identification of the intended audience for each visualization 
   + Note, you might consider displaying the same data/relations more than 
-    once, with each plot displayed for a different audience.
+    once, with each plot displayed for a different audience. If your group is planning on participating in the data visualization competition, you will need to plan for a broad general public audience for at least one of your visuals (it's okay if not all).
 * The intended message to be communicated for each plot. 
 
 ### Draft
 By the end of Week 8, you should have a fairly complete draft of the data 
-visualizations you will be sharing in your portfolio. These should be housed on GitHub and ready to receive feedback from your peers. 
+visualizations you will be sharing in your portfolio. These should be housed in a GitHub repo and ready to receive feedback from your peers. 
 
 To receive credit, you must submit a link to your GitHub repo.
 
 ### Peer Review
-You will be assigned to review code from three of your peers. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communication. Peer review is a chance to learn from your peers both by reviewing their work and by having your work reviewed.
+You will be assigned to three groups to review their code. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communication. Peer review is a chance to learn from your peers both by reviewing their work and by having your work reviewed.
 
 During your peer review, you must (at minimum) note the following:
 
@@ -80,20 +81,21 @@ During your peer review, you must (at minimum) note the following:
 * at least one and no more than three areas for improvement **for each visualization**. 
 * Comments on both the code leading up to (and including) the visualization, and the visualization itself (aesthetics, best practices, etc.).
 
-Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. **Under no circumstances will negative comments be tolerated**. Any comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero. 
+Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. **Under no circumstances will overly harsh/negative comments be tolerated**. Any comments that could be perceived as overly critical and/or outside the scope of the code, will result in an immediate score of zero. 
+
 Be constructive in your feedback. Be kind. We are all learning.
 
 
 ### Presentation
-Week 10 will include each student sharing their portfolio with the class.
+Week 10 will include each group sharing their portfolio with the class. If you opt-out of the data visualization competition, you will present early in the class period before the judges arrive. Those participating in the competition will present with the judges in attendance. Note that I hope to also invite others from the COE and will invite others from around the COE to attend as well.
 
 I encourage you to present using HTML slides produced via R Markdown 
-(specifically [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)), but this is not required. If you are interested in doing so but feel uncertain about the process, please get in touch with me and I can meet with you individually (or with a small group if there is sufficient interest) to help get you started.
+(specifically [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)), but this is not required. If you are interested in doing so but feel uncertain about the process, please get in touch with me and I can meet with you individually (or with a small group if there is sufficient interest) to help get you started. This is what I use for my course slides.
 
 **Prior to the start of Week 10** please send me a link to your 
-**published** presentation. 
+**published** presentation (not your repo, but your actual presentation).
 
-You will have approximately seven minutes to share your portfolio, which provides one minute for transitions. Please cover the following during your presentation:
+You will likely have 10-12 minutes to share your portfolio, but the exact time allotment will depend on the number of groups. Please cover the following during your presentation:
 
 * Briefly show each visualization
 * Pick 1-2 to go more in-depth, and discuss
@@ -107,7 +109,7 @@ You will have approximately seven minutes to share your portfolio, which provide
   + At least 1 major challenge encountered along the way
   + At least 1 major victory
 
-Note that your final project is expected to be a work in progress during your presentation. You may still be working on the final output format, for example, or getting the portfolio published.
+Note that I want to hear about your process as much as the final product. It is expected that not every piece of what you present is finalized. For example, if you are participating in the competition, you don't have to have each visual adhering to the USAFacts style guide at this point. However, you should be most of the way there and ready to share what you've produced.
 
 ### Product
 
@@ -125,7 +127,7 @@ The final project must include
 * At least three finalized data displays, with each accompanied by a strong narrative/story, **as well as the history** of how the visualization changed over time.
 
 You must show iterations of your data displays, highlighting how 
-they evolved over time and why you made the specific changes you did. If you go the website route, a blog post showing your visualizations and their evolution would work great. Dashboards similarly have built in mechanisms to help show the history of plot.
+they evolved over time and why you made the specific changes you did. If you go the website route, a blog post for each visualization showing their evolution would work great. Dashboards similarly have built in mechanisms to help show the history of plot.
 
 The final project is required to be housed on GitHub and be fully reproducible. 
 It will be graded on the following three criteria:
@@ -134,17 +136,17 @@ It will be graded on the following three criteria:
   + Design choices (nothing violating the principles discussed in class)
   + Plot appropriate for given audience
   + Evolution of the plot is clear
-* Reproducibility (20 points)
+* Reproducibility (5 points)
   + Should be housed on GitHub
   + I'll clone and try to reproduce - any differences between my local version and the published version will result in lost points
-* Deployment (10 points)
+* Deployment (5 points)
   + Should be shareable via a link
   + No errors in the specific chosen format
   + Clear, clean, easy to follow/understand
 
 ## Extra Credit
-There is one opportunity for extra credit, which is worth up to 10 
-points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide an (approximately) 10 minute presentation on their chosen topic to the class (presentations are likely to occur on lab days). For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) are powerful and fun. Network visualizations and applications with textual data are examples of other topics that will not be covered but are nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data). 
+There is one opportunity for extra credit, which is worth up to 5 
+points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide an (approximately) 5-10 minute presentation on their chosen topic to the class. For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) and [plotly](https://plotly.com/r/) are powerful and fun. Network visualizations are also not covered but are nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data). 
 
-If you are interested in giving a 10 minute talk on a topic of your choice, please contact me as soon as possible to obtain approval on the topic and set a date for the presentation.
+If you are interested in giving a talk on a topic of your choice, please contact me as soon as possible to obtain approval on the topic and set a date for the presentation.
 
