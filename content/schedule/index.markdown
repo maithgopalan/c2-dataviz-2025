@@ -15,10 +15,10 @@ toc: true
 
 </div>
 
-In addition to the course books linked below, I am currently working on course notes for all of the classes. This may eventually turn into a published book, but for now I'm just thinking of it as course notes. Please feel free to use these as a supplemental resource (in addition to the slides and lectures). Also, please let me know if you'd like to contribute! In particular, if you see typos or areas that are unclear, that feedback would be really helpful. You can fork the repo and submit a PR and be a contributor to the book!
+In addition to the course books linked below, I started working on course notes for all of the classes last year. This may eventually turn into a published book, but for now I'm just thinking of it as course notes. It has also mostly stalled in its development because of perpetual competing demands. Please feel free to use these notes as a supplemental resource (in addition to the slides and lectures). Also, please let me know if you'd like to contribute! In particular, if you see typos or areas that are unclear, that feedback would be really helpful. You can fork the repo and submit a PR and be a contributor to the book!
 
 ## Course Books
-Each of the below links to the full book. Icons in the schedule link to specific chapters.
+Each of the below links to the full book. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (i.e., there are two videos it would be helpful if you watched).
 
 {{< course-books >}}
 
@@ -213,7 +213,8 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< assigned "assignments/#peer-review" "PR" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "homework-1" "HW 1" >}}
+{{< due "assignments/#draft" "Draft" >}}
+{{< due "homework-2" "HW2" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
@@ -229,7 +230,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "02-28" >}}
-  {{< description "Intro to Geographic data" "NA" >}}
+  {{< description "Intro to Geographic data" "Understanding the difference between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -253,7 +254,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "03-07" >}}
-  {{< description "Loose ends and presentations" "NA" >}}
+  {{< description "Loose ends and presentations" "We cover a lot in this course and so there is some space here to dive deeper into topics we didn't cover thouroughly enough, or additional topics as suggested by you and your peers. Each group will also present on their data visualization portfolios and discuss their journey, including high points and challenges faced along the way." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}

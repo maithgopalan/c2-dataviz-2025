@@ -27,6 +27,10 @@
 
 		<span class = "readings"><a class = "other" href="{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
 
+	{{ else if eq $arg1 "video" }}
+	
+	  <span class="readings"><a class="other" href="{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="video"></i> {{ .Get 2 }} </a></span>
+
 	{{end}}
 
 
