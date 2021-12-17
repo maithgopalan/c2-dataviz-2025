@@ -29,7 +29,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "01-03" >}}
   {{< description "Introduction to the course and accessing course data" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch last year's lecture and read on git workflows (we won't have time to cover it this year; MLK week might be a good time for this). We'll then spend the rest of the day working on (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
   {{< wrap >}}
-{{< slides "w1p1" >}}
+{{< slides "w1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "syllabus/#final-project" "Final" >}}
