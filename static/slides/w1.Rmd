@@ -2,7 +2,7 @@
 title: "Welcome!"
 subtitle: "An overview of the course"
 author: "Daniel Anderson "
-date: "Week 1, Class 1 "
+date: "Week 1"
 output:
   xaringan::moon_reader:
     css: ["default", "new.css"]
@@ -39,7 +39,7 @@ knitr::opts_chunk$set(message = FALSE)
 ]
 
 .pull-right[
-![](../edld652-logo.png)
+![](img/edld652-logo.png)
 ]
 
 ---
@@ -109,6 +109,22 @@ Truly the most important part of this class. Important not just in terms of dece
 --
 
 * All students are expected to join with me in creating a welcoming environment that is respectful of your classmates who bring children to class.
+
+---
+class: inverse-red middle center
+# Omicron
+
+---
+# In-person class
+* This class is scheduled to be in-person
+
+* I am vaccinated and boosted (> 2 weeks ago)
+
+* I plan to always double mask
+
+* If you are not feeling well at all, even if you don't think it's COVID, please do not attend in person
+
+* All courses will simultaneously be on zoom, and recordings will be posted
 
 ---
 # Last intro thing
@@ -450,6 +466,8 @@ dates <- c(dates[1], dates)
 set.seed(23)
 assigned <- tibble(Date = sample(dates), Presenter = sample(peeps)) %>% 
   arrange(Date)
+
+#write_csv(assigned, here::here("nopublish", "dataviz-in-wild.csv"))
 ```
 
 .pull-left[
