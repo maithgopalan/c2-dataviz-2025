@@ -54,7 +54,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-even "01-10" >}}
   {{< description "Intro to visualizations and working with string data, & Lab 1" "We will look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. We will then move to string data more specifically and methods for quickly visualizing a corpus . We will then practice these topics with our first lab." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w2" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-1" "Lab 1" >}}
