@@ -12,6 +12,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #21252A;
 }
 
+/* Countdown timers */
+.countdown.running .countdown-digits {
+    color: #fff;
+}
+
+.countdown.running {
+    border-color: #1E99DD;
+    background-color: #22ABF6;
+}
+
 /**/
 
 /*Code style*/

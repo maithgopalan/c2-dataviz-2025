@@ -107,7 +107,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-even "01-24" >}}
   {{< description "Visual Perception & Lab 2" "Aesthetic mappings and visual encodings of data. The data-ink ratio and the pitfall of rigid rules. Some general rule of thumb recommendations. For the lab, we will use ggplot2 to replicate plots produced by [fivethirtyeight](https://fivethirtyeight.com)." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w4" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-2" "Lab 2" >}}
