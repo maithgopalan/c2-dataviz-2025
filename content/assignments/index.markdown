@@ -19,7 +19,7 @@ Each lab is worth 15 points. Please do not turn in partial work. Instead, please
 |---:|:---------------|:----------------|:-----------------------------------------------------------------------------------------|
 |   1|Mon, January 10 |Mon, January 17  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-1) |
 |   2|Mon, January 24 |Mon, January 31  |[Visual perception & reproducing plots](../lab-2)                                         |
-|   3|Mon, January 31 |Mon, February 07 |Uses of color to enhance interpretability                                                 |
+|   3|Mon, January 31 |Mon, February 07 |[Uses of color to enhance interpretability](../lab-3)                                     |
 
 {{< /bootstrap-table >}}
 
