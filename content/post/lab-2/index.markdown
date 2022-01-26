@@ -6,8 +6,9 @@ assigned: '2022-01-24'
 due: '2022-01-31'
 slug: lab-2
 categories:
-  - Assignment
-tags: [Lab, Assignments]
+  - Assignments
+tags:
+  - Labs
 toc: true
 ---
 
