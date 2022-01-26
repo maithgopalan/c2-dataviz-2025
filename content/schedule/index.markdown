@@ -131,7 +131,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "01-31" >}}
   {{< description "Color & Lab 3" "Three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well. Common pitfalls with the use of color. We will use color for each of its primary uses in data visualization and explore and evaluate different palettes by different types of color blindness." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w5" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-3" "Lab 3" >}}
