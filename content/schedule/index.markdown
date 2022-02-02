@@ -144,7 +144,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< readings "dataviz" "color-pitfalls.html" "19" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "" >}}
+{{< lecture "https://youtu.be/4nFppkl92l8" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
