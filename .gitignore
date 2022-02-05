@@ -10,6 +10,7 @@ Thumbs.db
 /data/kaggle-data/
 
 /static/slides/w5_cache/
+/static/slides/w6_cache/
 /data/crime.csv
 
 /content/post/lab-3/index.Rmarkdown
