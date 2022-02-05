@@ -155,7 +155,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-even "02-07" >}}
   {{< description "Communication & Intro to uncertainty" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming. Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots" >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w6" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "homework-1" "HW 1" >}}

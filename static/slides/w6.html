@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Refining your plots</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Daniel Anderson" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/countdown-0.3.5/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown-0.3.5/countdown.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="new.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Refining your plots
+### Daniel Anderson
+### Week 6
+
+---
+
+
+
+
+layout: true
+
+  &lt;script&gt;
+    feather.replace()
+  &lt;/script&gt;
+  
+  &lt;div class="slides-footer"&gt;
+  &lt;span&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://github.com/uo-datasci-specialization/c2-dataviz-2022/raw/main/static/slides/w6.pdf"&gt;
+    &lt;i class = "footer-icon" data-feather="download"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://dataviz-2022.netlify.app/slides/w6.html"&gt;
+    &lt;i class = "footer-icon" data-feather="link"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://github.com/uo-datasci-specialization/c2-dataviz-2022"&gt;
+    &lt;i class = "footer-icon" data-feather="github"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;/span&gt;
+  &lt;/div&gt;
+  
+
+---
+class: inverse-blue
+# Data viz in Wild
+
+Eliott
+
+Merly
+
+Esme
+
+### Cassie, Amy, and Diana on deck
+
+
+---
+class: inverse-red middle
+# Reviewing Lab 3
+
+
+---
+
+
+
+
+# Agenda 
+* Introduce the homework (I expect you won't know how to do much of it currently)
+
+* Aspect ratios, scales, and labels
+
+* Quick break (no lab, so all lecture today)
+
+* Annotations (most of the day)
+
+* Saving plots (pretty quick)
+
+* Compound figures (also pretty quick)
+
+* Themes (quickly)
+
+
+--
+Because we don't have a lab today, I'll be asking you to complete small "challenges" throughout. Please get R up and running if you haven't already.
+
+---
+# Learning Objectives
+* Understand how to make a wide variety of tweaks to ggplot.
+
+* Understand common modifications to plots to make them more clear and reduce
+cognitive load
+
+  + And ways to implement them
+
+--
+A warning - I don't expect we'll get through everything today
+
+
+---
+class:inverse-orange
+# Homework
+
+---
+# Axes
+* Cartesian coordinates - what we generally use
+
+![](w6_files/figure-html/cartesian1-1.png)&lt;!-- --&gt;
+
+---
+# Different units
+
+![](w6_files/figure-html/temp_plot-1.png)&lt;!-- --&gt;
+
+---
+# Aspect ratio
+
+![](w6_files/figure-html/aspect-ratio-1.png)&lt;!-- --&gt;
+
+---
+background-image: url("http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-perception-curves-1.png")
+background-size: contain
+
+---
+# Same scales
+Use `coord_fixed()`
+
+![](w6_files/figure-html/same-scales-1.png)&lt;!-- --&gt;
+
+--
+Note - I think this is a weird plot, but the point remains
+
+---
+# Changing aspect ratio
+* Explore how your plot will look in its final size
+
+* No hard/fast rules (if on different scales)
+
+* Not even really rules of thumb
+
+* Keep visual perception in mind
+
+* Try your best to be truthful - show the trend/relation, but don't
+exaggerate/hide it
+
+---
+# Handy function
+(from an apparently deleted tweet from [@tjmahr](https://twitter.com/tjmahr))
+
+&lt;blockquote class="twitter-tweet  tw-align-center" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;here&amp;#39;s my favorite helper &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; function. preview ggsave() output&lt;br&gt;&lt;br&gt;ggpreview &amp;lt;- function (..., device = &amp;quot;png&amp;quot;) {&lt;br&gt; fname &amp;lt;- tempfile(fileext = paste0(&amp;quot;.&amp;quot;, device))&lt;br&gt; ggplot2::ggsave(filename = fname, device = device, ...)&lt;br&gt; system2(&amp;quot;open&amp;quot;, fname)&lt;br&gt; invisible(NULL)&lt;br&gt;}&lt;/p&gt;&amp;mdash; tj mahr 🍕🍍 (@tjmahr) &lt;/blockquote&gt; 
+
+
+---
+# Gist
+(side note: gists are a good way to share things)
+
+* See the full code/example [here](https://gist.github.com/tjmahr/1dd36d78ecb3cff10baf01817a56e895)
+
+* Let's take 3 minutes to play around:
+
+  + Create a plot (could even be the example in the gist)
+
+  + Try different aspect ratios by changing the width/length
+
+
+<div class="countdown" id="timer_61fdbaa9" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: inverse-orange middle
+# Scale transformations
+
+---
+
+
+
+# Raw scale
+
+```r
+library(gapminder)
+ggplot(gapminder, aes(year, gdpPercap)) +
+  geom_line(aes(group = country),
+            color = "gray70")
+```
+
+![](w6_files/figure-html/scale_transoform1-1.png)&lt;!-- --&gt;
+
+
+---
+
+
+### Log10 scale
+
+```r
+ggplot(gapminder, aes(year, gdpPercap)) +
+  geom_line(aes(group = country),
+            color = "gray70") +
+* scale_y_log10(labels = scales::dollar)
+```
+
+![](w6_files/figure-html/scale_transform2-1.png)&lt;!-- --&gt;
+
+
+---
+&lt;br/&gt;
+&lt;br/&gt;
+
+![](w6_files/figure-html/scale_transform3-1.png)&lt;!-- --&gt;
+
+---
+
+&lt;br/&gt;
+&lt;br/&gt;
+
+![](w6_files/figure-html/scale_transform4-1.png)&lt;!-- --&gt;
+
+
+
+---
+# Scales
+
+
+```r
+d &lt;- tibble(x = c(1, 3.16, 10, 31.6, 100),
+            log_x = log10(x))
+
+ggplot(d, aes(x, 1)) +
+  geom_point(color = "#0072B2")
+
+ggplot(d, aes(x, 1)) +
+  geom_point(color = "#0072B2") +
+  scale_x_log10()
+
+ggplot(d, aes(log_x, 1)) +
+  geom_point(color = "#0072B2") 
+```
+
+---
+# Scales
+
+![](w6_files/figure-html/labeling-non-linear2-1.png)![](w6_files/figure-html/labeling-non-linear2-2.png)![](w6_files/figure-html/labeling-non-linear2-3.png)
+
+---
+# Don't transform twice
+
+&lt;style type="text/css"&gt;
+.code-bg-red .remark-code, .code-bg-red .remark-code * {
+ background-color: #ffe0e0 !important;
+}
+&lt;/style&gt;
+
+.code-bg-red[
+
+```r
+ggplot(d, aes(log_x, 1)) +
+  geom_point(color = "#0072B2") +
+  scale_x_log10() +
+  xlim(-0.2, 2.5)
+```
+
+![](w6_files/figure-html/bad-log-1.png)&lt;!-- --&gt;
+
+]
+
+
+---
+# Careful with labeling
+* Has the scale or the data been log transformed? 
+* Specify the base
+
+
+
+```r
+library(ggtext)
+ggplot(d, aes(log_x, 1)) +
+  geom_point(color = "#0072B2") +
+* labs(x = "log&lt;sub&gt;10&lt;/sub&gt;(x)") +
+* theme(axis.title.x = element_markdown())
+```
+
+![](w6_files/figure-html/log-data-1.png)&lt;!-- --&gt;
+
+Labels should denote the data, not the scale of the axis
+
+---
+
+
+```r
+ggplot(d, aes(x, 1)) +
+  geom_point(color = "#0072B2") +
+* scale_x_log10()
+```
+
+![](w6_files/figure-html/log-scale-1.png)&lt;!-- --&gt;
+
+Labeling the above with `\(log_{10}(x)\)` would be ambiguous and confusing
+
+
+---
+# Interpretation
+Log scales show relative numbers, not raw
+
+
+--
+Difference between 100 and 101 (1% change) will be much smaller than difference between 1 and 2 (100% change)
+
+
+--
+More resources to learn more
+
+* [Blog post by Lisa Charlotte Muth](https://blog.datawrapper.de/weeklychart-logscale/)
+
+* The "Logorithmic or Linear scales" section [here](https://ig.ft.com/coronavirus-chart/?areas=usa&amp;areas=gbr&amp;areasRegional=usny&amp;areasRegional=usnh&amp;areasRegional=uspr&amp;areasRegional=usdc&amp;areasRegional=usfl&amp;areasRegional=usmi&amp;cumulative=0&amp;logScale=1&amp;per100K=1&amp;startDate=2021-06-01&amp;values=deaths)
+
+---
+class: inverse-blue center middle
+# Labels and captions
+
+---
+# Disclaimer
+* APA style requires the labels be made in specific ways
+
+* Much of the following discussion still applies
+
+* Our book (Wilke) uses a similar style throughout
+
+---
+# Title
+### What is the point of your figure?
+
+--
+
+### What are you trying to communicate
+
+--
+* Figures should have only one title
+
+--
+* Use integrated title/subtitles for sharing with a broad audience
+  + Blog posts
+  + Social media
+  + Reports to stakeholders
+
+--
+* Make sure your figure has a title
+  + Should not start with "This figure displays/shows..."
+
+---
+# Caption
+
+Consider stating the data source
+
+Other details relevant to the figure but not important enough for a subtitle
+
+---
+# Axis labels
+
+* The title for the axis
+
+* Critical for communication
+
+* **Never** use variable names (very common and very poor practice)
+
+* State the measure and the unit (if quantitative)
+
+  + e.g., "Brain Mass (grams)", "Support for Measure (millions of people)",
+  "Dollars spent"
+
+  + Categorical variable likely will not need to the measurement unit
+
+---
+# Omission
+* Consider omitting obvious or redundant labels
+  + Use `labs(x = NULL)` or `labs(x = "")`
+  + If already using `scale_x/y_*()` just supply the `name` argument
+
+![](w6_files/figure-html/no-x-1.png)&lt;!-- --&gt;
+
+
+---
+# Omission
+* Do not omit axis titles that are not obvious
+
+![](w6_files/figure-html/no-xy-1.png)&lt;!-- --&gt;
+
+---
+# Don't overdo it
+
+![](w6_files/figure-html/overdone-labels-1.png)&lt;!-- --&gt;
+
+---
+# Practice
+
+Let's use the `ggplot2::diamonds` dataset. 
+
+* Plot the relationship between `carat` and `price`
+
+* Play with scale transformations
+
+* Give it some good labels
+
+* Make any other modifications you'd like that you think makes it prettier and/or easier to interpret.
+
+<div class="countdown" id="timer_61fdb7ee" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+---
+class: inverse-blue middle
+
+# Break
+
+<div class="countdown" id="timer_61fdb781" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: inverse-red center middle
+# Annotations
+The big topic for the day
+
+---
+# Among the most effective
+* If possible, try to remove legends, and just include annotations
+
+--
+* Warning - this is often fairly difficult in ggplot (requires a lot of fiddling)
+
+--
+* Consider saving and making final annotations outside of R
+
+  + Bad for reproducibility, but good for interpretability
+
+--
+* There are some packages that can help
+
+---
+# Building up a plot
+
+```r
+remotes::install_github("clauswilke/dviz.supp")
+head(tech_stocks)
+```
+
+
+```
+## # A tibble: 6 × 6
+##   company  ticker date        price index_price price_indexed
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;date&gt;      &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+## 1 Alphabet GOOG   2017-06-02 975.6        285.2      342.0757
+## 2 Alphabet GOOG   2017-06-01 966.95       285.2      339.0428
+## 3 Alphabet GOOG   2017-05-31 964.86       285.2      338.3100
+## 4 Alphabet GOOG   2017-05-30 975.88       285.2      342.1739
+## 5 Alphabet GOOG   2017-05-26 971.47       285.2      340.6276
+## 6 Alphabet GOOG   2017-05-25 969.54       285.2      339.9509
+```
+
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line()
+```
+
+![](w6_files/figure-html/tech1-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+* scale_color_OkabeIto()
+```
+
+![](w6_files/figure-html/tech2-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+  scale_color_OkabeIto(
+*   name = "Company",
+*   breaks = c("GOOG", "AAPL", "FB", "MSFT"),
+*   labels = c("Alphabet", "Apple", "Facebook", "Microsoft")
+  )
+```
+
+---
+# Bad
+![](w6_files/figure-html/tech3-eval-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+  scale_color_OkabeIto(
+*   name = "Company",
+*   breaks = c("FB", "GOOG", "MSFT", "AAPL"),
+*   labels = c("Facebook", "Alphabet", "Microsoft", "Apple")
+  )
+```
+
+---
+# Good
+
+![](w6_files/figure-html/tech4-eval-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+  scale_color_OkabeIto(
+    name = "Company",
+    breaks = c("FB", "GOOG", "MSFT", "AAPL"),
+    labels = c("Facebook", "Alphabet", "Microsoft", "Apple")
+  ) +
+  scale_x_date(
+    name = "year",
+    limits = c(ymd("2012-06-01"), ymd("2018-12-31")),
+    expand = c(0,0)
+  ) +
+  geom_text(
+    data = filter(tech_stocks, date == "2017-06-02"),
+    aes(y = price_indexed, label = company),
+*   nudge_x = 20
+  )
+```
+
+
+---
+![](w6_files/figure-html/tech5-eval-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+  scale_color_OkabeIto(
+    name = "Company",
+    breaks = c("FB", "GOOG", "MSFT", "AAPL"),
+    labels = c("Facebook", "Alphabet", "Microsoft", "Apple")
+  ) +
+  scale_x_date(
+    name = "year",
+    limits = c(ymd("2012-06-01"), ymd("2018-12-31")),
+    expand = c(0,0)
+  ) +
+  geom_text(
+    data = filter(tech_stocks, date == "2017-06-02"),
+    aes(y = price_indexed, label = company),
+    nudge_x = 20,
+*   hjust = 0,
+*   size = 12
+  )
+```
+
+---
+![](w6_files/figure-html/tech6-eval-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+  scale_color_OkabeIto(
+    name = "Company",
+    breaks = c("FB", "GOOG", "MSFT", "AAPL"),
+    labels = c("Facebook", "Alphabet", "Microsoft", "Apple")
+  ) +
+  scale_x_date(
+    name = "year",
+    limits = c(ymd("2012-06-01"), ymd("2018-12-31")),
+    expand = c(0,0)
+  ) +
+  geom_text(
+    data = filter(tech_stocks, date == "2017-06-02"),
+    aes(y = price_indexed, label = company),
+    nudge_x = 20,
+    hjust = 0,
+    size = 12
+  ) +
+* guides(color = "none")
+```
+
+---
+![](w6_files/figure-html/tech7-eval-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(tech_stocks, aes(date, price_indexed, color = ticker)) +
+  geom_line() +
+  scale_color_OkabeIto(
+    name = "Company",
+    breaks = c("FB", "GOOG", "MSFT", "AAPL"),
+    labels = c("Facebook", "Alphabet", "Microsoft", "Apple")
+  ) +
+  scale_x_date(
+    name = "year",
+    limits = c(ymd("2012-06-01"), ymd("2018-12-31")),
+    expand = c(0,0)
+  ) +
+  geom_text(
+    data = filter(tech_stocks, date == "2017-06-02"),
+    aes(y = price_indexed, label = company),
+    nudge_x = 20,
+    hjust = 0,
+    size = 12
+  ) +
+  guides(color = "none") +
+  labs(
+*   title = "Tech growth over time",
+*   caption = "Data from Wilke (2019): Fundamentals of Data Visualization",
+*   y = "Stock Price (Indexed)"
+  )
+```
+
+---
+
+![](w6_files/figure-html/tech8-eval-1.png)&lt;!-- --&gt;
+
+---
+# A few more notes
+
+* You might want to try `geom_label()` instead of `geom_text()`, or perhaps layering them with the first providing the white space for the second (as we saw in Lab 2)
+
+* Could consider not making the font color vary with the lines (the labels are close enough)
+
+* Depending on you you use the legend, it can work almost as well.
+
+---
+# Example
+From an actual publication, where I used the legend instead of direct annotations
+
+&lt;img src="img/legend-example.png" alt="Line plot with legend annotation" width="550"/&gt;
+
+---
+# Labeling bars
+
+```r
+avs &lt;- tech_stocks %&gt;% 
+  group_by(company) %&gt;% 
+  summarize(stock_av = mean(price_indexed)) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(share = stock_av / sum(stock_av))
+avs
+```
+
+```
+## # A tibble: 4 × 3
+##   company    stock_av     share
+##   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Alphabet  141.0205  0.2292441
+## 2 Apple      77.08241 0.1253058
+## 3 Facebook  274.7427  0.4466240
+## 4 Microsoft 122.3088  0.1988261
+```
+
+---
+# Bar plot
+
+
+```r
+ggplot(avs, aes(fct_reorder(company, share), share)) +
+  geom_col(fill = "#0072B2")
+```
+
+![](w6_files/figure-html/avs-plot1-1.png)&lt;!-- --&gt;
+
+---
+# Horizontal
+
+
+```r
+ggplot(avs, aes(share, fct_reorder(company, share))) +
+  geom_col(fill = "#0072B2", alpha = 0.9)
+```
+
+![](w6_files/figure-html/avs-plot2-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(avs, aes(share, fct_reorder(company, share))) +
+  geom_col(fill = "#0072B2", alpha = 0.9) +
+  theme(
+*   panel.grid.major.y = element_blank(),
+*   panel.grid.minor.x = element_blank(),
+*   panel.grid.major.x = element_line(color = "gray80")
+  )
+```
+
+![](w6_files/figure-html/avs-plot2b-1.png)&lt;!-- --&gt;
+
+---
+# Quick aside
+Let's actually make a bar plot theme
+
+
+```r
+bp_theme &lt;- function(...) {
+  theme_minimal(...) +
+    theme(
+      panel.grid.major.y = element_blank(), 
+      panel.grid.minor.x = element_blank(), 
+      panel.grid.major.x = element_line(color = "gray80"),
+      plot.title.position = "plot"
+    )
+}
+```
+
+---
+
+```r
+ggplot(avs, aes(share, fct_reorder(company, share))) +
+  geom_col(fill = "#0072B2",alpha = 0.9) +
+  geom_text(
+*   aes(share, company, label = round(share, 2)),
+*   nudge_x = 0.02,
+*   size = 8
+  ) +
+  bp_theme(base_size = 25)
+```
+
+![](w6_files/figure-html/avs-plot3-1.png)&lt;!-- --&gt;
+
+
+---
+
+```r
+ggplot(avs, aes(share, fct_reorder(company, share))) +
+  geom_col(fill = "#0072B2", alpha = 0.9) +
+  geom_text(
+*   aes(share, company, label = paste0(round(share*100), "%")),
+    nudge_x = 0.02,
+    size = 8
+  ) + 
+  scale_x_continuous(
+    name = "Market Share",
+*   labels = scales::percent
+  ) +
+  labs(
+    x = NULL,
+    title = "Tech company market control",
+    caption = "Data from Clause Wilke Book: Fundamentals of Data Visualizations"
+  ) +
+  bp_theme(base_size = 25)
+```
+
+---
+![](w6_files/figure-html/avs-plot4-eval-1.png)&lt;!-- --&gt;
+
+---
+# Another alternative
+
+```r
+ggplot(avs, aes(share, fct_reorder(company, share))) +
+  geom_col(fill = "#0072B2", alpha = 0.9) +
+  geom_text(
+    aes(share, company, label = paste0(round(share*100), "%")), 
+*   nudge_x = -0.02,
+    size = 8,
+*   color = "white"
+  ) +
+  scale_x_continuous(
+    "Market Share", 
+    labels = scales::percent,
+    expand = c(0, 0, 0.05, 0)
+  ) + 
+  labs(
+    x = NULL,
+    title = "Tech company market control",
+    caption = "Data from Clause Wilke Book: Fundamentals of Data Visualizations"
+  ) +
+  bp_theme(base_size = 25)
+```
+
+---
+![](w6_files/figure-html/avs-plot6-eval-1.png)&lt;!-- --&gt;
+
+---
+# Last example
+This is a bit artificial in this case, but...
+
+
+--
+It is very common to have small bars. You may want most labels inside, but some outside
+
+---
+First, create variables specifying what you want. 
+
+Here I'm using 0.2 as my cutoff for whether the label is inside the bar or outside
+
+
+```r
+avs &lt;- avs %&gt;% 
+  mutate(
+    nudge_amount = ifelse(share &lt; 0.2, 0.02, -0.02),
+    label_color = ifelse(share &lt; 0.2, "black", "white")
+  )
+avs
+```
+
+```
+## # A tibble: 4 × 5
+##   company    stock_av     share nudge_amount label_color
+##   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;      
+## 1 Alphabet  141.0205  0.2292441        -0.02 white      
+## 2 Apple      77.08241 0.1253058         0.02 black      
+## 3 Facebook  274.7427  0.4466240        -0.02 white      
+## 4 Microsoft 122.3088  0.1988261         0.02 black
+```
+
+---
+`nudge_*` doesn't work inside aes 🤷‍♂️
+
+```r
+ggplot(avs, aes(share, fct_reorder(company, share))) +
+  geom_col(fill = "#0072B2", alpha = 0.9) +
+  geom_text(
+    aes(
+      share, 
+      company, 
+      label = paste0(round(share*100), "%"),
+*     color = label_color
+    ),
+*   nudge_x = avs$nudge_amount,
+    size = 8,
+  ) +
+  scale_x_continuous(
+    "Market Share", 
+    labels = scales::percent,
+    expand = c(0, 0, 0.05, 0)
+  ) + 
+* scale_color_identity() +
+  labs(
+    x = NULL,
+    title = "Tech company market control",
+    caption = "Data from Clause Wilke Book: Fundamentals of Data Visualizations"
+  ) +
+  bp_theme(base_size = 25)
+```
+
+---
+
+![](w6_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+# Distributions
+
+
+```r
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.3,
+               color = "white") 
+```
+
+![](w6_files/figure-html/densities1-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.3,
+               color = "white") +
+  scale_fill_OkabeIto()
+```
+
+![](w6_files/figure-html/densities2-1.png)&lt;!-- --&gt;
+
+
+---
+# Labeling
+### One method
+
+
+```r
+label_locs &lt;- tibble(Sepal.Length = c(5.45, 6, 7),
+                     density = c(1, 0.8, 0.6),
+                     Species = c("setosa", "versicolor", "virginica"))
+
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.3,
+               color = "white") +
+  scale_fill_OkabeIto() +
+  geom_text(aes(label = Species, y = density, color = Species),
+            data = label_locs)
+```
+
+---
+![](w6_files/figure-html/densities3-eval-1.png)&lt;!-- --&gt;
+
+
+---
+
+
+```r
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.3,
+               color = "white") +
+  scale_fill_OkabeIto() +
+* scale_color_OkabeIto() +
+  geom_text(aes(label = Species, y = density, color = Species),
+            data = label_locs) +
+  guides(color = "none",
+         fill = "none")
+```
+
+---
+![](w6_files/figure-html/densities4-eval-1.png)&lt;!-- --&gt;
+
+---
+
+```r
+label_locs &lt;- tibble(Sepal.Length = c(5.4, 6, 6.9),
+                     density = c(1, 0.75, 0.6),
+                     Species = c("setosa", "versicolor", "virginica"))
+
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.3,
+               color = "white") +
+  scale_fill_OkabeIto() +
+  scale_color_OkabeIto() +
+  geom_text(aes(label = Species, y = density),
+*           color = "gray40",
+            data = label_locs) +
+* guides(fill = "none")
+```
+
+---
+![](w6_files/figure-html/densities5-eval-1.png)&lt;!-- --&gt;
+
+---
+# Other options
+* Rather than using a new data frame, you could use multiple calls to `annotate`.
+
+* One is not necessarily better than the other, but I prefer the data frame method
+
+* Keep in mind you can .bolder[always] use multiple data sources within a single plot
+  + Each layer can have its own data source
+  + Common in geographic data in particular
+
+---
+# Annotate example 
+
+
+```r
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.3) +
+  scale_fill_OkabeIto() +
+  scale_color_OkabeIto() +
+* annotate("text", label = "setosa", x = 5.45, y = 1, color = "gray40") +
+* annotate("text", label = "versicolor", x = 6, y = 0.8, color = "gray40") +
+* annotate("text", label = "virginica", x = 7, y = 0.6, color = "gray40") +
+  guides(fill = "none")
+```
+
+---
+
+![](w6_files/figure-html/annotate-eval-1.png)&lt;!-- --&gt;
+
+---
+# Practice
+
+Use the diamonds dataset again. 
+
+* Compute the mean carat size for each color
+
+* Create a bar chart
+
+
+* Include labels for each bar rounding the actual value to two decimals
+
+* Make any other modifications you'd like
+
+<div class="countdown" id="timer_61fdb710" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+---
+class: inverse-red middle
+# [{geomtextpath}](https://allancameron.github.io/geomtextpath/)
+
+New package that I haven't used much but looks really cool
+
+---
+# {geomtextpath}
+
+
+```r
+#install.packages("geomtextpath")
+library(geomtextpath)
+
+ggplot(iris, aes(Sepal.Length)) +
+  geom_textdensity(aes(color = Species, label = Species))
+```
+
+![](w6_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+
+
+---
+Slight modifications
+
+
+```r
+ggplot(iris, aes(Sepal.Length)) +
+  geom_textdensity(
+    aes(color = Species, label = Species),
+    hjust = 0.2,
+    vjust = 0.3,
+    size = 8 # bigger than you'll probs need
+  ) +
+  scale_color_OkabeIto() +
+  theme(legend.position = "none")
+```
+
+Note I couldn't get `aes(fill = Species)` to work.
+
+---
+![](w6_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+---
+# A workaround
+
+
+```r
+ggplot(iris, aes(Sepal.Length)) +
+  geom_density(aes(fill = Species), alpha = 0.4) +
+  geom_textdensity(
+    aes(color = Species, label = Species),
+    hjust = "ymax",
+    vjust = -0.3,
+    size = 8
+  ) +
+  scale_color_OkabeIto() +
+  scale_fill_OkabeIto() +
+  theme(legend.position = "none")
+```
+
+
+---
+![](w6_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+---
+# Smooths
+
+
+```r
+ggplot(mpg, aes(displ, hwy, color = class)) +
+  geom_point() +
+* geom_labelsmooth(
+*   aes(label = class),
+*   method = "lm",
+*   hjust = "xmax"
+* ) +
+  scale_color_OkabeIto() +
+  guides(color = "none")
+```
+
+---
+![](w6_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+# Drop-in replacements
+
+![](img/geomtextpath.png)
+
+---
+# Even works w/Maps!
+
+
+```r
+library(sf)
+
+ggplot() +
+  geom_textsf(
+    data = waterways,
+    aes(label = name), 
+    text_smoothing = 65, 
+    linecolour = "#8888B3",
+    vjust = -0.8,
+    fill = "#E6F0B3",
+    alpha = 0.8,
+    size = 4
+  ) + 
+  theme(panel.grid = element_line()) + 
+  lims(x = c(-4.7, -3), y = c(55.62, 56.25))
+```
+
+
+---
+![](w6_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+---
+class: inverse-blue center middle
+# ggrepel
+
+---
+# Plot text directly
+
+
+```r
+cars &lt;- rownames_to_column(mtcars)
+
+ggplot(cars, aes(hp, mpg)) +
+  geom_text(aes(label = rowname))
+```
+
+![](w6_files/figure-html/mtcars-text-1.png)&lt;!-- --&gt;
+
+---
+# Repel text
+
+
+```r
+*library(ggrepel)
+ggplot(cars, aes(hp, mpg)) +
+* geom_text_repel(aes(label = rowname))
+```
+
+![](w6_files/figure-html/repel1-1.png)&lt;!-- --&gt;
+
+---
+# Slightly better
+
+
+```r
+ggplot(cars, aes(hp, mpg)) +
+* geom_point(color = "gray70") +
+  geom_text_repel(aes(label = rowname),
+*                 min.segment.length = 0)
+```
+
+![](w6_files/figure-html/repel2-1.png)&lt;!-- --&gt;
+
+---
+# Common use cases
+* Label some sample data that makes some theoretical sense (we've seen this before)
+
+* Label outliers
+
+* Label points from a specific group (e.g., similar to highlighting - can be used in conjunction)
+
+---
+# Some new data
+
+Please follow along
+
+
+```r
+remotes::install_github("kjhealy/socviz")
+library(socviz)
+```
+
+
+```r
+by_country &lt;- organdata %&gt;% 
+  group_by(consent_law, country) %&gt;%
+  summarize(donors_mean= mean(donors, na.rm = TRUE),
+            donors_sd = sd(donors, na.rm = TRUE),
+            gdp_mean = mean(gdp, na.rm = TRUE),
+            health_mean = mean(health, na.rm = TRUE),
+            roads_mean = mean(roads, na.rm = TRUE),
+            cerebvas_mean = mean(cerebvas, na.rm = TRUE))
+```
+
+---
+
+```r
+by_country
+```
+
+```
+## # A tibble: 17 × 8
+## # Groups:   consent_law [2]
+##   consent_law country     donors_mean donors_sd gdp_mean health_mean roads_mean
+##   &lt;chr&gt;       &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Informed    Australia      10.635   1.142808  22178.54    1957.5    104.8757 
+## 2 Informed    Canada         13.96667 0.7511607 23711.08    2271.929  109.2601 
+## 3 Informed    Denmark        13.09167 1.468121  23722.31    2054.071  101.6363 
+## 4 Informed    Germany        13.04167 0.6111960 22163.23    2348.75   112.7887 
+## 5 Informed    Ireland        19.79167 2.478437  20824.38    1479.929  117.7742 
+## 6 Informed    Netherlands    13.65833 1.551807  23013.15    1992.786   76.09357
+## # … with 11 more rows, and 1 more variable: cerebvas_mean &lt;dbl&gt;
+```
+
+---
+# Scatterplot
+
+
+```r
+ggplot(by_country, aes(gdp_mean, health_mean)) +
+  geom_point()
+```
+
+![](w6_files/figure-html/scatter-country-1.png)&lt;!-- --&gt;
+
+---
+# Outliers
+
+
+```r
+ggplot(by_country, aes(gdp_mean, health_mean)) +
+  geom_point() +
+* geom_text_repel(data = filter(by_country,
+*                               gdp_mean &gt; 25000 |
+*                               gdp_mean &lt; 20000),
+*                 aes(label = country))
+```
+
+---
+![](w6_files/figure-html/outliers1-eval-1.png)&lt;!-- --&gt;
+
+---
+# Combine with highlighting
+
+
+```r
+*library(gghighlight)
+ggplot(by_country, aes(gdp_mean, health_mean)) +
+  geom_point() +
+* gghighlight(gdp_mean &gt; 25000 | gdp_mean &lt; 20000) +
+* geom_text_repel(aes(label = country))
+```
+
+* Notice you only have to specify the points to highlight and `geom_text_repel` will then only label those points
+
+
+---
+![](w6_files/figure-html/outliers2-eval-1.png)&lt;!-- --&gt;
+
+---
+# Combine with highlighting
+
+Switch to make outliers grayed out and labeled
+
+
+```r
+ggplot(by_country, aes(gdp_mean, health_mean)) +
+  geom_point() +
+  gghighlight(gdp_mean &gt; 20000 &amp; gdp_mean &lt; 25000 ) +
+  geom_text_repel(data = filter(by_country, 
+                                gdp_mean &gt; 25000 |
+                                gdp_mean &lt; 20000),
+                  aes(label = country),
+                  color = "#BEBEBEB3") 
+```
+
+Note I found the exact gray color by looking at the source code. Specifically, it is the output from `ggplot2::alpha("grey", 0.7)`
+
+
+---
+
+![](w6_files/figure-html/outliers3-eval-1.png)&lt;!-- --&gt;
+
+---
+# By group
+
+```r
+ggplot(by_country, aes(gdp_mean, health_mean)) +
+  geom_point() +
+  geom_text_repel(data = filter(by_country, 
+                                consent_law == "Presumed"),
+                  aes(label = country))
+```
+
+![](w6_files/figure-html/label-by-group-1.png)&lt;!-- --&gt;
+
+---
+# By group
+
+```r
+ggplot(by_country, aes(gdp_mean, health_mean)) +
+* geom_point(color = "#DC5265") +
+* gghighlight(consent_law == "Presumed") +
+  geom_text_repel(aes(label = country),
+                  min.segment.length = 0,
+*                 box.padding = 0.75) +
+  labs(title = "GDP and Health",
+         subtitle = "Countries with a presumed organ donation consent are highlighted",
+         caption = "Data from the General Social Science Survey, Distributed through the socviz R package",
+         x = "Mean GDP",
+         y = "Mean Health")
+```
+
+---
+![](w6_files/figure-html/label-by-group-eval-1.png)&lt;!-- --&gt;
+
+---
+# Practice
+Use the mpg dataset
+
+* Group by manufacturer
+
+* Compute the mean highway `hwy` and mean `displ`
+
+* Plot the relation between these means. Plot points and label the manufacturer of each point.
+
+
+
+---
+class: inverse-blue middle
+
+# ggforce
+Please follow along
+
+---
+# Annotating groups of points
+Consider using  any of the following from **ggforce** to annotate specific points
+
+* `geom_mark_rect()`
+* `geom_mark_circle()`
+* `geom_mark_ellipse()`
+* `geom_mark_hull()`
+
+---
+# Examples
+
+
+```r
+library(palmerpenguins)
+library(ggforce)
+
+penguins %&gt;% 
+  drop_na() %&gt;% # Can't take missing data
+ggplot(aes(bill_length_mm, bill_depth_mm)) +
+* geom_mark_ellipse(aes(group = species, label = species)) +
+  geom_point(aes(color = species)) +
+* coord_cartesian(xlim = c(28, 62), ylim = c(13, 23)) +
+  guides(color = "none")
+```
+
+
+---
+class: middle
+![](w6_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+
+---
+# Limit to a single group
+
+
+```r
+penguins %&gt;% 
+  drop_na() %&gt;% 
+ggplot(aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  geom_mark_ellipse(aes(group = species, label = species),
+*                   data = filter(drop_na(penguins),
+*                                 species == "Gentoo")) +
+  coord_cartesian(xlim = c(28, 62), ylim = c(13, 23)) 
+```
+
+
+---
+class: middle
+
+![](w6_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+
+---
+# Switch to hull
+
+Note - requires the **concaveman** package be installed 
+
+
+```r
+penguins %&gt;% 
+  drop_na() %&gt;% 
+ggplot(aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+* geom_mark_hull(aes(group = species, label = species),
+*                   data = filter(drop_na(penguins),
+*                                 species == "Gentoo")) +
+  coord_cartesian(xlim = c(28, 62), ylim = c(13, 23)) 
+```
+
+---
+class: middle
+
+![](w6_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+
+---
+# Change expand
+
+
+```r
+penguins %&gt;% 
+  drop_na() %&gt;% 
+ggplot(aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  geom_mark_hull(aes(group = species, label = species),
+*                expand = unit(1, "mm"),
+                 data = filter(drop_na(penguins), 
+                               species == "Gentoo")) + 
+  coord_cartesian(xlim = c(28, 62), ylim = c(13, 23))  
+```
+
+---
+class: middle
+
+![](w6_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+
+---
+# More in-depth annotations
+
+First create a description
+
+
+```r
+penguins &lt;- penguins %&gt;% 
+  mutate(desc = ifelse(species != "Gentoo", "", "During deep dives, gentoo penguins reduce their heart rate from 80 to 100 beats per minute (bpm) down to 20 bpm. Gentoo penguins use nesting materials ranging from pebbles and molted feathers in Antarctica to vegetation on subantarctic islands. Gentoos are the third largest penguin, following the emperor and king."))
+```
+
+---
+# Now add as a description
+
+
+```r
+penguins %&gt;% 
+  drop_na() %&gt;% 
+ggplot(aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  geom_mark_ellipse(aes(group = species, 
+                   label = species,
+*                  description = desc),
+               data = filter(drop_na(penguins), 
+                             species == "Gentoo"),
+*              label.fill = "#b3cfff") +
+  coord_cartesian(xlim = c(28, 62), ylim = c(13, 23)) 
+```
+
+---
+class: middle
+
+![](w6_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+
+
+---
+# Similar
+We can also just add a textbox through **{ggtext}**
+
+
+```r
+txtbox &lt;- tibble(
+  bill_length_mm = 23,
+  bill_depth_mm = 16,
+  lab = '"They may all waddle around in their tuxedolike feathers, but the penguins of the Antarctic Peninsula are not equal in their ability to adapt to a warming climate. While the populations of the Adélie and chinstrap penguin species are currently declining, the gentoo species is increasing. But this has not always been the case, according to a recent study published in the journal Scientific Reports." - Scientific American'
+)
+```
+
+---
+
+```r
+penguins %&gt;% 
+  drop_na() %&gt;% 
+ggplot(aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  ggtext::geom_textbox(aes(label = lab),
+                       data = txtbox) +
+  coord_cartesian(xlim = c(17, 62), ylim = c(13, 22))
+```
+
+![](w6_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+
+---
+# Last bit
+
+The **ggforce** package is well worth exploring more.
+
+See [here](https://z3tt.github.io/OutlierConf2021/) for a nice walkthrough that has good data viz and uses some of the **ggforce** functions (as well as illustrating a few other cool packages)
+
+
+---
+class: inverse-blue middle
+# Saving plots
+And potentially making additional edits
+
+---
+# Raster/Vector
+
+We'll talk about this again when discussing maps, but it relates to saving as well.
+
+**Raster** (also called bitmap) stores images as a grid of points (pixels)
+
+**Vector** store instructions for how the figure should be drawn. Image is redrawn as it is printed/displayed on screen
+
+
+.footnote[see [Wilke, Chapter 27](https://clauswilke.com/dataviz/image-file-formats.html) for more information.]
+
+---
+# Differences
+
+.footnote[Image from Wilke]
+
+![](https://clauswilke.com/dataviz/image_file_formats_files/figure-html/bitmap-zoom-1.png)
+
+**Vector graphics**: pdf, eps, svg
+
+**Raster graphics**: png, jpeg, tiff, gif
+
+---
+# Downsides to vector graphics
+
+* Possible differences in appearance between displays (programs, computers, etc.)
+
+* Very large/complex figures can balloon to giant file sizes and be slow to render
+
+---
+# Lossy/Lossless compression
+
+* Lossless - guarantees image is, pixel for pixel, identical to original
+
+  + png and tiff use lossless compression
+  
+* Lossy - accepts some minor image artifacts to reduce size
+
+  + jpeg
+  
+
+--
+### Practical advice
+
+Export to PDF
+
+--
+
+If that won't work (web), use png
+
+
+--
+If the file size ends up being too large, go with jpeg
+
+
+---
+# Practice
+
+* Create a plot
+
+* Save it as a PDF with `ggsave()`
+
+Note, the first argument to `ggsave()` is the `path`, so you could do something like
+
+`ggsave(here::here("myplot.pdf"))`
+
+You can also specify the width/height.
+
+By default, it will save the last plot you produced, but you can also specify it with `plot = ` argument, where you pass an object that has the plot
+
+---
+# Modifications
+
+I rarely do this, but if I do, I tend to use [Inkscape](https://inkscape.org/), which is free.
+
+[demo]
+
+
+
+
+---
+class: inverse-red middle
+
+# Compound figures
+
+Please follow along
+
+---
+# Options
+My favorite: [{patchwork}](https://patchwork.data-imaginist.com/index.html)
+
+
+--
+
+Others:
+
+* [{cowplot}](https://wilkelab.org/cowplot/index.html)
+
+* [{ggpubr}](https://github.com/kassambara/ggpubr/)
+
+* [{gridExtra}](https://cran.r-project.org/web/packages/gridExtra/index.html)
+
+
+---
+# Example
+
+* First, create two plots
+
+
+```r
+p1 &lt;- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = factor(cyl))) +
+  geom_smooth() +
+  scale_color_OkabeIto()
+
+p2 &lt;- ggplot(mpg, aes(factor(cyl), hwy)) +
+  geom_boxplot(aes(fill = factor(cyl))) +
+  scale_fill_OkabeIto()
+```
+
+---
+# Side by side
+
+
+```r
+library(patchwork)
+p1 + p2
+```
+
+![](w6_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+
+---
+# Collect legends
+
+
+```r
+p1 + p2 + plot_layout(guides = "collect")
+```
+
+![](w6_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+
+
+---
+# Stack vertically
+
+
+```r
+p1 / p2 + plot_layout(guides = "collect")
+```
+
+![](w6_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+
+---
+# Add a third plot
+
+
+```r
+p3 &lt;- mpg %&gt;% 
+  group_by(manufacturer) %&gt;% 
+  summarize(mean_mpg = mean(hwy, na.rm = TRUE)) %&gt;% 
+  mutate(manufacturer = fct_reorder(manufacturer, mean_mpg)) %&gt;% 
+  ggplot(aes(mean_mpg, manufacturer)) +
+    geom_col(fill = "#25B6EE") +
+    theme(axis.text.y = element_text(size = 12))
+```
+
+---
+# Put scatter on bottom
+
+
+```r
+(p1 + p3) / p2 + plot_layout(guides = "collect")
+```
+
+![](w6_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+
+
+---
+# Overall title
+
+```r
+(p1 + p3) / p2 + plot_layout(guides = "collect") +
+  plot_annotation("Some cool plots")
+```
+
+![](w6_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+
+---
+# Tags
+
+```r
+(p1 + p3) / p2 + plot_layout(guides = "collect") +
+  plot_annotation("Some cool plots", tag_levels = "a")
+```
+
+![](w6_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+
+
+---
+# Insets
+
+
+```r
+p3_small_txt &lt;- p3 +
+  theme(axis.text.y = element_text(size = 8),
+        text = element_text(size = 8))
+
+p1 + inset_element(p3_small_txt, 0.6, 0.6, 1, 1)
+```
+
+![](w6_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+
+
+---
+class: inverse-red center middle
+# Themes (quickly)
+
+---
+
+![](w6_files/figure-html/diff-themes-1.png)&lt;!-- --&gt;
+
+---
+# ggthemes
+* Good place to start. All sorts of themes. 
+* Includes color scales, etc., that align with themes
+* You can even conform with other software 
+  + fit into an economics conference with `theme_stata`
+
+See the themes [here](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/)
+
+---
+# BBC
+The BBC uses ggplot for most of its graphics. They've developed a package with a theme and some functions to help make it match their style more.
+
+See the repo [here](https://github.com/bbc/bbplot)
+
+Their [Journalism Cookbook](https://bbc.github.io/rcookbook/) is really nice too
+
+---
+background-image: url(https://github.com/bbc/bbplot/raw/master/chart_examples/bbplot_example_plots.png)
+background-size: contain
+
+---
+# ggthemeassist
+* Another great place to start with making major modifications/creating your own custom theme
+* Can't do everything, but can do a lot
+* See [here](https://github.com/calligross/ggthemeassist)
+
+[demo]
+
+
+---
+# `theme()` for everything else
+* You can basically change your plot to look however you want through `theme`
+* Generally a bit more complicated
+* I've used ggplot for *years* and only really now gaining fluency with it
+
+---
+# Quick example
+### From Lab 3
+
+```r
+library(fivethirtyeight)
+g &lt;- google_trends %&gt;% 
+  pivot_longer(starts_with("hurricane"), 
+               names_to = "hurricane", 
+               values_to = "interest",
+               names_pattern = "_(.+)_")
+
+landfall &lt;- tibble(
+  date = lubridate::mdy(
+    c("August 25, 2017", "September 10, 2017", "September 20, 2017")
+  ),
+  hurricane = c("Harvey Landfall", "Irma Landfall", "Maria Landfall")
+)
+```
+
+---
+
+```r
+p &lt;- ggplot(g, aes(date, interest)) +
+  geom_ribbon(aes(fill = hurricane, ymin = 0, ymax = interest),
+              alpha = 0.6) + 
+  geom_vline(aes(xintercept = date), landfall,
+             color = "gray80", 
+             lty = "dashed") +
+  geom_text(aes(x = date, y = 80, label = hurricane), landfall,
+            color = "gray80",
+            nudge_x = 0.5, 
+            hjust = 0) +
+  labs(x = "", 
+       y = "Google Trends",
+       title = "Hurricane Google trends over time",
+       caption = "Source: https://github.com/fivethirtyeight/data/tree/master/puerto-rico-media") + 
+  scale_fill_brewer("Hurricane", palette = "Set2")
+```
+
+---
+![](w6_files/figure-html/baseplot-eval-1.png)&lt;!-- --&gt;
+
+
+---
+
+```r
+p + theme(
+  panel.grid.major = element_line(colour = "gray30"), 
+  panel.grid.minor = element_line(colour = "gray30"), 
+  axis.text = element_text(colour = "gray80"), 
+  axis.text.x = element_text(colour = "gray80"), 
+  axis.text.y = element_text(colour = "gray80"),
+  axis.title = element_text(colour = "gray80"),
+  legend.text = element_text(colour = "gray80"), 
+  legend.title = element_text(colour = "gray80"), 
+  panel.background = element_rect(fill = "gray10"), 
+  plot.background = element_rect(fill = "gray10"), 
+  legend.background = element_rect(fill = NA, color = NA), 
+  legend.position = c(0.2, -0.1), 
+  legend.direction = "horizontal",
+  plot.margin = margin(10, 10, b = 20, 10),
+  plot.caption = element_text(colour = "gray80", vjust = 1), 
+  plot.title = element_text(colour = "gray80")
+)
+```
+
+---
+![](w6_files/figure-html/theme_mods-eval-1.png)&lt;!-- --&gt;
+
+---
+class: inverse-green center middle
+# Next time
+### Visualizing uncertainty
+
+Homework 2 is also posted 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"navigation": {
+"scroll": false
+},
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
