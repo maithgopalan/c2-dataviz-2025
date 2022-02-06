@@ -47,7 +47,7 @@ hw <- tibble(
   Homework = 1,
   `Date Assigned` = mdy("02/07/22"),
   `Date Due` = mdy("02/21/22"),
-  Topic = "Uncertainty, tables, and plot refinement"
+  Topic = "[Uncertainty, tables, and plot refinement](../homework)"
   ) %>% 
   mutate(across(where(is.Date), ~format(.x, "%a, %B %d")))
 

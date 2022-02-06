@@ -29,9 +29,9 @@ There is one homework assignments in the class, which is worth 30 points. The ho
 
 {{< bootstrap-table "table table-hover" >}}
 
-| Homework|Date Assigned    |Date Due         |Topic                                    |
-|--------:|:----------------|:----------------|:----------------------------------------|
-|        1|Mon, February 07 |Mon, February 21 |Uncertainty, tables, and plot refinement |
+| Homework|Date Assigned    |Date Due         |Topic                                                   |
+|--------:|:----------------|:----------------|:-------------------------------------------------------|
+|        1|Mon, February 07 |Mon, February 21 |[Uncertainty, tables, and plot refinement](../homework) |
 
 {{< /bootstrap-table >}}
 
