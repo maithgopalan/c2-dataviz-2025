@@ -158,7 +158,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "w6" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "homework-1" "HW 1" >}}
+{{< assigned "homework" "HW 1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "lab-3" "Lab 3" >}}
