@@ -153,7 +153,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "02-07" >}}
-  {{< description "Communication & Intro to uncertainty" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming. Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots" >}}
+  {{< description "Communication" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
   {{< wrap >}}
 {{< slides "w6" >}}
 {{< /wrap >}}
@@ -172,7 +172,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< readings "video" "https://www.youtube.com/watch?v=E1kSnWvqCw0&feature=youtu.be" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "" >}}
+{{< lecture "https://youtu.be/g1i--4u13bA" >}}
 {{< /wrap >}}
 {{< /week-even >}}
 
@@ -181,7 +181,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "02-14" >}}
-  {{< description "Finishing up uncertainty & intro to tables and fonts" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
+  {{< description "Uncertainty & intro to tables and fonts" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
