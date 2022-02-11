@@ -183,7 +183,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "02-14" >}}
   {{< description "Uncertainty & intro to tables and fonts" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w7" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
