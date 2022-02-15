@@ -27,7 +27,7 @@ no_pdfs <- anti_join(rmds, pdfs, by = "week")
 
 to_print <- anti_join(pdfs, html, by = c("week", "modification_time")) %>% 
   semi_join(rmds, ., by = "week") %>% 
-  bind_rows(no_pdfs)
+  bind_rows(no_pdfs) 
 
 purrr::walk(to_print$path, ~{
   rmarkdown::render(.x)

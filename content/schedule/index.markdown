@@ -181,7 +181,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "02-14" >}}
-  {{< description "Uncertainty & intro to tables and fonts" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
+  {{< description "Uncertainty" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
   {{< wrap >}}
 {{< slides "w7" >}}
 {{< /wrap >}}
@@ -196,7 +196,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< readings "other" "https://gt.rstudio.com/articles/intro-creating-gt-tables.html" "gt" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "" >}}
+{{< lecture "https://youtu.be/uYj04BODzIc" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
@@ -205,7 +205,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "02-21" >}}
-  {{< description "Websites, flex dashbaords, and some customization with CSS" "Building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. We'll discuss layouts, including multi-page layouts, storyboards, icons, and publishing through GitHub." >}}
+  {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill/), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -214,7 +214,6 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#draft" "Draft" >}}
-{{< due "homework-2" "HW2" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
@@ -230,7 +229,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "02-28" >}}
-  {{< description "Intro to Geographic data" "Understanding the difference between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)." >}}
+  {{< description "Tables & intro to Geographic data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -239,6 +238,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#peer-review" "PR" >}}
+{{< due "homework-2" "HW2" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "maps.html#maps" "7" >}}
