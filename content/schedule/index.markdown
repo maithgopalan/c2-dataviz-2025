@@ -220,7 +220,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< readings "other" "https://bookdown.org/yihui/rmarkdown/websites.html" "sites" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "" >}}
+{{< lecture "https://youtu.be/1cBa0tqXV6s" >}}
 {{< /wrap >}}
 {{< /week-even >}}
 
