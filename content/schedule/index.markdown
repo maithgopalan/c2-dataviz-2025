@@ -231,7 +231,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "02-28" >}}
   {{< description "Tables & intro to Geographic data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w9" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
