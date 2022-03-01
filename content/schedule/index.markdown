@@ -245,7 +245,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< readings "dataviz" "geospatial-data.html" "15" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "" >}}
+{{< lecture "https://youtu.be/Le2Mu6Xtd3g" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
