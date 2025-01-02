@@ -9,13 +9,13 @@ toc: true
 
 Below are the meeting times for our class
 
--   **Term:** Winter 2022
--   **Time:** Mondays, 1:00-3:50
--   **Classroom:** 115 Lokey Education
--   **Instructor:** Daniel Anderson, PhD
-    -   *email:* (preferred contact method) <daniela@uoregon.edu>
-    -   *office hours*: By appointment
-    -   *pronouns:* he/him/his
+-   **Term:** Winter 2025
+-   **Time:** Wednesdays, 2:00-4:50
+-   **Classroom:** HEDCO Education Building 144
+-   **Instructor:** Maithreyi Gopalan, PhD
+    -   *email:* (preferred contact method) <mgopalan@uoregon.edu>
+    -   *office hours*: By appointment using this [link](https://calendly.com/mgopalan-uo/30min)
+    -   *pronouns:* she/her/hers
 
 </div>
 
