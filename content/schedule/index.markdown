@@ -4,7 +4,7 @@ toc: true
 ---
 
 ## Course Books
-Each of the below links to the full book. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (i.e., there are two videos it would be helpful if you watched).
+Each of the below links to the full book. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (i.e., there are two videos that would be helpful if you watched).
 
 {{< course-books >}}
 
@@ -13,7 +13,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "01-08" >}}
-  {{< description "Introduction to the course and accessing course data" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch last year's lecture and read on git workflows (we won't have time to cover it this year; MLK week might be a good time for this). We'll then spend the rest of the day working on (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
+  {{< description "Introduction to the course and Github Repos" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch a recorded lecture and read on git workflows. We'll then spend the rest of the day working on our first lab that includes (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
   {{< wrap >}}
 {{< slides "w1" >}}
 {{< /wrap >}}
@@ -26,7 +26,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
   {{< wrap >}}
 {{< readings "video" "https://www.youtube.com/watch?v=X7Cl3lwxXi4" "" >}}
 {{< readings "other" "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" "" >}}
-{{< readings "happygit" "git-branches.html" "22" >}}
+{{< readings "happygit" "https://happygitwithr.com/git-branches.html" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "https://youtu.be/CeobEaNT0Mo" >}}
@@ -38,28 +38,22 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "01-15" >}}
-  {{< description "Intro to visualizations and working with string data, & Lab 1" "We will look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. We will then move to string data more specifically and methods for quickly visualizing a corpus . We will then practice these topics with our first lab." >}}
+  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio, & Lab 1" "We will look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. We will then move to string data more specifically and methods for quickly visualizing a corpus. We will then practice these topics with our second lab." >}}
   {{< wrap >}}
 {{< slides "w2" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-1" "Lab 1" >}}
+{{< assigned "lab-PS1" "Lab PS1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "groupfacettx.html#groupfacettx" "22" >}}
-{{< readings "r4ds" "graphics-for-communication.html" "4" >}}
-{{< readings "r4ds" "strings.html" "14" >}}
-{{< readings "dataviz" "directory-of-visualizations.html" "28" >}}
-{{< readings "dataviz" "visualizing-amounts.html" "6" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "5" >}}
-{{< readings "socvi" "makeplot.html#makeplot" "7" >}}
-{{< readings "other" "https://www.tidytextmining.com/tidytext.html" "1" >}}
+{{< readings "socviz" "https://socviz.co/gettingstarted.html#gettingstarted" "" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/directory-of-visualizations.html" "" >}}
+{{< readings "r4ds" "https://r4ds.had.co.nz/r-markdown.html" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/RAobho8AgUY" >}}
 {{< /wrap >}}
 {{< /week-even >}}
 
@@ -68,7 +62,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "01-22" >}}
-  {{< description "Martin Luther King Jr. Day" "No class. Black Lives Matter. ![](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F13%2FBlack-Lives-Matter-Fist-Transparent-PNG.png&f=1&nofb=1)" >}}
+  {{< description "Visual processing and perceptual rankings" "Guidelines for better data visualizations. ![](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F13%2FBlack-Lives-Matter-Fist-Transparent-PNG.png&f=1&nofb=1)" >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -76,11 +70,27 @@ Each of the below links to the full book. Icons in the schedule link to specific
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "lab-1" "Lab 1" >}}
+{{< due "lab-PS1" "Lab PS1" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "NA" "NA" "NA" >}}
-{{< /wrap >}}
+{{< readings "socviz" "https://socviz.co/lookatdata.html" "1" >}}
+{{< readings "r4ds" "graphics-for-communication.html" "4" >}}
+{{< readings "r4ds" "strings.html" "14" >}}
+{{< readings "dataviz" "directory-of-visualizations.html" "28" >}}
+{{< readings "dataviz" "visualizing-amounts.html" "6" >}}
+{{< readings "socviz" "gettingstarted.html#gettingstarted" "2" >}}
+{{< readings "socviz" "gettingstarted.html#gettingstarted" "17" >}}
+{{< readings "socviz" "gettingstarted.html#gettingstarted" "22" >}}
+{{< readings "socviz" "gettingstarted.html#gettingstarted" "23" >}}
+{{< readings "socviz" "gettingstarted.html#gettingstarted" "24" >}}
+{{< readings "socviz" "gettingstarted.html#gettingstarted" "5" >}}
+
+
+
+
+{{< readings "socvi" "makeplot.html#makeplot" "7" >}}
+{{< readings "other" "https://www.tidytextmining.com/tidytext.html" "1" >}}
+  {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "" >}}
 {{< /wrap >}}
