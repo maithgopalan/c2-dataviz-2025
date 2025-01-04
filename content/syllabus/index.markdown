@@ -13,6 +13,7 @@ Below are the meeting times for our class
 -   **Time:** Wednesdays, 2:00-4:50
 -   **Classroom:** HEDCO Education Building 144
 -   **Instructor:** Maithreyi Gopalan, PhD
+    -   *office:* 102B Lokey Education Building
     -   *email:* (preferred contact method) <mgopalan@uoregon.edu>
     -   *office hours*: By appointment using this [link](https://calendly.com/mgopalan-uo/30min)
     -   *pronouns:* she/her/hers
@@ -50,23 +51,29 @@ Each of the above links to the full book. These are excellent resources that I h
 
 ## Assignments and Grading
 
-There are 150 points possible. Your final grade will be composed of five components:
+There are 200 points possible. Your final grade will be composed of four components:
 
--   3 labs at 15 points each (45 points; 30%)
--   1 homework assignments at 30 points each (20%)
--   1 Data Viz in the Wild (5 points; 3%)
--   Final Project (70 points; 50%)
-    -   Proposal (5 points; 3%)
-    -   Draft (10 points; 7%)
-    -   Peer review (10 points; 7%)
-    -   Presentation (5 points; 3%)
-    -   Product (40 points; 27%)
+-   Class Participation (60 points; 30%)
+    -   Labs In-Class (40 points; 15%)
+    -   Discussion   (20 points; 15%)
+-   3 lab problem sets at 20 points each (60 points; 30%)
+-   1 Data Viz in the Wild (20 points; 10%)
+-   Final Project (60 points; 30%)
+    -   Proposal (20 points; 10%)
+    -   Presentation (20 points; 10%)
+    -   Output (40 points; 10%)
 
 I would like to, as much a possible, stick to the deadlines for all assignments as listed in the [schedule](../schedule) page. This will allow us to go over the material together as a group *after* everyone has submitted their assignment. However, **if you need additional time for any reason** please just send me a note letting me know. You do not need to justify why. I am more than happy to work with you however I can. I would just ask that you please **not** attend class during the time we are going over the assignment (but please do attend the rest of the class if you are able).
 
+### Class Participation
+
+Your class participation grade comes exclusively from your active participation in the class through discussions and hands-on lab sessions. Active participation requires you to do the readings prior to coming to class so that you can keep up with the lecture portion of the class and work on the hands-on lab activities. Completing readings prior to class will (1) greatly improve your ability to understand what we discuss in class; and (2) it will enable you to complete the in-class, lab activities and participate in discussions, which will benefit you and your classmates. As you can see, these form a significant portion (30%) of your final grade as well. 
+
 ### Labs
 
-There are 3 labs during the course, scored at 15 points each, which must be
+There are three lab-based problem sets you will complete for grades during the course. These are due on the Monday of the week it’s listed on the syllabus. They will be assigned in class/Canvas at least one week prior to the due date. Lab problem sets will include designated in-class time (if possible), but any work not completed during class must be completed on your own. Labs will be scored on a “best honest effort” basis, which generally implies zero or full credit. Many of the labs require completion of specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the “best honest effort.” If the assignment is not complete, and the student has not contacted the instructor for help and obtained approval for submitting incomplete work, only partial credit will be awarded. Partially completed problem sets that have been discussed with the instructor may receive partial credit. Assignments will be posted as .Rmd files. Each student must turn in the completed lab work electronically on Canvas as a Word or Pdf file (after knitting your .Rmd file) with your last name as the beginning of the file name. If you are hosting your work online as a GitHub repo, you can also post the link to the GitHub repo. Together problem sets form 30% of your final grade.
+
+There are 3 lab problem sets during the course, scored at 15 points each, which must be
 submitted within one week of being assigned. Labs will include designated
 in-class time, but any work not completed during class must be completed
 on your own. Labs will be scored on a “best honest effort” basis, which
@@ -114,28 +121,15 @@ The components of the final project are as follow:
 
 The final project must be completed in a small group of 2-3 students. You will work together from a common dataset to create these visuals.
 
-### Data visualization competition
-
-This term we have a unique opportunity to partner with [USAFacts](https://usafacts.org/). They have supplied us with a [considerable amount of data](../post/2021-12-10-accessing-the-data/), which all groups will be required to use for their final project. However, students additionally have the **option** to opt-in or opt-out of a data visualization competition. The competition is intended to be a fun way to challenge you to do your best work and should not be interpreted as being high stakes or stress-inducing. The work you will be required to complete for the term will be virtually identical regardless of whether your group decides to participate in the competition or not, with one exception: Student groups participating in the competition must commit to styling their plots according to USAFacts standards. You may have, and present on, multiple versions of a plot, including one that is styled to your preferences and another styled according to USAFacts standards. However, you must adhere to USAFacts for the final visualization you submit to the competition. This final styling may take place after the actual competition.
-
-Student groups opting to participate in the competition should be prepared to present to a group of three judges in Week 10 of the term. The judges will be representatives from UO (though not me), USAFacts, and one external to both organizations. Judges will respond to a few rating scale items, provide notes on strengths and weaknesses of each visualization shown, and provide an overall holistic judgment. Judges will make their ratings independently.
-
-At the conclusion of all presentations, the judges will briefly meet to discuss their ratings and declare a winner. The winning group will receive copies of [Alberto Cairo](http://albertocairo.com/)’s [The Truthful Art](https://www.goodreads.com/book/show/26401716-the-truthful-art).
-
-In addition, [USAFacts website](https://usafacts.org/) will display the visuals for the winning team on their website. USAFacts also states
-
-> Depending on the analysis, we’re also open to working with one or more teams to turn their project into a report on our site as well.
-
-> For any projects to qualify for consideration, they will need to follow our style guide and stick to USAFacts’ approach of unbiased analysis of government data.
 
 ### Extra Credit
 
-There is one opportunity for extra credit, which is worth up to 5
+There is one opportunity for extra credit, which is worth up to 10
 points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide a 5-10 minute presentation on their chosen topic to the class. For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) are powerful and fun. Network visualizations is another examples of a topic that will not be covered but is nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data).
 
 If you are interested in giving a brief talk on a topic of your choice, please contact me as soon as possible to obtain approval on the topic and set a date for the presentation.
 
-## Grading Components (150 points possible)
+## Grading Components (200 points possible)
 
 {{< bootstrap-table "table table-hover" >}}
 
@@ -162,10 +156,10 @@ Graduate: 1 credit hour = 40 hours of student engagement (3 credit hours = 120 h
 
 | **Educational activity** | **Hours student engaged** | **Explanatory comments (if any):**                                                                                               |
 |:-------------------------|:-------------------------:|:---------------------------------------------------------------------------------------------------------------------------------|
-| Course attendance        |           28.5            | 10 meetings, at 170 minutes per meeting                                                                                          |
-| Assigned readings        |           28.5            | Weekly readings are assigned, and are expected to take roughly as long to complete as the in-seat time per week.                 |
-| Projects                 |            45             | Proposal (\~2 hrs), draft (\~30 hrs), Peer review (\~8 hrs), finalization (\~5 hrs)                                              |
-| Homework                 |            18             | 3 Labs, at approximately two hours per lab spent out of class (\~6 hrs), plus one homework assignments of approximately 12 hours |
+| Course attendance        |            30             | 10 meetings, at ~3 hours per meeting                                                                                             |
+| Assigned readings        |            20             | Weekly readings are assigned, and are expected to take roughly 2 hours per week to complete as the in-seat time per week.        |
+| Lab Assignments          |            30             | 3 Labs, at approximately ten hours per lab spent out of class (\~6 hrs)                                                          |
+| Final Project            |            40             | Proposal (\~5 hrs), Presentation (\~10 hrs), final output (\~25 hrs)                                              |
 | Total hours:             |            120            |                                                                                                                                  |
 
 {{< /bootstrap-table >}}
