@@ -3,20 +3,6 @@ title: Schedule
 toc: true
 ---
 
-
-
-
-<div class="sds-book">
-
-[Social Data Science with R](https://www.sds.pub)
-* Daniel Anderson
-* Brendan Cullen
-* Ouafaa Hmaddi
-
-</div>
-
-In addition to the course books linked below, I started working on course notes for all of the classes last year. This may eventually turn into a published book, but for now I'm just thinking of it as course notes. It has also mostly stalled in its development because of perpetual competing demands. Please feel free to use these notes as a supplemental resource (in addition to the slides and lectures). Also, please let me know if you'd like to contribute! In particular, if you see typos or areas that are unclear, that feedback would be really helpful. You can fork the repo and submit a PR and be a contributor to the book!
-
 ## Course Books
 Each of the below links to the full book. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (i.e., there are two videos it would be helpful if you watched).
 
@@ -26,7 +12,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 1 
  {{< schedule >}}
 
-{{< week-odd "01-03" >}}
+{{< week-odd "01-08" >}}
   {{< description "Introduction to the course and accessing course data" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch last year's lecture and read on git workflows (we won't have time to cover it this year; MLK week might be a good time for this). We'll then spend the rest of the day working on (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
   {{< wrap >}}
 {{< slides "w1" >}}
@@ -39,7 +25,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "video" "https://www.youtube.com/watch?v=X7Cl3lwxXi4" "" >}}
-{{< readings "other" "https://www.sds.pub/collaborating-with-git-and-github.html" "8" >}}
+{{< readings "other" "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" "" >}}
 {{< readings "happygit" "git-branches.html" "22" >}}
 {{< /wrap >}}
   {{< wrap >}}
@@ -51,7 +37,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 2 
  {{< schedule >}}
 
-{{< week-even "01-10" >}}
+{{< week-even "01-15" >}}
   {{< description "Intro to visualizations and working with string data, & Lab 1" "We will look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. We will then move to string data more specifically and methods for quickly visualizing a corpus . We will then practice these topics with our first lab." >}}
   {{< wrap >}}
 {{< slides "w2" >}}
@@ -81,7 +67,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 3 
  {{< schedule >}}
 
-{{< week-odd "01-17" >}}
+{{< week-odd "01-22" >}}
   {{< description "Martin Luther King Jr. Day" "No class. Black Lives Matter. ![](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F13%2FBlack-Lives-Matter-Fist-Transparent-PNG.png&f=1&nofb=1)" >}}
   {{< wrap >}}
 {{< slides "" >}}
@@ -104,7 +90,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 4 
  {{< schedule >}}
 
-{{< week-even "01-24" >}}
+{{< week-even "01-29" >}}
   {{< description "Visual Perception & Lab 2" "Aesthetic mappings and visual encodings of data. The data-ink ratio and the pitfall of rigid rules. Some general rule of thumb recommendations. For the lab, we will use ggplot2 to replicate plots produced by [fivethirtyeight](https://fivethirtyeight.com)." >}}
   {{< wrap >}}
 {{< slides "w4" >}}
@@ -128,7 +114,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 5 
  {{< schedule >}}
 
-{{< week-odd "01-31" >}}
+{{< week-odd "02-05" >}}
   {{< description "Color & Lab 3" "Three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well. Common pitfalls with the use of color. We will use color for each of its primary uses in data visualization and explore and evaluate different palettes by different types of color blindness." >}}
   {{< wrap >}}
 {{< slides "w5" >}}
@@ -152,7 +138,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 6 
  {{< schedule >}}
 
-{{< week-even "02-07" >}}
+{{< week-even "02-12" >}}
   {{< description "Communication" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
   {{< wrap >}}
 {{< slides "w6" >}}
@@ -180,7 +166,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 7 
  {{< schedule >}}
 
-{{< week-odd "02-14" >}}
+{{< week-odd "02-19" >}}
   {{< description "Uncertainty" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
   {{< wrap >}}
 {{< slides "w7" >}}
@@ -204,7 +190,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 8 
  {{< schedule >}}
 
-{{< week-even "02-21" >}}
+{{< week-even "02-26" >}}
   {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill/), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
   {{< wrap >}}
 {{< slides "w8" >}}
@@ -228,7 +214,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 9 
  {{< schedule >}}
 
-{{< week-odd "02-28" >}}
+{{< week-odd "03-05" >}}
   {{< description "Tables & intro to Geographic data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)." >}}
   {{< wrap >}}
 {{< slides "w9" >}}
@@ -253,7 +239,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 10 
  {{< schedule >}}
 
-{{< week-even "03-07" >}}
+{{< week-even "03-12" >}}
   {{< description "Loose ends and presentations" "We cover a lot in this course and so there is some space here to dive deeper into topics we didn't cover thouroughly enough, or additional topics as suggested by you and your peers. Each group will also present on their data visualization portfolios and discuss their journey, including high points and challenges faced along the way." >}}
   {{< wrap >}}
 {{< slides "" >}}
@@ -276,7 +262,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  ## Week 11 
  {{< schedule >}}
 
-{{< week-odd "03-14" >}}
+{{< week-odd "03-19" >}}
   {{< description "Finals Week" "Your final project is due before midnight" >}}
   {{< wrap >}}
 {{< slides "" >}}
