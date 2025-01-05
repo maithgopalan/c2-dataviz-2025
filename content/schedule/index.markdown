@@ -43,7 +43,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "w2" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-PS1" "Lab PS1" >}}
+{{< assigned "lab-1" "Lab 1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
@@ -169,7 +169,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< readings "video" "https://www.youtube.com/watch?v=E1kSnWvqCw0&feature=youtu.be" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/g1i--4u13bA" >}}
+{{< lecture "" >}}
 {{< /wrap >}}
 {{< /week-even >}}
 
@@ -245,7 +245,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/Le2Mu6Xtd3g" >}}
+{{< lecture "" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
