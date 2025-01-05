@@ -228,7 +228,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "03-05" >}}
-  {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill/), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots. >}}
+  {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
   {{< wrap >}}
 {{< slides "w9" >}}
 {{< /wrap >}}
