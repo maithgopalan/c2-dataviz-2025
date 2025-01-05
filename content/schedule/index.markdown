@@ -38,7 +38,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "01-15" >}}
-  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio, & Lab 1" "We will look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. We will then move to string data more specifically and methods for quickly visualizing a corpus. We will then practice these topics with our second lab." >}}
+  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio, & Lab 1" "We will start with a quick R Markdown refresher. We will then look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. If time permits, we will then move to string data more specifically and methods for quickly visualizing a corpus. We will then practice these topics with our second lab." >}}
   {{< wrap >}}
 {{< slides "w2" >}}
 {{< /wrap >}}
@@ -49,9 +49,9 @@ Each of the below links to the full book. Icons in the schedule link to specific
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "https://socviz.co/gettingstarted.html#gettingstarted" "" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/directory-of-visualizations.html" "" >}}
-{{< readings "r4ds" "https://r4ds.had.co.nz/r-markdown.html" "" >}}
+{{< readings "socviz" "https://socviz.co/gettingstarted.html" "2" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/directory-of-visualizations.html" "5" >}}
+{{< readings "r4ds" "https://r4ds.had.co.nz/r-markdown.html" "27" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< /wrap >}}
@@ -62,7 +62,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "01-22" >}}
-  {{< description "Visual processing and perceptual rankings" "Guidelines for better data visualizations. ![](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F13%2FBlack-Lives-Matter-Fist-Transparent-PNG.png&f=1&nofb=1)" >}}
+  {{< description "Visual processing and perceptual rankings" "Aesthetic mappings and visual encodings of data. The data-ink ratio and the pitfall of rigid rules. Some general rule of thumb recommendations. For the lab, we will use ggplot2 to replicate plots produced by [fivethirtyeight](https://fivethirtyeight.com) ![](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F13%2FBlack-Lives-Matter-Fist-Transparent-PNG.png&f=1&nofb=1)" >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -74,21 +74,13 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "https://socviz.co/lookatdata.html" "1" >}}
-{{< readings "r4ds" "graphics-for-communication.html" "4" >}}
-{{< readings "r4ds" "strings.html" "14" >}}
-{{< readings "dataviz" "directory-of-visualizations.html" "28" >}}
-{{< readings "dataviz" "visualizing-amounts.html" "6" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "2" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "17" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "22" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "23" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "24" >}}
-{{< readings "socviz" "gettingstarted.html#gettingstarted" "5" >}}
-
-
-
-
-{{< readings "socvi" "makeplot.html#makeplot" "7" >}}
+{{< readings "r4ds" "https://r4ds.had.co.nz/graphics-for-communication.html" "28" >}}
+{{< readings "r4ds" "https://r4ds.had.co.nz/strings.html" "14" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/aesthetic-mapping.html" "2" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/proportional-ink.html" "17" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/figure-titles-captions.html" "22" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/balance-data-context.html" "23" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/small-axis-labels.html" "24" >}}
 {{< readings "other" "https://www.tidytextmining.com/tidytext.html" "1" >}}
   {{< /wrap >}}
   {{< wrap >}}
@@ -101,7 +93,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "01-29" >}}
-  {{< description "Visual Perception & Lab 2" "Aesthetic mappings and visual encodings of data. The data-ink ratio and the pitfall of rigid rules. Some general rule of thumb recommendations. For the lab, we will use ggplot2 to replicate plots produced by [fivethirtyeight](https://fivethirtyeight.com)." >}}
+  {{< description "Use of Color and Inclusive Design Principles that go beyond Compliance (e.g., Alt-texts, inclusive design)" "We will discuss the three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well for the visualy impaired will be discussed along with the Common pitfalls with the use of color. We will use color for each of its primary uses in data visualization and explore and evaluate different palettes by different types of color blindness in the lab." >}}
   {{< wrap >}}
 {{< slides "w4" >}}
 {{< /wrap >}}
@@ -112,11 +104,12 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< due "assignments/#proposal" "Prop" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "lookatdata.html#lookatdata" "1" >}}
-{{< readings "dataviz" "aesthetic-mapping.html" "2" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/color-basics.html" "4" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/color-pitfalls.html" "19" >}}
+{{< readings "socviz" "https://socviz.co/refineplots.html" "8" >}}
+
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/extYHn4bW_o" >}}
 {{< /wrap >}}
 {{< /week-even >}}
 
@@ -125,7 +118,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "02-05" >}}
-  {{< description "Color & Lab 3" "Three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well. Common pitfalls with the use of color. We will use color for each of its primary uses in data visualization and explore and evaluate different palettes by different types of color blindness." >}}
+  {{< description "Visualizations for comparing categories" "" >}}
   {{< wrap >}}
 {{< slides "w5" >}}
 {{< /wrap >}}
@@ -136,11 +129,12 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< due "lab-2" "Lab 2" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "dataviz" "color-basics.html" "4" >}}
-{{< readings "dataviz" "color-pitfalls.html" "19" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-amounts.html" "6" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-proportions.html" "10" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/nested-proportions.html" "11" >}}
+
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/4nFppkl92l8" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
@@ -149,7 +143,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "02-12" >}}
-  {{< description "Communication" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
+  {{< description "Visualizations for change over time; Visualizations for distributions; Communication of Uncertainty" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
   {{< wrap >}}
 {{< slides "w6" >}}
 {{< /wrap >}}
@@ -160,6 +154,13 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< due "lab-3" "Lab 3" >}}
 {{< /wrap >}}
   {{< wrap >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/histograms-density-plots.html" "7" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/time-series.html" "13" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-trends.html" "14" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-uncertainty.html" "16" >}}
+{{< readings "socviz" "https://socviz.co/groupfacettx.html" "4" >}}
+
+
 {{< readings "socviz" "refineplots.html#refineplots" "8" >}}
 {{< readings "dataviz" "redundant-coding.html" "20" >}}
 {{< readings "dataviz" "balance-data-context.html" "23" >}}
@@ -177,7 +178,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "02-19" >}}
-  {{< description "Uncertainty" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
+  {{< description "Visualization for Relationships + Uncertainty" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
   {{< wrap >}}
 {{< slides "w7" >}}
 {{< /wrap >}}
@@ -188,11 +189,11 @@ Each of the below links to the full book. Icons in the schedule link to specific
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "workgeoms.html#workgeoms" "5" >}}
+{{< readings "socviz" "https://socviz.co/workgeoms.html" "5" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-associations.html" "12" >}}
 {{< readings "other" "https://gt.rstudio.com/articles/intro-creating-gt-tables.html" "gt" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/uYj04BODzIc" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
@@ -201,7 +202,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "02-26" >}}
-  {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill/), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
+  {{< description "Tables and Visualizations for Geospatial Data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)" >}}
   {{< wrap >}}
 {{< slides "w8" >}}
 {{< /wrap >}}
@@ -212,11 +213,13 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< due "assignments/#draft" "Draft" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
-{{< readings "other" "https://bookdown.org/yihui/rmarkdown/websites.html" "sites" >}}
+{{< readings "socviz" "https://socviz.co/maps.html" "7" >}}
+{{< readings "dataviz" "https://clauswilke.com/dataviz/geospatial-data.html" "15" >}}
+{{< readings "other" "https://docs.mapbox.com/help/tutorials/aa-standard-in-studio/" "" >}}
+{{< readings "other" "https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4" "" >}}
+
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/1cBa0tqXV6s" >}}
 {{< /wrap >}}
 {{< /week-even >}}
 
@@ -225,7 +228,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-odd "03-05" >}}
-  {{< description "Tables & intro to Geographic data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)." >}}
+  {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill/), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots. >}}
   {{< wrap >}}
 {{< slides "w9" >}}
 {{< /wrap >}}
@@ -237,8 +240,9 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< due "homework-2" "HW2" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "maps.html#maps" "7" >}}
-{{< readings "dataviz" "geospatial-data.html" "15" >}}
+{{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
+{{< readings "other" "https://bookdown.org/yihui/rmarkdown/websites.html" "sites" >}}
+
 {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "https://youtu.be/Le2Mu6Xtd3g" >}}
