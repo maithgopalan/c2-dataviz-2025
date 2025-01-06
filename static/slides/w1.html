@@ -3,8 +3,8 @@
   <head>
     <title>Welcome!</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Daniel Anderson" />
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <meta name="author" content="Maithreyi Gopalan" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="libs/kePrint-0.0.1/kePrint.js"></script>
     <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
@@ -15,10 +15,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Welcome!
+]
+.subtitle[
 ## An overview of the course
-### Daniel Anderson
+]
+.author[
+### Maithreyi Gopalan
+]
+.date[
 ### Week 1
+]
 
 ---
 
@@ -67,25 +75,25 @@ layout: true
 
 ---
 
-# whoami
+# who am i
 
 .pull-left[
-* Research Associate Professor: Behavioral Research and Teaching
-* Dad (two daughters: 9 and 7)
-* Pronouns: he/him/his
-* Primary areas of interest: 💗💗R💗💗, computational research, systemic inequities in opportunities and achievement, and variance between educational institutions
+* Associate Professor
+* Pronouns: she/her/hers
+* Primary areas of interest: educational equity, policy analysis, social psychology,systemic inequities in opportunities and achievement, and variance between educational institutions
+* Big secret: I am not a 💗💗R💗💗; have been a SAS and STATA user mostly, so learning R with y'all! 
 ]
 
 .pull-right[
 
-![](img/IMG_1306.jpeg)
+![](img/gopalan.jpg)
 &lt;/div&gt;
 ]
 
 ---
 class: center middle inverse-blue
 
-# whoisyou?
+# who is you?
 
 .left[
 * Introduce yourself
@@ -135,19 +143,17 @@ Truly the most important part of this class. Important not just in terms of dece
 
 ---
 class: inverse-red middle center
-# Omicron
+# In-person class
 
 ---
 # In-person class
-* This class is scheduled to be in-person
+* This class is in-person
 
-* I am vaccinated and boosted (&gt; 2 weeks ago)
+* Your class participation grade comes exclusively from your active participation in the class through discussions and hands-on lab sessions
 
-* I plan to always double mask
+* If you are not feeling well, please do not attend in person
 
-* If you are not feeling well at all, even if you don't think it's COVID, please do not attend in person
-
-* All courses will simultaneously be on zoom, and recordings will be posted
+* See syllabus for attendance policy
 
 ---
 # Last intro thing
@@ -169,17 +175,17 @@ background-size:cover
 # Course Website(s)
 
 .pull-left[
-## [website](https://dataviz-2022.netlify.app)
+## [website](https://dataviz-win2025.netlify.app)
 ]
 
 .pull-right[
 .right[
-## [repo](https://github.com/uo-datasci-specialization/c2-dataviz-2022)
+## [repo](https://github.com/maithgopalan/c2-dataviz-2025)
   ]
 ]
 
 
-&lt;iframe src="https://dataviz-2022.netlify.app" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+&lt;iframe src="https://dataviz-win2025.netlify.app" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
 
 ---
 # Materials
@@ -234,15 +240,14 @@ tidyverse
 --
 * Use R Markdown to create reproducible dynamic reports
 
+--
+* Indeed, all of today's lab is going to be about git and next week will be refresher on R Markdowns! 
+
 
 ---
 # Learning objectives
 
 * Transform data in a variety of ways to create effective data visualizations
-
---
-
-* Understand and and be able to apply basic string operations and work with textual data
 
 
 --
@@ -251,12 +256,12 @@ tidyverse
 
 --
 
-* Customize ggplot2 graphics by reordering factors, creating themes, etc.
+* Create and customize graphics in a variety of ways using best practices (e.g., visual perception, color choices, text annotations, categorical axis ordering, uncertainty)
 
 
 --
 
-* Create an online data visualization portfolio using distill and/or flexdashboards to demonstrate key learning 
+* Build web-based platforms for sharing data visualizations
 
 
 ---
@@ -295,114 +300,21 @@ Provide you a frame for what you should be working to learn for that specific we
 
 ---
 
-# Required Textbooks (free)
-
-.pull-left[
-## [Healy](http://socviz.co)
-
-&lt;div&gt;
-&lt;img src = http://socviz.co/assets/dv-cover-pupress.jpg height = 400&gt;
-&lt;/div&gt;
-
-]
-
-.pull-right[
-.right[
-## [Wilke](https://serialmentor.com/dataviz/)
-]
-
-&lt;div&gt;
-&lt;img src =
-https://clauswilke.com/dataviz/cover.png height = 400&gt; &lt;/div&gt;
-
-
-]
-
-
----
-
-# Other books (also free)
-
-.pull-left[
-![](https://happygitwithr.com/img/watch-me-diff-watch-me-rebase-smaller.png)
-## [Bryan](http://happygitwithr.com)
-]
-
-.pull-right[
-.right[
-&lt;div&gt;
-&lt;img src =https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png height = 400&gt; 
-&lt;/div&gt;
-  ]
-]
-
-.right[
-### [Wickham &amp; Grolemund](https://r4ds.had.co.nz)
-]
----
-class: inverse-green middle
-
-## Another resource
-See the current draft [here](https://www.sds.pub). Please read Chapter 8 on collaborating with git/GitHub. There is also a video lecture on this topic from last year that is linked on the website.
-
-&lt;iframe src="https://www.sds.pub" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
-
-
----
-class: inverse-orange middle
-# Extra credit opportunity
-**5 points**: Deep dive into a topic not covered by the course
-
-
----
-# Some options
-
-* Geographic data (we will discuss this, but it's relatively late and there's a ton we won't be able to get to)
-* Network data
-* DAGs
-* Flow data (e.g., alluvial diagrams)
-* Interactive plots
-* Animated plots
-
 ---
 class: inverse-blue  middle
 # Some examples
 
 ---
-background-image:url(https://timogrossenbacher.ch/wp-content/uploads/2016/12/tm-final-map-1.png)
-background-size:contain
-
-&lt;br/&gt;
-
 
 [Timo Grossenbacher](https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/)
 
 ---
 class: inverse
-background-image:url(https://user-images.githubusercontent.com/25231784/41408567-08313b66-6fcb-11e8-8c55-75baa36364cd.png)
-background-size:contain
-
-&lt;br/&gt;
 &lt;br/&gt;
 
 [Paul Campbell](https://gist.github.com/PaulC91/e767ca4f0c4335e6e0d2f71eb7cc98cc)
 
 ---
-class: bottom
-background-image:url(https://ggdag.netlify.com/articles/intro-to-dags_files/figure-html/unnamed-chunk-11-1.png)
-background-size:contain
-
-&lt;br/&gt;
-&lt;br/&gt;
-
-[ggdag](https://ggdag.netlify.com/articles/intro-to-dags.html) via Malcolm Barrett
-
-
----
-class: bottom
-background-image:url(https://static01.nyt.com/images/2018/05/02/learning/economic-mobilityLN/economic-mobilityLN-superJumbo.png?quality=90&amp;auto=webp)
-background-size:contain
-
 &lt;br/&gt;
 &lt;br/&gt;
 
@@ -417,34 +329,6 @@ background-size:contain
 &lt;br/&gt;
 
 [James Curley](https://github.com/jalapic/nba)
-
----
-# Labs
-
-See the [assignments](https://dataviz-2022.netlify.app/assignments/) page of the website.
-
-15 points each (45 points total; 30%)
-
-1. Distributions, GitHub collabo, and working w/strings
-
-1. Visual perception  &amp; plot reproducing
-
-1. Color
-
-
----
-# Homework
-Only one this time, worth 30 points (20%)
-
-* Basically the same as the labs, but scored correct/incorrect, and no in-class time devoted to them.
-
-* Okay to work on collaboratively - I actively encourage you to do so as long as you're using a shared repo
-
-
---
-
-## Topic: Visualizing uncertainty, tables, and plot refinement
-
 
 ---
 # Data viz "in the wild" presentations
@@ -462,9 +346,14 @@ Everyone will be randomly assigned a date to share two data visualizations you h
 
 .footnote[I will email this out as well. ]
 
-
+[1] 1
 
 .pull-left[
+
+```
+## Warning: package 'kableExtra' was built under R version 4.4.2
+```
+
 &lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
@@ -474,48 +363,28 @@ Everyone will be randomly assigned a date to share two data visualizations you h
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-10 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Futing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-15 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Michelle &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-10 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Zach &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-15 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; EmilyW &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-10 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Cano &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-22 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Nakyung &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-17 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Ian &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-22 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aden &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-17 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Abbie &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-29 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Elizabeth &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-24 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Havisha &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-24 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Tingyu &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-31 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Dillon &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-01-31 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Eliott &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-07 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Merly &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-07 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Esmeralda &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-29 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Erick &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -531,28 +400,32 @@ Everyone will be randomly assigned a date to share two data visualizations you h
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-14 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Amy &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-01-29 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Erick &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-14 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Diana &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-02-05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Saratessa &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-21 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Errol &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-02-05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sophia &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-21 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mandi &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-02-12 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Will &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-28 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Adriana &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-02-12 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Maiko &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2022-02-28 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Rebecca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2025-02-19 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Songyi &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2025-02-19 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; EmilyM &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -561,29 +434,16 @@ Everyone will be randomly assigned a date to share two data visualizations you h
 ---
 class: inverse-red middle
 # Final Project 
-70 points total (46.66%)
+70 points total (35%)
 
 ---
 # Group project
 
-* Please try to finalize your group by the end of today. You will have time when exploring the course data to work together.
+* Please try to finalize your group by the end of today. You will have time during lab today to work together.
 
 * No fewer than 2, no more than 3.
 
 * Although the final is the only mandated group project, I encourage you to work with your group for all labs and the homework assignment as well.
-
----
-# Five parts
-* Proposal (5 points): Due 1/24/22
-
-* Draft (10 points): Due 2/21/22
-
-* Peer review (10 points): Assigned, 2/21/21; Due 2/28/22
-
-* Presentation (5 points): 3/7/21 (Week 10)
-
-* Product (40 points): Due 11:59:59 PM, 3/14/21
-
 
 ---
 # Product
@@ -602,7 +462,7 @@ class: inverse-red middle
 
 ---
 
-* At least three finalized data displays, with each accompanied by a strong 
+* At least four finalized data displays, with each accompanied by a strong 
   narrative/story, as well as the history of how the visualization changed over 
   time.
   
@@ -615,7 +475,7 @@ class: inverse-red middle
 ---
 # Proposal
 
-### Four components:
+### Three components:
 
 * Show me some evidence that you've at least played around with the course data and that you have some ideas of what you want to do
 
@@ -630,17 +490,8 @@ class: inverse-red middle
 ## Main point - feedback!
 
 ---
-# Draft
 
-* Expected to still be a work in progress
-  + Data visualizations should be largely complete
-
-* Deployment not expected
-
-* Provided to your peers so they can learn from you as much as you can learn from their feedback
-
----
-# Peer Review
+# Peer Review (as part of Lab 8)
 * We are all professionals here. It is imperative we act like it. 
 
 * Understand the purpose of the exercise.  
@@ -672,120 +523,18 @@ Order randomly assigned. Basically a chance to share what you created!
 
 
 ---
-class: inverse-blue middle
-# Grading
-
----
-# Points
-### 150 points total
-* 3 labs at 15 points each (45 points; 30%) 
-* 1 homework assignments at 30 points each (20%)
-* 1 Data Viz in the Wild (5 points; 3%)
-* Final Project (70 points; 50%)
-  + Proposal (5 points; 3%)
-  + Draft (10 points; 7%)
-  + Peer review (10 points; 7%)
-  + Presentation (5 points; 3%)
-  + Product (40 points; 27%)
-
----
-
-# Grading
-
-|  **Lower percent** |**Lower point range**  | **Grade** | **Upper point range**  | **Upper percent**|
-|  :-------: | :-----------------| :-:| :---------------: | -----:|
-|  0.970+    | (146 pts or more) | A+ |                   |       |
-|  0.930     | (140 pts)         | A  | (145 pts)         | 0.969 |
-|  0.900     | (135 pts)         | A- | (139 pts)         | 0.929 |
-|  0.870     | (131 pts)         | B+ | (134 pts)         | 0.899 |
-|  0.830     | (125 pts)         | B  | (130 pts)         | 0.869 |
-|  0.800     | (120 pts)         | B- | (124 pts)         | 0.829 |
-|  0.770     | (116 pts)         | C+ | (119 pts)         | 0.799 |
-|  0.730     | (110 pts)         | C  | (115 pts)         | 0.769 |
-|  0.700     | (105 pts)         | C- | (109 pts)         | 0.739 |
-|            |                   | F  | (104 pts or less) | 0.699 |
-
----
-class: inverse
-background-image:url(https://d194ip2226q57d.cloudfront.net/original_images/10_Tips_for_Workplace_Communication)
-background-size:contain
-
-
----
-class: inverse-blue middle
-# Data Visualization Competition
-
----
-# Optional: opt-in/opt-out
-* This term, we are hosting a data visualization competition hosted by USAFacts, who provided us with the course data
-
-* This is completely optional and you should feel under no obligation to be part of the competition
-
-* As a group, you neeed to decide whether to opt-in or opt-out by the start of class in Week 3
-
----
-# A note on competition
-
-* Sometimes competition can lead to toxic environments. Let's not do that.
-
-* As previous portions of the syllabus should have made clear, this class is inherently collaborative **as a class** (i.e., you will be pointing out ways to improve your peers visuals through your peer review).
-
-* Should not be stress-inducing. Intended to be a fun way to challenge yourself to do your best work.
-
----
-# Competition
-* Week 10, all student groups will present on their final projects.
-
-* Those who opt-in  will provide their presentations to  three judges (one from UO, one from USAFacts, and one external to both organizations)
-
-* Judges evaluate the visuals using a rating scale (which I will create) and note strengths/weaknesses
-
-* Judges will make ratings independently initially, then  will confer to declare a winner
-
-* You will receive the judges' feedback, in addition to mine (which all groups will receive at the end of the term)
-
----
-# Competition
-
-* Will be in a room besides this one
-
-* I will developer a flier to advertise the competition and invite attendees
-
-* Will be both live and virtual (i.e., there will be people joining via zoom)
-
----
-# Conditions for participating
-
-* Must opt-in
-
-* Must build your visuals to match the USAFacts style guide
-
-  + Some of this is a bit tricky/finnicky with ggplot2 theming. I would be happy to help you with this outside of class
-  
----
-# Why participate?
-
-* The winning group will have their best visual, or possibly all of their visuals, featured on the USAFacts website
-
-.pull-left[
-* The winning group will also all get copies of [Alberto Cairo's](https://twitter.com/albertocairo) [the truthful art](https://www.bookdepository.com/Truthful-Art-Alberto-Cairo/9780321934079).
-]
-
-.pull-right[
-![](https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/3219/9780321934079.jpg)
-]
-
----
 class: inverse-orange middle
 # Questions?
-
+---
+class: inverse-blue middle
+# Lab 1
 
 ---
-class: inverse-green center bottom
-background-image:url(https://cdn-images-1.medium.com/max/1600/1*aFHTAkhTkyWD93-UGRttPw.png)
-background-size:contain
+class: inverse-green center middle
 
-## Full lecture [here](https://www.youtube.com/watch?v=X7Cl3lwxXi4)
+## Quick refresher on git [here](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git)
+
+## You can also watch a Full lecture after class [here](https://www.youtube.com/watch?v=X7Cl3lwxXi4)
 
 Please do watch the video and read the chapter.
 
@@ -806,27 +555,21 @@ Talk with your neighbor. What do these terms mean?
 * stash
 
 ---
-class: inverse-blue middle
-# Clone the course repo
-
-## Why would we probably not want to fork the repo?
-
----
 class: inverse-orange middle
-# Course data
+# Working with data
 
 ---
 # Getting started
-* To make it as easy as possible, I wrote a small R package to make accessing the data easier
+* To make it as easy as possible, Daniel Anderson wrote package to make accessing a set of EDFacts data easier. Let's play with that one if time permits
 
 * Install with 
 
 
-```r
-remotes::install_github("datalorax/edld652")
+``` r
+#detach("package:edld652", unload = TRUE)
+remotes::install_github("datalorax/edld652", force = TRUE)
+#set_key("maithgopalan_testkey")
 ```
-
-
 ---
 # Setting your key
 * When you first load the package, you will see a message asking you to set a key.
@@ -844,47 +587,9 @@ remotes::install_github("datalorax/edld652")
 After you've done everything on the prior slide, run the following to make sure it's working
 
 
-```r
+``` r
 library(edld652)
-list_datasets()
-```
-
-```
-##  [1] "EDFacts_acgr_lea_2011_2019"                                
-##  [2] "EDFacts_acgr_sch_2011_2019"                                
-##  [3] "EDFacts_math_achievement_lea_2010_2019"                    
-##  [4] "EDFacts_math_achievement_sch_2010_2019"                    
-##  [5] "EDFacts_math_participation_lea_2013_2019"                  
-##  [6] "EDFacts_math_participation_sch_2013_2019"                  
-##  [7] "EDFacts_rla_achievement_lea_2010_2019"                     
-##  [8] "EDFacts_rla_achievement_sch_2010_2019"                     
-##  [9] "EDFacts_rla_participation_lea_2013_2019"                   
-## [10] "EDFacts_rla_participation_sch_2013_2019"                   
-## [11] "NCES_CCD_fiscal_district_2010"                             
-## [12] "NCES_CCD_fiscal_district_2011"                             
-## [13] "NCES_CCD_fiscal_district_2012"                             
-## [14] "NCES_CCD_fiscal_district_2013"                             
-## [15] "NCES_CCD_fiscal_district_2014"                             
-## [16] "NCES_CCD_fiscal_district_2015"                             
-## [17] "NCES_CCD_fiscal_district_2016"                             
-## [18] "NCES_CCD_fiscal_district_2017"                             
-## [19] "NCES_CCD_fiscal_district_2018"                             
-## [20] "NCES_CCD_nonfiscal_district_2017_2021_directory"           
-## [21] "NCES_CCD_nonfiscal_district_2017_2021_disabilities"        
-## [22] "NCES_CCD_nonfiscal_district_2017_2021_english_learners"    
-## [23] "NCES_CCD_nonfiscal_district_2017_2021_membership"          
-## [24] "NCES_CCD_nonfiscal_district_2017_2021_staff"               
-## [25] "NCES_CCD_nonfiscal_school_2017_2020_lunch_program"         
-## [26] "NCES_CCD_nonfiscal_school_2017_2020_school_characteristics"
-## [27] "NCES_CCD_nonfiscal_school_2017_2020_staff"                 
-## [28] "NCES_CCD_nonfiscal_school_2017_2021_directory"             
-## [29] "NCES_CCD_nonfiscal_school_2017_membership"                 
-## [30] "NCES_CCD_nonfiscal_school_2018_membership"                 
-## [31] "NCES_CCD_nonfiscal_school_2019_membership"                 
-## [32] "NCES_CCD_nonfiscal_school_2020_membership"                 
-## [33] "NCES_CCD_nonfiscal_state_2017_2020_directory"              
-## [34] "NCES_CCD_nonfiscal_state_2017_2020_staff"                  
-## [35] "NCES_CCD_nonfiscal_state_2017_2021_membership"
+# list_datasets()
 ```
 
 ---
@@ -897,306 +602,16 @@ list_datasets()
 For example: Average cohort graduate rates for local education agency data, 2011 to 2019
 
 
-```r
+``` r
 acgd &lt;- get_data("EDFacts_acgr_lea_2011_2019")
-```
-
-```
-## 
-  |                                              
-  |                                        |   0%
-  |                                              
-  |                                        |   1%
-  |                                              
-  |=                                       |   2%
-  |                                              
-  |=                                       |   3%
-  |                                              
-  |==                                      |   4%
-  |                                              
-  |==                                      |   5%
-  |                                              
-  |==                                      |   6%
-  |                                              
-  |===                                     |   7%
-  |                                              
-  |===                                     |   8%
-  |                                              
-  |====                                    |   9%
-  |                                              
-  |====                                    |  10%
-  |                                              
-  |====                                    |  11%
-  |                                              
-  |=====                                   |  11%
-  |                                              
-  |=====                                   |  12%
-  |                                              
-  |=====                                   |  13%
-  |                                              
-  |=====                                   |  14%
-  |                                              
-  |======                                  |  14%
-  |                                              
-  |======                                  |  15%
-  |                                              
-  |======                                  |  16%
-  |                                              
-  |=======                                 |  16%
-  |                                              
-  |=======                                 |  17%
-  |                                              
-  |=======                                 |  18%
-  |                                              
-  |=======                                 |  19%
-  |                                              
-  |========                                |  19%
-  |                                              
-  |========                                |  20%
-  |                                              
-  |========                                |  21%
-  |                                              
-  |=========                               |  22%
-  |                                              
-  |=========                               |  23%
-  |                                              
-  |==========                              |  24%
-  |                                              
-  |==========                              |  25%
-  |                                              
-  |==========                              |  26%
-  |                                              
-  |===========                             |  27%
-  |                                              
-  |===========                             |  28%
-  |                                              
-  |============                            |  29%
-  |                                              
-  |============                            |  30%
-  |                                              
-  |============                            |  31%
-  |                                              
-  |=============                           |  32%
-  |                                              
-  |=============                           |  33%
-  |                                              
-  |==============                          |  34%
-  |                                              
-  |==============                          |  35%
-  |                                              
-  |==============                          |  36%
-  |                                              
-  |===============                         |  36%
-  |                                              
-  |===============                         |  37%
-  |                                              
-  |===============                         |  38%
-  |                                              
-  |===============                         |  39%
-  |                                              
-  |================                        |  39%
-  |                                              
-  |================                        |  40%
-  |                                              
-  |================                        |  41%
-  |                                              
-  |=================                       |  41%
-  |                                              
-  |=================                       |  42%
-  |                                              
-  |=================                       |  43%
-  |                                              
-  |=================                       |  44%
-  |                                              
-  |==================                      |  44%
-  |                                              
-  |==================                      |  45%
-  |                                              
-  |==================                      |  46%
-  |                                              
-  |===================                     |  46%
-  |                                              
-  |===================                     |  47%
-  |                                              
-  |===================                     |  48%
-  |                                              
-  |===================                     |  49%
-  |                                              
-  |====================                    |  49%
-  |                                              
-  |====================                    |  50%
-  |                                              
-  |====================                    |  51%
-  |                                              
-  |=====================                   |  52%
-  |                                              
-  |=====================                   |  53%
-  |                                              
-  |======================                  |  54%
-  |                                              
-  |======================                  |  55%
-  |                                              
-  |======================                  |  56%
-  |                                              
-  |=======================                 |  57%
-  |                                              
-  |=======================                 |  58%
-  |                                              
-  |========================                |  59%
-  |                                              
-  |========================                |  60%
-  |                                              
-  |========================                |  61%
-  |                                              
-  |=========================               |  62%
-  |                                              
-  |=========================               |  63%
-  |                                              
-  |==========================              |  64%
-  |                                              
-  |==========================              |  65%
-  |                                              
-  |==========================              |  66%
-  |                                              
-  |===========================             |  66%
-  |                                              
-  |===========================             |  67%
-  |                                              
-  |===========================             |  68%
-  |                                              
-  |===========================             |  69%
-  |                                              
-  |============================            |  69%
-  |                                              
-  |============================            |  70%
-  |                                              
-  |============================            |  71%
-  |                                              
-  |=============================           |  71%
-  |                                              
-  |=============================           |  72%
-  |                                              
-  |=============================           |  73%
-  |                                              
-  |=============================           |  74%
-  |                                              
-  |==============================          |  74%
-  |                                              
-  |==============================          |  75%
-  |                                              
-  |==============================          |  76%
-  |                                              
-  |===============================         |  77%
-  |                                              
-  |===============================         |  78%
-  |                                              
-  |================================        |  79%
-  |                                              
-  |================================        |  80%
-  |                                              
-  |================================        |  81%
-  |                                              
-  |=================================       |  82%
-  |                                              
-  |=================================       |  83%
-  |                                              
-  |==================================      |  84%
-  |                                              
-  |==================================      |  85%
-  |                                              
-  |==================================      |  86%
-  |                                              
-  |===================================     |  87%
-  |                                              
-  |===================================     |  88%
-  |                                              
-  |====================================    |  89%
-  |                                              
-  |====================================    |  90%
-  |                                              
-  |====================================    |  91%
-  |                                              
-  |=====================================   |  91%
-  |                                              
-  |=====================================   |  92%
-  |                                              
-  |=====================================   |  93%
-  |                                              
-  |=====================================   |  94%
-  |                                              
-  |======================================  |  94%
-  |                                              
-  |======================================  |  95%
-  |                                              
-  |======================================  |  96%
-  |                                              
-  |======================================= |  96%
-  |                                              
-  |======================================= |  97%
-  |                                              
-  |======================================= |  98%
-  |                                              
-  |======================================= |  99%
-  |                                              
-  |========================================|  99%
-  |                                              
-  |========================================| 100%
-```
-
-```r
-acgd
-```
-
-```
-## # A tibble: 11,326 × 29
-##    ALL_COHORT ALL_RATE CWD_COHORT CWD_RATE
-##         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   
-##  1        252 80                3 PS      
-##  2        398 75               47 70-79   
-##  3       1020 89               51 40-49   
-##  4        750 91               35 60-69   
-##  5        128 55-59            15 LT50    
-##  6        166 90-94             9 GE50    
-##  7        336 90               30 60-79   
-##  8        273 77               11 LT50    
-##  9        134 70-74             4 PS      
-## 10        266 58               33 50-59   
-## # … with 11,316 more rows, and 25 more variables:
-## #   DATE_CUR &lt;chr&gt;, ECD_COHORT &lt;dbl&gt;,
-## #   ECD_RATE &lt;chr&gt;, FIPST &lt;chr&gt;, FILEURL &lt;chr&gt;,
-## #   LEAID &lt;chr&gt;, LEANM &lt;chr&gt;, LEP_COHORT &lt;dbl&gt;,
-## #   LEP_RATE &lt;chr&gt;, MAM_COHORT &lt;dbl&gt;,
-## #   MAM_RATE &lt;chr&gt;, MAS_COHORT &lt;dbl&gt;,
-## #   MAS_RATE &lt;chr&gt;, MBL_COHORT &lt;dbl&gt;, …
+#acgd
 ```
 
 ---
 
-```r
-acgd
-```
-
-```
-## # A tibble: 11,326 × 29
-##    ALL_COHORT ALL_RATE CWD_COHORT CWD_RATE
-##         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   
-##  1        252 80                3 PS      
-##  2        398 75               47 70-79   
-##  3       1020 89               51 40-49   
-##  4        750 91               35 60-69   
-##  5        128 55-59            15 LT50    
-##  6        166 90-94             9 GE50    
-##  7        336 90               30 60-79   
-##  8        273 77               11 LT50    
-##  9        134 70-74             4 PS      
-## 10        266 58               33 50-59   
-## # … with 11,316 more rows, and 25 more variables:
-## #   DATE_CUR &lt;chr&gt;, ECD_COHORT &lt;dbl&gt;,
-## #   ECD_RATE &lt;chr&gt;, FIPST &lt;chr&gt;, FILEURL &lt;chr&gt;,
-## #   LEAID &lt;chr&gt;, LEANM &lt;chr&gt;, LEP_COHORT &lt;dbl&gt;,
-## #   LEP_RATE &lt;chr&gt;, MAM_COHORT &lt;dbl&gt;,
-## #   MAM_RATE &lt;chr&gt;, MAS_COHORT &lt;dbl&gt;,
-## #   MAS_RATE &lt;chr&gt;, MBL_COHORT &lt;dbl&gt;, …
+``` r
+acgdd &lt;- get_documentation("EDFacts_acgr_lea_2011_2019")
+# acgdd
 ```
 
 ---
@@ -1276,7 +691,7 @@ Use the [rvest](https://rvest.tidyverse.org/) package to scrape the data you see
 Let's read in the Wikipedia page on Eugene
 
 
-```r
+``` r
 library(rvest)
 eugene &lt;- read_html("https://en.wikipedia.org/wiki/Eugene%2C_Oregon")
 ```
@@ -1286,7 +701,7 @@ eugene &lt;- read_html("https://en.wikipedia.org/wiki/Eugene%2C_Oregon")
 # Grab paragraphs
 The `"#mw-content-text &gt; div.mw-parser-output &gt; p"` is the CSS selector that I pulled from the website
 
-```r
+``` r
 paragraphs &lt;- eugene %&gt;% 
   html_elements("#mw-content-text &gt; div.mw-parser-output &gt; p") %&gt;%
   html_text2()
@@ -1297,41 +712,41 @@ The first paragraph is just an empty line, so they are numbered p + 1
 Print the first paragraph
 
 
-```r
+``` r
 cat(stringr::str_wrap(paragraphs[2], 50))
 ```
 
 ```
-## Eugene (/juːˈdʒiːn/ yoo-JEEN) is a city in the
-## U.S. state of Oregon, in the Pacific Northwest. It
-## is at the southern end of the Willamette Valley,
-## near the confluence of the McKenzie and Willamette
-## rivers, about 50 miles (80 km) east of the Oregon
-## Coast.[7]
+## Eugene (/juːˈdʒiːn/ yoo-JEEN) is a city in and
+## the county seat of Lane County, Oregon, United
+## States. It is located at the southern end of the
+## Willamette Valley, near the confluence of the
+## McKenzie and Willamette rivers, about 50 miles (80
+## km) east of the Oregon Coast.[10]
 ```
 
 ---
 # Print the fourth paragraph
 
 
-```r
+``` r
 cat(stringr::str_wrap(paragraphs[5], 50))
 ```
 
 ```
-## The first people to settle in the Eugene area were
-## known as the Kalapuyans, also written Calapooia
-## or Calapooya. They made "seasonal rounds," moving
+## The first people to settle in the Eugene area
+## were the Kalapuyans, also written Calapooia or
+## Calapooya. They made "seasonal rounds," moving
 ## around the countryside to collect and preserve
 ## local foods, including acorns, the bulbs of the
 ## wapato and camas plants, and berries. They stored
 ## these foods in their permanent winter village.
 ## When crop activities waned, they returned to their
 ## winter villages and took up hunting, fishing, and
-## trading.[19][20] They were known as the Chifin
+## trading.[20][21] They were known as the Chifin
 ## Kalapuyans and called the Eugene area where they
 ## lived "Chifin", sometimes recorded as "Chafin" or
-## "Chiffin".[21][22]
+## "Chiffin".[22][23]
 ```
 
 ---
@@ -1344,7 +759,7 @@ First, let's structure it! Turn the text into a simple data frame.
 
 --
 
-```r
+``` r
 library(tidyverse)
 eugene_df &lt;- tibble(
   paragraph = seq_along(paragraphs),
@@ -1354,21 +769,20 @@ eugene_df
 ```
 
 ```
-## # A tibble: 130 × 2
-##    paragraph
-##        &lt;int&gt;
-##  1         1
-##  2         2
-##  3         3
-##  4         4
-##  5         5
-##  6         6
-##  7         7
-##  8         8
-##  9         9
-## 10        10
-## # … with 120 more rows, and 1 more variable:
-## #   description &lt;chr&gt;
+## # A tibble: 133 × 2
+##    paragraph description                                                        
+##        &lt;int&gt; &lt;chr&gt;                                                              
+##  1         1 ""                                                                 
+##  2         2 "Eugene (/juːˈdʒiːn/ yoo-JEEN) is a city in and the county seat of…
+##  3         3 "The second-most populous city in Oregon, Eugene had a population …
+##  4         4 "Eugene is home to the University of Oregon, Bushnell University, …
+##  5         5 "The first people to settle in the Eugene area were the Kalapuyans…
+##  6         6 "Other Kalapuyan tribes occupied villages that are also now within…
+##  7         7 "According to archeological evidence, the ancestors of the Kalapuy…
+##  8         8 "French fur traders had settled seasonally in the Willamette Valle…
+##  9         9 "In July 1830, \"intermittent fever\" struck the lower Columbia re…
+## 10        10 "As the demographic pressure from the settlers grew, the remaining…
+## # ℹ 123 more rows
 ```
 
 ---
@@ -1397,15 +811,22 @@ Just like most functions in the tidyverse, we pipe our data to `unnest_tokens()`
 # Example
 
 
-```r
+``` r
 library(tidytext)
+```
+
+```
+## Warning: package 'tidytext' was built under R version 4.4.2
+```
+
+``` r
 eugene_tidy_words &lt;- eugene_df %&gt;% 
   unnest_tokens(word, description)
 eugene_tidy_words
 ```
 
 ```
-## # A tibble: 7,814 × 2
+## # A tibble: 8,242 × 2
 ##    paragraph word     
 ##        &lt;int&gt; &lt;chr&gt;    
 ##  1         2 eugene   
@@ -1416,9 +837,9 @@ eugene_tidy_words
 ##  6         2 a        
 ##  7         2 city     
 ##  8         2 in       
-##  9         2 the      
-## 10         2 u.s      
-## # … with 7,804 more rows
+##  9         2 and      
+## 10         2 the      
+## # ℹ 8,232 more rows
 ```
 
 Not perfect, but pretty good
@@ -1428,33 +849,33 @@ Not perfect, but pretty good
 Let's count some words!
 
 
-```r
+``` r
 eugene_tidy_words %&gt;% 
   count(word, sort = TRUE)
 ```
 
 ```
-## # A tibble: 2,478 × 2
+## # A tibble: 2,584 × 2
 ##    word       n
 ##    &lt;chr&gt;  &lt;int&gt;
-##  1 the      597
-##  2 and      249
-##  3 of       231
-##  4 in       230
-##  5 eugene   178
-##  6 a        136
-##  7 to       116
-##  8 is        95
-##  9 for       76
+##  1 the      626
+##  2 and      266
+##  3 of       256
+##  4 in       247
+##  5 eugene   184
+##  6 a        138
+##  7 to       121
+##  8 is        94
+##  9 for       78
 ## 10 was       76
-## # … with 2,468 more rows
+## # ℹ 2,574 more rows
 ```
 
 ---
 # Plot the top 15 words
 
 
-```r
+``` r
 eugene_tidy_words %&gt;% 
   count(word, sort = TRUE) %&gt;% 
   mutate(word = reorder(word, n)) %&gt;% # make y-axis ordered by n
@@ -1463,7 +884,7 @@ eugene_tidy_words %&gt;%
     geom_col(fill = "cornflowerblue")
 ```
 
-![](w1_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](w1_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 # Not very informative
@@ -1497,7 +918,7 @@ This dataset is available to you as soon as you load **tidytext**.
 There are three lexicons - I usually use all three.
 
 
-```r
+``` r
 stop_words 
 ```
 
@@ -1515,7 +936,7 @@ stop_words
 ##  8 across      SMART  
 ##  9 actually    SMART  
 ## 10 after       SMART  
-## # … with 1,139 more rows
+## # ℹ 1,139 more rows
 ```
 
 ---
@@ -1525,27 +946,27 @@ Let's try counting again without the stop words included.
 .pull-left[
 
 
-```r
+``` r
 eugene_tidy_words %&gt;% 
 * anti_join(stop_words) %&gt;%
   count(word, sort = TRUE)
 ```
 
 ```
-## # A tibble: 2,199 × 2
+## # A tibble: 2,296 × 2
 ##    word           n
 ##    &lt;chr&gt;      &lt;int&gt;
-##  1 eugene       178
-##  2 city          54
-##  3 oregon        50
-##  4 university    40
-##  5 community     27
-##  6 lane          24
-##  7 eugene's      23
-##  8 college       20
-##  9 home          20
-## 10 center        19
-## # … with 2,189 more rows
+##  1 eugene       184
+##  2 city          59
+##  3 oregon        56
+##  4 university    47
+##  5 community     28
+##  6 eugene's      26
+##  7 lane          26
+##  8 college       23
+##  9 school        21
+## 10 home          20
+## # ℹ 2,286 more rows
 ```
 
 ]
@@ -1558,7 +979,7 @@ eugene_tidy_words %&gt;%
 # Plot the top 15 words
 
 
-```r
+``` r
 eugene_tidy_words %&gt;% 
   anti_join(stop_words) %&gt;% 
   count(word, sort = TRUE) %&gt;% 
@@ -1568,92 +989,16 @@ eugene_tidy_words %&gt;%
     geom_col(fill = "cornflowerblue")
 ```
 
-![](w1_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
-
----
-# Add the headers in 
-I hid the code here because it's weird and inefficient but the HTML structure made it difficult. You can look at the source if you want. The new dataframe is called `eugene_tidy_words2`.
-
-
-```
-## # A tibble: 130 × 3
-##    paragraph header 
-##        &lt;int&gt; &lt;chr&gt;  
-##  1         1 Intro  
-##  2         2 Intro  
-##  3         3 Intro  
-##  4         4 Intro  
-##  5         5 History
-##  6         6 History
-##  7         7 History
-##  8         8 History
-##  9         9 History
-## 10        10 History
-## # … with 120 more rows, and 1 more variable:
-## #   description &lt;chr&gt;
-```
-
----
-# Count words by header
-
-Not surprisingly, "eugene" appears to be the most common among multiple categories.
-
-We might want to remove "eugene" as well.
-
-
-```r
-eugene_tidy_words2 %&gt;% 
-  unnest_tokens(word, description) %&gt;% 
-  count(header, word, sort = TRUE) %&gt;% 
-  anti_join(stop_words)
-```
-
-```
-## # A tibble: 3,029 × 3
-##    header           word       n
-##    &lt;chr&gt;            &lt;chr&gt;  &lt;int&gt;
-##  1 Arts and culture eugene    54
-##  2 History          eugene    21
-##  3 Infrastructure   eugene    20
-##  4 Arts and culture church    19
-##  5 Education        eugene    15
-##  6 Geography        eugene    15
-##  7 Economy          eugene    14
-##  8 Education        school    14
-##  9 Government       eugene    14
-## 10 Arts and culture center    12
-## # … with 3,019 more rows
-```
-
----
-# Plot
-Top 15 words by header
-
-
-```r
-p &lt;- eugene_tidy_words2 %&gt;% 
-  unnest_tokens(word, description) %&gt;% 
-  count(header, word, sort = TRUE) %&gt;% 
-  anti_join(stop_words) %&gt;% 
-  group_by(header) %&gt;% 
-  slice(1:15) %&gt;% 
-  ggplot(aes(n, word)) +
-    geom_col(fill = "cornflowerblue") +
-    facet_wrap(~header, scales = "free_y") 
-```
-
----
-class: full-size-fig
-
-&lt;img src="w1_files/figure-html/unnamed-chunk-24-1.png" width="90%" /&gt;
+![](w1_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
 ---
 class: inverse-green middle
 # Next time
 
-* Finish up on text data
+* Quick refresher on R Markdowns
 * Discuss string manipulations
 * Discuss distribution/binning
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -1704,6 +1049,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
