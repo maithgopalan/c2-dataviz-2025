@@ -15,10 +15,12 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "01-08" >}}
   {{< description "Introduction to the course and Github Repos" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch a recorded lecture and read on git workflows. We'll then spend the rest of the day working on our first lab that includes (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
   {{< wrap >}}
-{{< slides "w1" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "syllabus/#final-project" "Final" >}}
+{{< assigned "lab-ps1" "Lab PS1" >}}
+
 {{< /wrap >}}
   {{< wrap >}}
 
@@ -38,12 +40,12 @@ Each of the below links to the full book. Icons in the schedule link to specific
  {{< schedule >}}
 
 {{< week-even "01-15" >}}
-  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio, & Lab 1" "We will start with a quick R Markdown refresher. We will then look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. If time permits, we will then move to string data more specifically and methods for quickly visualizing a corpus. We will then practice these topics with our second lab." >}}
+  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio" "We will start with a quick R Markdown refresher. We will then look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. If time permits, we will then move to string data more specifically and methods for quickly visualizing a corpus. We will then practice these topics with our second lab." >}}
   {{< wrap >}}
-{{< slides "w2" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-1" "Lab 1" >}}
+{{< assigned "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
@@ -67,6 +69,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
+{{< assigned "lab-ps2" "Lab PS2" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -95,10 +98,10 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-even "01-29" >}}
   {{< description "Use of Color and Inclusive Design Principles that go beyond Compliance (e.g., Alt-texts, inclusive design)" "We will discuss the three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well for the visualy impaired will be discussed along with the Common pitfalls with the use of color. We will use color for each of its primary uses in data visualization and explore and evaluate different palettes by different types of color blindness in the lab." >}}
   {{< wrap >}}
-{{< slides "w4" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-2" "Lab 2" >}}
+{{< assigned "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#proposal" "Prop" >}}
@@ -120,13 +123,13 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "02-05" >}}
   {{< description "Visualizations for comparing categories" "" >}}
   {{< wrap >}}
-{{< slides "w5" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-3" "Lab 3" >}}
+{{< assigned "lab-ps3" "Lab PS3" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "lab-2" "Lab 2" >}}
+{{< due "lab-ps2" "Lab ps2" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-amounts.html" "6" >}}
@@ -145,13 +148,13 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-even "02-12" >}}
   {{< description "Visualizations for change over time; Visualizations for distributions; Communication of Uncertainty" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
   {{< wrap >}}
-{{< slides "w6" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "homework" "HW 1" >}}
+{{< assigned "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "lab-3" "Lab 3" >}}
+{{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "dataviz" "https://clauswilke.com/dataviz/histograms-density-plots.html" "7" >}}
@@ -180,10 +183,10 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "02-19" >}}
   {{< description "Visualization for Relationships + Uncertainty" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
   {{< wrap >}}
-{{< slides "w7" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-
+{{< due "lab-ps3" "Lab ps3" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
@@ -204,7 +207,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-even "02-26" >}}
   {{< description "Tables and Visualizations for Geospatial Data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)" >}}
   {{< wrap >}}
-{{< slides "w8" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "assignments/#peer-review" "PR" >}}
@@ -230,7 +233,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "03-05" >}}
   {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
   {{< wrap >}}
-{{< slides "w9" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
