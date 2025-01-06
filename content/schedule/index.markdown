@@ -239,7 +239,6 @@ Each of the below links to the full book. Icons in the schedule link to specific
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "assignments/#presentation" "Presentation" >}}
 {{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
@@ -262,7 +261,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-
+{{< due "assignments/#presentation" "Presentation" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
