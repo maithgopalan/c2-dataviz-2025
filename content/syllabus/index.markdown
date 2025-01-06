@@ -97,7 +97,7 @@ were presented from a variety of sources.
 
 ### Final Project (70 points; 35%)
 
-Please see the [assignments](../assignments/) page for full details on the final project, which will include a portfolio of your data visualizations using the [course data](../2021-12-10-accessing-the-data/). At least **three** different data visualizations must be included, as well as the history of how the visualization changed over time (initial draft to final product). The portfolios must be housed on *GitHub* and be reproducible. It can be helpful to make final modifications to your plot through systems outside of R (e.g., Adobe Illustrator, Inkscape). If you choose to make these modifications (not required) they are the one (and only) acceptable exception to full reproducibility.
+Please see the [assignments](../assignments/) page for full details on the final project, which will include a portfolio of your data visualizations using the [course data](../2021-12-10-accessing-the-data/). At least **four** different data visualizations must be included, as well as the history of how the visualization changed over time (initial draft to final product). The portfolios must be housed on *GitHub* and be reproducible. It can be helpful to make final modifications to your plot through systems outside of R (e.g., Adobe Illustrator, Inkscape). If you choose to make these modifications (not required) they are the one (and only) acceptable exception to full reproducibility.
 
 The due date for the proposal can be (somewhat) flexible. However, unlike the labs and homework, the remaining aspects of the final project cannot be changed and you will lose points if your work is submitted late without prior approval. This is mostly because of concerns related peer-review and completing the project by the end of the term.
 
@@ -158,7 +158,7 @@ In the event of a campus emergency that disrupts academic activities, course req
 
 ## Fluidity, Attendance, Participation
 
-As the university community adjusts to teaching and learning remotely in the context of the COVID-19 pandemic, course requirements, deadlines, and grading percentages are subject to change. We will be mindful of the many impacts the unfolding events related to COVID-19 may be having on you. During this challenging time, we encourage you to talk with me about what you are experiencing so we can work together to help you succeed in this course.
+I encourage you to talk with me about what you are experiencing so we can work together to help you succeed in this course.
 
 ## Expected Engagement
 
@@ -178,7 +178,7 @@ As the university community adjusts to teaching and learning remotely in the con
 4.  Try to use correct spelling and grammar and proofread your submissions. After submitting, use the edit feature to make corrections and resubmit (don’t create a new or duplicate post that corrects your error).
 5.  Contribute and interact often!
 
-**Specific guidelines for best practices using Zoom:**
+**Specific guidelines for best practices if and when we use Zoom:**
 
 1.  Please test your video and audio prior to joining a live class session. You can learn more about testing your audio and video by visiting the UO Service Portal.
 2.  Try to be on time when the class starts. It can be distracting to have participants join late.
@@ -221,7 +221,7 @@ The College of Education is always working to include and engage everyone. One w
 
 Please let me know if aspects of the instruction, course design, or class activities undermine these principles in any way. You may also notify the (Home Department) at (contact information). For additional assistance and resources, you may also consider contacting the Division of Equity and Inclusion through their website or by phone (at 541-346-3175), or the Center for Multicultural Academic Excellence through their website or by phone (at 541-346-3479).
 
-###Mental Health and Wellness 
+### Mental Health and Wellness 
 Life at college can be very complicated. Students often feel overwhelmed or stressed, experience anxiety or depression, struggle with relationships, or just need help navigating challenges in their life. If you're facing such challenges, you don't need to handle them on your own--there's help and support on campus. 
 As your instructor if I believe you may need additional support, I will express my concerns, the reasons for them, and refer you to resources that might be helpful. It is not my intention to know the details of what might be bothering you, but simply to let you know I care, and that help is available. Getting help is a courageous thing to do—for yourself and those you care about.
 
@@ -314,11 +314,11 @@ Specific details about confidentiality of information and reporting obligations 
 You can find faculty resources on academic misconduct here: https://dos.uoregon.edu/faculty-resources
 The University Student Conduct Code (available at conduct.uoregon.edu) defines academic misconduct. Students are prohibited from committing or attempting to commit any act that constitutes academic misconduct. By way of example, students should not give or receive (or attempt to give or receive) unauthorized help on assignments or examinations without express permission from the instructor. Students should properly acknowledge and document all sources of information (e.g., quotations, paraphrases, ideas) and use only the sources and resources authorized by the instructor. If there is any question about whether an act constitutes academic misconduct, it is the students’ obligation to clarify the question with the instructor before committing or attempting to commit the act. Additional information about a common form of academic misconduct, plagiarism, is available at https://researchguides.uoregon.edu/citing-plagiarism.”
 
-###Academic Disruption due to Campus Emergency
+### Academic Disruption due to Campus Emergency
 
 In the event of a campus emergency that disrupts academic activities, course requirements, deadlines, and grading percentages are subject to change. Information about changes in this course will be communicated as soon as possible by email, and on Canvas. If we are not able to meet face-to-face, students should immediately log onto Canvas and read any announcements and/or access alternative assignments. Students are also encouraged to continue the readings and other assignments as outlined in this syllabus or subsequent syllabi.
 
-###Inclement Weather
+### Inclement Weather
 
 It is generally expected that class will meet unless the University is officially closed for inclement weather. If it becomes necessary to cancel class while the University remains open, this will be announced on Canvas and by email. Updates on inclement weather and closure are also communicated in other ways described here: https://hr.uoregon.edu/about-hr/campus-notifications/inclement-weather/inclement-weather-immediate-updates”
 
