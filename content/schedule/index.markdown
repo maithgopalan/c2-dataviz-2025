@@ -186,9 +186,10 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "lab-ps3" "Lab ps3" >}}
+{{< assigned "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
+{{< due "lab-ps3" "Lab ps3" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -261,9 +262,10 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "assignments/#presentation" "Presentation" >}}
+{{< assigned "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
+{{< due "assignments/#presentation" "Presentation" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -284,7 +286,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-
+{{< assigned "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#final-project" "Product" >}}
