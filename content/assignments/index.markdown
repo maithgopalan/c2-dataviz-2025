@@ -4,7 +4,8 @@ toc: true
 ---
 
 
-We will have three lab problem sets and one homework assignment. The two will be very similar with two primary differences: (a) The labs will include designated time in class, though potentially not enough to complete the entire lab, and (b) all labs will be scored on a ["best honest effort"](../syllabus/#labs) basis, while homework will be scored based on accuracy. Note - all labs and homework assignments may be completed independently or in small groups. I encourage the latter, and suggest working with the group you will be working with for your final project. However, all assignments completed as a group must use a shared GitHub repository.
+We will have 10 weekly in-class labs and three lab problem sets. The two will be very similar with two primary differences: (a) The labs will include designated time in class, though potentially not enough to complete the entire lab, and (b) all labs will be scored on a ["best honest effort"](../syllabus/#labs) basis, while lab problem sets will be scored based on accuracy. Note - all labs (in-class as well as the lab problem sets) may be completed independently or in small groups. I encourage the latter, and suggest working with the group you will be working with for your final project. However, all assignments completed as a group must use a shared GitHub repository.
+Also, note that the weekly labs and slides will be uploaded to the class website the day before the weekly class (i.e., Tuesdays). You should make it a point to check and download those before coming to class.
 
 #### A note on deadlines
 I would like to, as much a possible, stick to the deadlines below so we can go over them together as a group *after* everyone has submitted their assignment. However, **if you need additional time for any reason** please just send me a note letting me know. You do not need to justify why. I would just ask that you not attend class during the time we are going over the assignment (but please attend the rest of the class if you are able).
@@ -15,7 +16,7 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 {{< bootstrap-table "table table-hover" >}}
 
-| Lab|Date Assigned   |Date Due         |Topic                                                                                     |
+| Lab Problem Set|Date Assigned   |Date Due         |Topic                                                                                     |
 |---:|:---------------|:----------------|:-----------------------------------------------------------------------------------------|
 |   1|Mon, January 8  |Mon, January 20  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-1) |
 |   2|Mon, January 22 |Mon, Feb 9       |[Visual perception & reproducing plots](../lab-2)                                         |
@@ -25,7 +26,7 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 ## Final Project
 
-The final project includes multiple components and is worth 60 points total (46% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least three data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You must use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
+The final project includes multiple components and is worth 70 points total (46% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least three data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You must use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
 
 {{< bootstrap-table "table table-hover" >}}
 
@@ -33,7 +34,7 @@ The final project includes multiple components and is worth 60 points total (46%
 |:------------|:----------------|:------:|------------------------:|
 |Proposal     |Mon, January 27  |   20   |                     10 %|
 |Presentation |Wed, March 12    |   20   |                     10 %|
-|Product      |Wed, March 19    |   20   |                     10 %|
+|Product      |Wed, March 19    |   30   |                     15 %|
 
 {{< /bootstrap-table >}}
 
@@ -50,12 +51,6 @@ The proposal process is a chance for you to get feedback  from me on your plans 
   + Note, you might consider displaying the same data/relations more than 
     once, with each plot displayed for a different audience. If your group is planning on participating in the data visualization competition, you will need to plan for a broad general public audience for at least one of your visuals (it's okay if not all).
 * The intended message to be communicated for each plot. 
-
-### Draft
-By the end of Week 8, you should have a fairly complete draft of the data 
-visualizations you will be sharing in your portfolio. These should be housed in a GitHub repo and ready to receive feedback from your peers. 
-
-To receive credit, you must submit a link to your GitHub repo.
 
 ### Peer Review
 You will be assigned to three groups to review their code. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communication. Peer review is a chance to learn from your peers both by reviewing their work and by having your work reviewed.
@@ -132,7 +127,7 @@ It will be graded on the following three criteria:
 
 ## Extra Credit
 There is one opportunity for extra credit, which is worth up to 10 
-points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide an (approximately) 5-10 minute presentation on their chosen topic to the class. For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) and [plotly](https://plotly.com/r/) are powerful and fun. Network visualizations are also not covered but are nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data). 
+points. This includes an in-depth self-study of a topic not explicitly covered in the class. Students opting into the extra credit option will provide an (approximately) 10-20 minute presentation on their chosen topic to the class. For example, interactive and animated graphics are not explicitly covered, but packages like [gganimate](https://gganimate.com/index.html) and [plotly](https://plotly.com/r/) are powerful and fun. Network visualizations are also not covered but are nonetheless important. You could choose one of these areas, explore a different topic, or provide greater detail on a topic that *is* covered in class (e.g., geographic data). 
 
 If you are interested in giving a talk on a topic of your choice, please contact me as soon as possible to obtain approval on the topic and set a date for the presentation.
 
