@@ -213,7 +213,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< assigned "assignments/#peer-review" "PR" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "assignments/#draft" "Draft" >}}
+{{< due "PR" "PR" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "https://socviz.co/maps.html" "7" >}}
@@ -239,8 +239,8 @@ Each of the below links to the full book. Icons in the schedule link to specific
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "assignments/#peer-review" "PR" >}}
-{{< due "homework-2" "HW2" >}}
+{{< due "assignments/#presentation" "Presentation" >}}
+{{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
