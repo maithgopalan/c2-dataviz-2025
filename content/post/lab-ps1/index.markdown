@@ -67,7 +67,7 @@ Search the `text` column for the work "plot". Report the proportion of posts con
 ### 3. Plot rough draft
 Create the following figure of the 15 most common words represented in the posts.
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/fig2-raw-1.png" width="960" />
+<img src="{{< blogdown/postref >}}lab-ps1/index_files/figure-html/fig2-raw-1.png" width="960" />
 
 
 #### Some guidance
@@ -77,7 +77,7 @@ Create the following figure of the 15 most common words represented in the posts
 ### 4. Stylized Plot
 Style the plot so it (mostly) matches the below. It does not need to be exact, but it should be close.
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/fig2-styled-1.png" width="960" />
+<img src="{{< blogdown/postref >}}lab-ps1/index_files/figure-html/fig2-styled-1.png" width="960" />
 
 
 ## Finishing up
