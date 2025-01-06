@@ -4,10 +4,9 @@ toc: true
 ---
 
 ## Course Books
-Each of the below links to the full book. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (i.e., there are two videos that would be helpful if you watched).
+Each of the below links to the full book, except the last one. I will upload chapters from that book on the class website as needed. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (e.g., podcasts, videos, journal articles, etc.).
 
 {{< course-books >}}
-
 
  ## Week 1 
  {{< schedule >}}
@@ -15,7 +14,7 @@ Each of the below links to the full book. Icons in the schedule link to specific
 {{< week-odd "01-08" >}}
   {{< description "Introduction to the course and Github Repos" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch a recorded lecture and read on git workflows. We'll then spend the rest of the day working on our first lab that includes (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "syllabus/#final-project" "Final" >}}
