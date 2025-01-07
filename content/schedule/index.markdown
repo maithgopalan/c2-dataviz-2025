@@ -19,10 +19,11 @@ Each of the below links to the full book, except the last one. I will upload cha
   {{< wrap >}}
 {{< assigned "syllabus/#final-project" "Final" >}}
 {{< assigned "lab-ps1" "Lab PS1" >}}
+{{< assigned "lab-1" "Lab 1" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
-
+{{< due "lab-1" "Lab 1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "video" "https://www.youtube.com/watch?v=X7Cl3lwxXi4" "" >}}
