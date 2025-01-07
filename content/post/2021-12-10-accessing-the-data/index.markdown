@@ -11,7 +11,7 @@ categories:
   - Data Visualization Competition
 tags:
   - Data
-  - Lab
+  - Misc
 ---
 
 
