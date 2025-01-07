@@ -23,6 +23,10 @@
 
 		<span class = "readings"><a class = "dataviz" href="https://clauswilke.com/dataviz/{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
 
+  {{ else if eq $arg1 "jschwab" }}
+
+		<span class = "readings"><a class = "jschwab" href="{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
+
 	{{ else if eq $arg1 "other" }}
 
 		<span class = "readings"><a class = "other" href="{{ .Get 1 }}" target="_blank" rel="noopener noreferrer"> <i data-feather="book"></i> {{ .Get 2 }} </a></span>
