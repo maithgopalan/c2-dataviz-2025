@@ -15,13 +15,12 @@ toc: true
 
 
 ## Overview
-This lab covers three primary topics: (a) working with *git* and *GitHub*
+This lab covers two primary topics: (a) working with *git* and *GitHub*
   collaboratively, (b) creating basic visualizations, and (c) working with textual data.You should plan to work together with your group.
 
 The basics of the lab are to:
   
 * Create a shared repo
-* Create an R Markdown document
 * Work on different pieces of the lab together
 + File issues for the different pieces of the lab
 + Create branches for those issues
@@ -32,7 +31,10 @@ The basics of the lab are to:
 To receive full credit **you must** create and merge branches. The contributions across team members should also appear roughly equal.
 
 ## Data
-We'll work with Week 1 of the [#tidytuesday](https://twitter.com/search?q=%23tidytuesday&src=tyah)  data for 2019, specifically the [#rstats](https://twitter.com/search?q=%23rstats&src=typd) dataset, containing nearly 500,000 tweets over a little more than a decade using that hashtag. The data is in the `data` folder of the course repo.
+
+*We will learn to explore some data from the Department of Education  for the first part of this lab that we saw in the class slides (https://github.com/datalorax/edld652)
+
+*We'll then work with Week 1 of the [#tidytuesday](https://twitter.com/search?q=%23tidytuesday&src=tyah)  data for 2019, specifically the [#rstats](https://twitter.com/search?q=%23rstats&src=typd) dataset, containing nearly 500,000 tweets over a little more than a decade using that hashtag. The data is in the `data` folder of the course repo.
 
 ## Project
 
