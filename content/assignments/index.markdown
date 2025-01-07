@@ -18,15 +18,15 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 | Lab Problem Set|Date Assigned   |Date Due         |Topic                                                                                     |
 |---:|:---------------|:----------------|:-----------------------------------------------------------------------------------------|
-|   1|Wed, January 8  |Mon, January 20  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../post/lab-ps1) |
-|   2|Wed, January 22 |Mon, Feb 3       |[Visual perception & reproducing plots](../post/lab-ps2)                                         |
-|   3|Wed, February 05|Mon, February 17 |[Uses of color to enhance interpretability](../post/lab-ps3)                                     |
+|   1|Wed, January 8  |Mon, January 20  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-ps1) |
+|   2|Wed, January 22 |Mon, Feb 3       |[Visual perception & reproducing plots](../lab-ps2)                                         |
+|   3|Wed, February 05|Mon, February 17 |[Uses of color to enhance interpretability](../lab-ps3)                                     |
 
 {{< /bootstrap-table >}}
 
 ## Final Project
 
-The final project includes multiple components and is worth 70 points total (46% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least three data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You must use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
+The final project includes multiple components and is worth 70 points total (35% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least three data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You must use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
 
 {{< bootstrap-table "table table-hover" >}}
 
