@@ -9,7 +9,7 @@ categories:
   - Assignment
 tags:
   - Homework
-  - Lab 
+  - Misc 
 toc: true
 ---
 
