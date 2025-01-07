@@ -1,9 +1,9 @@
 ---
 title: Lab 1
-author: Daniel Anderson
-date: '2022-01-06'
-assigned: '2022-01-10'
-due: '2022-01-17'
+author: Maithreyi Gopalan
+date: '2025-01-06'
+assigned: '2025-01-08'
+due: '2025-01-08'
 slug: lab-1
 categories:
   - Assignments
