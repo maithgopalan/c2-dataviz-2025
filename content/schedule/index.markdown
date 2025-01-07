@@ -84,6 +84,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "dataviz" "https://clauswilke.com/dataviz/balance-data-context.html" "23" >}}
 {{< readings "dataviz" "https://clauswilke.com/dataviz/small-axis-labels.html" "24" >}}
 {{< readings "other" "https://www.tidytextmining.com/tidytext.html" "1" >}}
+{{< readings "jschwab" "https://www.google.com/books/edition/Better_Data_Visualizations/A7jeDwAAQBAJ?hl=en&gbpv=1" "1-2" >}}
   {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "" >}}
