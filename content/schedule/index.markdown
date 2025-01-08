@@ -4,7 +4,7 @@ toc: true
 ---
 
 ## Course Books
-Each of the below links to the full book, except the last one. I will upload chapters from that book on the class website as needed. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (e.g., podcasts, videos, journal articles, etc.).
+Each of the below links to the full book, except the last one. I will upload chapters from that book on the class website as needed. Icons in the schedule link to specific chapters. Note that occasionally are external resources that I will ask you to complete that are not readings (e.g., podcasts, videos, journal articles, etc.). I will be adding some more links/readings in the later weeks. 
 
 {{< course-books >}}
 
@@ -51,7 +51,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "gettingstarted.html" "2" >}}
-{{< readings "dataviz" "dataviz/directory-of-visualizations.html" "5" >}}
+{{< readings "dataviz" "directory-of-visualizations.html" "5" >}}
 {{< readings "r4ds" "r-markdown.html" "27" >}}
 {{< /wrap >}}
   {{< wrap >}}
@@ -75,14 +75,14 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "lab-PS1" "Lab PS1" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "https://socviz.co/lookatdata.html" "1" >}}
-{{< readings "r4ds" "https://r4ds.had.co.nz/graphics-for-communication.html" "28" >}}
-{{< readings "r4ds" "https://r4ds.had.co.nz/strings.html" "14" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/aesthetic-mapping.html" "2" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/proportional-ink.html" "17" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/figure-titles-captions.html" "22" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/balance-data-context.html" "23" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/small-axis-labels.html" "24" >}}
+{{< readings "socviz" "lookatdata.html" "1" >}}
+{{< readings "r4ds" "graphics-for-communication.html" "28" >}}
+{{< readings "r4ds" "strings.html" "14" >}}
+{{< readings "dataviz" "aesthetic-mapping.html" "2" >}}
+{{< readings "dataviz" "proportional-ink.html" "17" >}}
+{{< readings "dataviz" "figure-titles-captions.html" "22" >}}
+{{< readings "dataviz" "balance-data-context.html" "23" >}}
+{{< readings "dataviz" "small-axis-labels.html" "24" >}}
 {{< readings "other" "https://www.tidytextmining.com/tidytext.html" "1" >}}
 {{< readings "jschwab" "https://www.google.com/books/edition/Better_Data_Visualizations/A7jeDwAAQBAJ?hl=en&gbpv=1" "1-2" >}}
   {{< /wrap >}}
@@ -107,9 +107,9 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "assignments/#proposal" "Prop" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/color-basics.html" "4" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/color-pitfalls.html" "19" >}}
-{{< readings "socviz" "https://socviz.co/refineplots.html" "8" >}}
+{{< readings "dataviz" "color-basics.html" "4" >}}
+{{< readings "dataviz" "color-pitfalls.html" "19" >}}
+{{< readings "socviz" "refineplots.html" "8" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -121,7 +121,7 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-odd "02-05" >}}
-  {{< description "Visualizations for comparing categories" "" >}}
+  {{< description "Visualizations for comparing categories" "We will learn to use various plots such as bar plots, grouped and stacked charts etc. to visualize comparisons across various categories" >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -132,9 +132,9 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "lab-ps2" "Lab ps2" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-amounts.html" "6" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-proportions.html" "10" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/nested-proportions.html" "11" >}}
+{{< readings "dataviz" "visualizing-amounts.html" "6" >}}
+{{< readings "dataviz" "visualizing-proportions.html" "10" >}}
+{{< readings "dataviz" "nested-proportions.html" "11" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -146,7 +146,7 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-even "02-12" >}}
-  {{< description "Visualizations for change over time; Visualizations for distributions; Communication of Uncertainty" "Refining your plots for communication. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
+  {{< description "Visualizations for change over time; Visualizations for distributions" "Refining your plots for communication of various changes in your data. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -157,18 +157,14 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/histograms-density-plots.html" "7" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/time-series.html" "13" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-trends.html" "14" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-uncertainty.html" "16" >}}
-{{< readings "socviz" "https://socviz.co/groupfacettx.html" "4" >}}
-
+{{< readings "dataviz" "histograms-density-plots.html" "7" >}}
+{{< readings "dataviz" "time-series.html" "13" >}}
+{{< readings "dataviz" "visualizing-trends.html" "14" >}}
+{{< readings "dataviz" "visualizing-uncertainty.html" "16" >}}
+{{< readings "socviz" "groupfacettx.html" "4" >}}
 
 {{< readings "socviz" "refineplots.html#refineplots" "8" >}}
 {{< readings "dataviz" "redundant-coding.html" "20" >}}
-{{< readings "dataviz" "balance-data-context.html" "23" >}}
-{{< readings "dataviz" "telling-a-story.html" "29" >}}
-{{< readings "dataviz" "visualizing-uncertainty.html" "16" >}}
 {{< readings "video" "https://www.youtube.com/watch?v=E1kSnWvqCw0&feature=youtu.be" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
@@ -193,9 +189,12 @@ Each of the below links to the full book, except the last one. I will upload cha
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "https://socviz.co/workgeoms.html" "5" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/visualizing-associations.html" "12" >}}
+{{< readings "socviz" "workgeoms.html" "5" >}}
+{{< readings "dataviz" "visualizing-associations.html" "12" >}}
+{{< readings "dataviz" "balance-data-context.html" "23" >}}
+{{< readings "dataviz" "telling-a-story.html" "29" >}}
 {{< readings "other" "https://gt.rstudio.com/articles/intro-creating-gt-tables.html" "gt" >}}
+
 {{< /wrap >}}
   {{< wrap >}}
 {{< /wrap >}}
@@ -217,8 +216,8 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "PR" "PR" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "https://socviz.co/maps.html" "7" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/geospatial-data.html" "15" >}}
+{{< readings "socviz" "maps.html" "7" >}}
+{{< readings "dataviz" "geospatial-data.html" "15" >}}
 {{< readings "other" "https://docs.mapbox.com/help/tutorials/aa-standard-in-studio/" "" >}}
 {{< readings "other" "https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4" "" >}}
 
