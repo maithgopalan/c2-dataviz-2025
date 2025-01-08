@@ -17,9 +17,8 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< slides "w1" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "assignments/#final-project" "Final" >}}
-{{< assigned "lab-ps1" "Lab PS1" >}}
-{{< assigned "lab-1" "Lab 1" >}}
+{{< assigned "lab-ps1" "LabPS1" >}}
+{{< assigned "lab-1" "Lab1" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -51,9 +50,9 @@ Each of the below links to the full book, except the last one. I will upload cha
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "https://socviz.co/gettingstarted.html" "2" >}}
-{{< readings "dataviz" "https://clauswilke.com/dataviz/directory-of-visualizations.html" "5" >}}
-{{< readings "r4ds" "https://r4ds.had.co.nz/r-markdown.html" "27" >}}
+{{< readings "socviz" "gettingstarted.html" "2" >}}
+{{< readings "dataviz" "dataviz/directory-of-visualizations.html" "5" >}}
+{{< readings "r4ds" "r-markdown.html" "27" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< /wrap >}}
@@ -97,7 +96,7 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-even "01-29" >}}
-  {{< description "Use of Color and Inclusive Design Principles that go beyond Compliance (e.g., Alt-texts, inclusive design)" "We will discuss the three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well for the visualy impaired will be discussed along with the Common pitfalls with the use of color. We will use color for each of its primary uses in data visualization and explore and evaluate different palettes by different types of color blindness in the lab." >}}
+  {{< description "Use of Color and Inclusive Design Principles that go beyond Compliance (e.g., Alt-texts, inclusive design)" "We will discuss the three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well for the visualy impaired will be discussed along with the Common pitfalls with the use of color in the lab. We will also have a very special guest visit." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
