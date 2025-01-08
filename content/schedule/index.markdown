@@ -14,10 +14,10 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-odd "01-08" >}}
   {{< description "Introduction to the course and Github Repos" "Introductions and the weekly schedule of topics. I'll briefly talk about git and plead with you to watch a recorded lecture and read on git workflows. We'll then spend the rest of the day working on our first lab that includes (a) connecting to a remote course data repository, and (b) making queries to get the data you want." >}}
   {{< wrap >}}
-{{< slides "w1" >}}
+{{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "syllabus/#final-project" "Final" >}}
+{{< assigned "assignments/#final-project" "Final" >}}
 {{< assigned "lab-ps1" "Lab PS1" >}}
 {{< assigned "lab-1" "Lab 1" >}}
 
