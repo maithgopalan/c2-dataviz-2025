@@ -42,15 +42,15 @@ layout: true
   &lt;div class="slides-footer"&gt;
   &lt;span&gt;
   
-  &lt;a class = "footer-icon-link" href = "https://github.com/uo-datasci-specialization/c2-dataviz-2022/raw/main/static/slides/w1p1.pdf"&gt;
+  &lt;a class = "footer-icon-link" href = "https://github.com/maithgopalan/c2-dataviz-2025/tree/main/static/slides/w1.pdf"&gt;
     &lt;i class = "footer-icon" data-feather="download"&gt;&lt;/i&gt;
   &lt;/a&gt;
   
-  &lt;a class = "footer-icon-link" href = "https://dataviz-2022.netlify.app/slides/w1p1.html"&gt;
+  &lt;a class = "footer-icon-link" href = "https://dataviz-win2025.netlify.app/slides/w1.html"&gt;
     &lt;i class = "footer-icon" data-feather="link"&gt;&lt;/i&gt;
   &lt;/a&gt;
   
-  &lt;a class = "footer-icon-link" href = "https://github.com/uo-datasci-specialization/c2-dataviz-2022"&gt;
+  &lt;a class = "footer-icon-link" href = "https://github.com/maithgopalan/c2-dataviz-2025"&gt;
     &lt;i class = "footer-icon" data-feather="github"&gt;&lt;/i&gt;
   &lt;/a&gt;
   
@@ -65,8 +65,8 @@ layout: true
 
 * Getting on the same page
 * Syllabus
-* Accessing and working with the course data
-* If time allows - Intro to text data
+* Discuss project details available for sign-up this term
+* Finalize the personalized meeting schedule for the rest of the term
 ]
 
 .pull-right[
@@ -80,8 +80,8 @@ layout: true
 .pull-left[
 * Associate Professor
 * Pronouns: she/her/hers
-* Primary areas of interest: educational equity, policy analysis, social psychology,systemic inequities in opportunities and achievement, and variance between educational institutions
-* Big secret: I am not a 💗💗R💗💗; have been a SAS and STATA user mostly, so learning R with y'all! 
+* Primary areas of interest: educational equity, policy analysis, social psychology,systemic inequities in opportunities and achievement
+* Big secret: I was not a 💗R💗; have been a SAS and STATA user mostly, so learning R with y'all! 
 ]
 
 .pull-right[
@@ -191,7 +191,9 @@ background-size:cover
 # Materials
 * Nearly everything will be distributed through the repo and through the website.
 
-* Please clone the repo now, if you haven't already. Pull each week for the most recent changes.
+* Please clone the repo now, if you haven't already. 
+
+* Pull each week for the most recent changes.
 
 * We'll use Canvas for grading, and that is essentially it.
 
@@ -222,8 +224,6 @@ class: inverse-red middle
   + I don't care what you use, but you should be using RStudio Projects &amp; the [{here}](https://github.com/r-lib/here) package
 
     - See [Jenny Bryan's blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) for why.
-
-
 
 ---
 * Can perform basic data wrangling and transformations in R, using the
@@ -296,9 +296,6 @@ Provide you a frame for what you should be working to learn for that specific we
 * Understand the requirements of the final project
 * Be ready to go with *git* and GitHub
 * Understand how to access the course data and documentation, begin playing with the data
-
-
----
 
 ---
 class: inverse-blue  middle
@@ -667,18 +664,18 @@ eugene_df
 
 ```
 ## # A tibble: 133 × 2
-##    paragraph description                                                        
-##        &lt;int&gt; &lt;chr&gt;                                                              
-##  1         1 ""                                                                 
-##  2         2 "Eugene (/juːˈdʒiːn/ yoo-JEEN) is a city in and the county seat of…
-##  3         3 "The second-most populous city in Oregon, Eugene had a population …
-##  4         4 "Eugene is home to the University of Oregon, Bushnell University, …
-##  5         5 "The first people to settle in the Eugene area were the Kalapuyans…
-##  6         6 "Other Kalapuyan tribes occupied villages that are also now within…
-##  7         7 "According to archeological evidence, the ancestors of the Kalapuy…
-##  8         8 "French fur traders had settled seasonally in the Willamette Valle…
-##  9         9 "In July 1830, \"intermittent fever\" struck the lower Columbia re…
-## 10        10 "As the demographic pressure from the settlers grew, the remaining…
+##    paragraph description                                                                                                                                           
+##        &lt;int&gt; &lt;chr&gt;                                                                                                                                                 
+##  1         1 ""                                                                                                                                                    
+##  2         2 "Eugene (/juːˈdʒiːn/ yoo-JEEN) is a city in and the county seat of Lane County, Oregon, United States. It is located at the southern end of the Willa…
+##  3         3 "The second-most populous city in Oregon, Eugene had a population of 176,654 as of the 2020 United States census[11] and it covers city area of 44.21…
+##  4         4 "Eugene is home to the University of Oregon, Bushnell University, and Lane Community College.[13][14][15] The city is noted for its natural environme…
+##  5         5 "The first people to settle in the Eugene area were the Kalapuyans, also written Calapooia or Calapooya. They made \"seasonal rounds,\" moving around…
+##  6         6 "Other Kalapuyan tribes occupied villages that are also now within Eugene city limits. Pee-you or Mohawk Calapooians, Winefelly or Pleasant Hill Cala…
+##  7         7 "According to archeological evidence, the ancestors of the Kalapuyans may have been in Eugene for as long as 10,000 years.[25] In the 1800s their tra…
+##  8         8 "French fur traders had settled seasonally in the Willamette Valley by the beginning of the 19th century. Their settlements were concentrated in the …
+##  9         9 "In July 1830, \"intermittent fever\" struck the lower Columbia region and a year later, the Willamette Valley. Natives traced the arrival of the dis…
+## 10        10 "As the demographic pressure from the settlers grew, the remaining Kalapuyans were forcibly removed to Indian reservations. Though some Natives avoid…
 ## # ℹ 123 more rows
 ```
 
@@ -710,13 +707,6 @@ Just like most functions in the tidyverse, we pipe our data to `unnest_tokens()`
 
 ``` r
 library(tidytext)
-```
-
-```
-## Warning: package 'tidytext' was built under R version 4.4.2
-```
-
-``` r
 eugene_tidy_words &lt;- eugene_df %&gt;% 
   unnest_tokens(word, description)
 eugene_tidy_words
@@ -938,6 +928,57 @@ For example: Average cohort graduate rates for local education agency data, 2011
 
 ``` r
 acgd &lt;- get_data("EDFacts_acgr_lea_2011_2019")
+```
+
+```
+## 
+  |                                                                                                                                                               
+  |                                                                                                                                                         |   0%
+  |                                                                                                                                                               
+  |===========                                                                                                                                              |   7%
+  |                                                                                                                                                               
+  |================                                                                                                                                         |  11%
+  |                                                                                                                                                               
+  |=============================                                                                                                                            |  19%
+  |                                                                                                                                                               
+  |====================================================================                                                                                     |  44%
+  |                                                                                                                                                               
+  |==========================================================================                                                                               |  48%
+  |                                                                                                                                                               
+  |============================================================================                                                                             |  50%
+  |                                                                                                                                                               
+  |================================================================================                                                                         |  52%
+  |                                                                                                                                                               
+  |=====================================================================================                                                                    |  56%
+  |                                                                                                                                                               
+  |==============================================================================================                                                           |  61%
+  |                                                                                                                                                               
+  |====================================================================================================                                                     |  65%
+  |                                                                                                                                                               
+  |=======================================================================================================                                                  |  67%
+  |                                                                                                                                                               
+  |=============================================================================================================                                            |  71%
+  |                                                                                                                                                               
+  |================================================================================================================                                         |  73%
+  |                                                                                                                                                               
+  |=========================================================================================================================                                |  79%
+  |                                                                                                                                                               
+  |============================================================================================================================                             |  81%
+  |                                                                                                                                                               
+  |=================================================================================================================================                        |  84%
+  |                                                                                                                                                               
+  |===========================================================================================================================================              |  91%
+  |                                                                                                                                                               
+  |=================================================================================================================================================        |  95%
+  |                                                                                                                                                               
+  |===================================================================================================================================================      |  96%
+  |                                                                                                                                                               
+  |=======================================================================================================================================================  |  99%
+  |                                                                                                                                                               
+  |=========================================================================================================================================================| 100%
+```
+
+``` r
 #acgd
 ```
 
@@ -950,6 +991,7 @@ acgdd &lt;- get_documentation("EDFacts_acgr_lea_2011_2019")
 
 ---
 # Accessing documentation
+
 * The names of the datasets themselves can sometimes be a bit cryptic
 
 * The variable names are often not interpretable at all (particularly the financial data)
@@ -967,9 +1009,6 @@ acgdd &lt;- get_documentation("EDFacts_acgr_lea_2011_2019")
 * Windows
   + Prints a link to your console where documentation can be downloaded
   
-
---
-Note - if any Windows users want to let me borrow their computer for a bit after class one day, I might be able to get it working for Windows as well.
   
 ---
 class: inverse-blue middle
