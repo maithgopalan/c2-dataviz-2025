@@ -349,11 +349,6 @@ Everyone will be randomly assigned a date to share two data visualizations you h
 [1] 1
 
 .pull-left[
-
-```
-## Warning: package 'kableExtra' was built under R version 4.4.2
-```
-
 &lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
@@ -399,10 +394,6 @@ Everyone will be randomly assigned a date to share two data visualizations you h
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 2025-01-29 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Erick &lt;/td&gt;
-  &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; 2025-02-05 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Saratessa &lt;/td&gt;
@@ -553,100 +544,6 @@ Talk with your neighbor. What do these terms mean?
 * merge conflict
 * pull request
 * stash
-
----
-class: inverse-orange middle
-# Working with data
-
----
-# Getting started
-* To make it as easy as possible, Daniel Anderson wrote package to make accessing a set of EDFacts data easier. Let's play with that one if time permits
-
-* Install with 
-
-
-``` r
-#detach("package:edld652", unload = TRUE)
-remotes::install_github("datalorax/edld652", force = TRUE)
-#set_key("maithgopalan_testkey")
-```
----
-# Setting your key
-* When you first load the package, you will see a message asking you to set a key.
-
-* There is a document on canvas showing you how to do this. We'll go through it together now.
-
-* You only need to do this once, then you can forget about it.
-
-* Please do not share this key with others outside of this class - don't commit it to any repo.
-
-* After you've set your key, go to **Session** on your menu and select **Restart R**.
-
----
-# Check to see if all is working
-After you've done everything on the prior slide, run the following to make sure it's working
-
-
-``` r
-library(edld652)
-# list_datasets()
-```
-
----
-# Accessing a dataset
-
-* The `list_datasets()` function shows you a list of all available datasets
-
-* You can import any of these into R with the `get_data()` function by passing the name of the dataset as a string.
-
-For example: Average cohort graduate rates for local education agency data, 2011 to 2019
-
-
-``` r
-acgd &lt;- get_data("EDFacts_acgr_lea_2011_2019")
-#acgd
-```
-
----
-
-``` r
-acgdd &lt;- get_documentation("EDFacts_acgr_lea_2011_2019")
-# acgdd
-```
-
----
-# Accessing documentation
-* The names of the datasets themselves can sometimes be a bit cryptic
-
-* The variable names are often not interpretable at all (particularly the financial data)
-
-* You can access the documentation for any dataset with the `get_documentation()` function, again passing the name of the dataset
-
-* This function operates slightly differently on Mac/Windows
-
----
-* Mac
-  + Creates a folder in your current working directory called `data-documentation`
-  + Downloads the documentation and places it in that folder
-  + Opens the documentation
-  + If the same documentation is requested again, skip the download and just open
-* Windows
-  + Prints a link to your console where documentation can be downloaded
-  
-
---
-Note - if any Windows users want to let me borrow their computer for a bit after class one day, I might be able to get it working for Windows as well.
-  
----
-class: inverse-blue middle
-
-# Data demo
-
-For the next 30 minutes or so we will: 
-
-* Walk through the [overview of the course data](../2021-12-10-accessing-the-data/) together, and then 
-
-* Work in small groups to continue to explore the data and come up with new visualizations on your own.
 
 ---
 class: inverse-red middle
@@ -884,7 +781,7 @@ eugene_tidy_words %&gt;%
     geom_col(fill = "cornflowerblue")
 ```
 
-![](w1_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](w1_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 
 ---
 # Not very informative
@@ -989,7 +886,101 @@ eugene_tidy_words %&gt;%
     geom_col(fill = "cornflowerblue")
 ```
 
-![](w1_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+![](w1_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+class: inverse-orange middle
+# Working with data
+
+---
+# Getting started
+* To make it as easy as possible, Daniel Anderson wrote package to make accessing a set of EDFacts data easier. Let's play with that one if time permits
+
+* Install with 
+
+
+``` r
+#detach("package:edld652", unload = TRUE)
+remotes::install_github("datalorax/edld652", force = TRUE)
+#set_key("maithgopalan_testkey")
+```
+---
+# Setting your key
+* When you first load the package, you will see a message asking you to set a key.
+
+* There is a document on canvas showing you how to do this. We'll go through it together now.
+
+* You only need to do this once, then you can forget about it.
+
+* Please do not share this key with others outside of this class - don't commit it to any repo.
+
+* After you've set your key, go to **Session** on your menu and select **Restart R**.
+
+---
+# Check to see if all is working
+After you've done everything on the prior slide, run the following to make sure it's working
+
+
+``` r
+library(edld652)
+# list_datasets()
+```
+
+---
+# Accessing a dataset
+
+* The `list_datasets()` function shows you a list of all available datasets
+
+* You can import any of these into R with the `get_data()` function by passing the name of the dataset as a string.
+
+For example: Average cohort graduate rates for local education agency data, 2011 to 2019
+
+
+``` r
+acgd &lt;- get_data("EDFacts_acgr_lea_2011_2019")
+#acgd
+```
+
+---
+
+``` r
+acgdd &lt;- get_documentation("EDFacts_acgr_lea_2011_2019")
+# acgdd
+```
+
+---
+# Accessing documentation
+* The names of the datasets themselves can sometimes be a bit cryptic
+
+* The variable names are often not interpretable at all (particularly the financial data)
+
+* You can access the documentation for any dataset with the `get_documentation()` function, again passing the name of the dataset
+
+* This function operates slightly differently on Mac/Windows
+
+---
+* Mac
+  + Creates a folder in your current working directory called `data-documentation`
+  + Downloads the documentation and places it in that folder
+  + Opens the documentation
+  + If the same documentation is requested again, skip the download and just open
+* Windows
+  + Prints a link to your console where documentation can be downloaded
+  
+
+--
+Note - if any Windows users want to let me borrow their computer for a bit after class one day, I might be able to get it working for Windows as well.
+  
+---
+class: inverse-blue middle
+
+# Data demo
+
+For the next 30 minutes or so we will: 
+
+* Walk through the [overview of the course data](../2021-12-10-accessing-the-data/) together, and then 
+
+* Work in small groups to continue to explore the data and come up with new visualizations on your own.
 
 ---
 class: inverse-green middle
