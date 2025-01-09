@@ -2,8 +2,8 @@
 title: Lab Problem Set 1
 author: Maithreyi Gopalan
 date: '2025-01-06'
-assigned: '2025-01-08'
-due: '2025-01-20'
+assigned: '2025-01-15'
+due: '2025-01-27'
 slug: lab-ps1
 categories:
   - Assignments
@@ -42,9 +42,9 @@ Glance through the data and the [repo](https://github.com/UrbanInstitute/educati
 
 * Initial explorations of the function `get_education_data` and the various available endpoints.
 
-* Return a `data.frame' of `enrollment' across all grades for the most recent academic year for which the data is available from the Common Core of Data  
+* Return a data.frame of `enrollment` across all grades for the most recent academic year for which the data is available from the Common Core of Data  
 
-* Initial Explorations of `enrollment'
+* Initial Explorations of `enrollment`
 
 * At least two branches, each of which have been merged in
 
