@@ -17,7 +17,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< slides "w1" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-ps1" "LabPS1" >}}
+
 {{< assigned "lab-1" "Lab1" >}}
 
 {{< /wrap >}}
@@ -44,7 +44,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "" "" >}}
+{{< assigned "lab-ps1" "LabPS1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 
@@ -72,7 +72,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "lab-PS1" "Lab PS1" >}}
+{{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "lookatdata.html" "1" >}}
@@ -105,6 +105,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#proposal" "Prop" >}}
+{{< due "lab-ps1" "Lab PS1" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "dataviz" "color-basics.html" "4" >}}
