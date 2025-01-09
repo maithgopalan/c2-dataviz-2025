@@ -18,7 +18,7 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 | Lab Problem Set|Date Assigned   |Date Due         |Topic                                                                                     |
 |---:|:---------------|:----------------|:-----------------------------------------------------------------------------------------|
-|   1|Wed, January 8  |Mon, January 20  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-ps1) |
+|   1|Wed, January 15  |Mon, January 27  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-ps1) |
 |   2|Wed, January 22 |Mon, Feb 3       |[Visual perception & reproducing plots](../lab-ps2)                                         |
 |   3|Wed, February 05|Mon, February 17 |[Uses of color to enhance interpretability](../lab-ps3)                                     |
 
