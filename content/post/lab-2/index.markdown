@@ -48,7 +48,7 @@ Start with looking at the first few rows of the data to see what we’re working
 
 * Hint 2 - You can then make month and days as ordered factors using rhe labels
 
-# Make Bar Plot of Total births by Weekdays
+# Make Bar Plot of Total births by Days in the week
 
 * Learn to play with the fill color to highlight the most salient trends  
 
