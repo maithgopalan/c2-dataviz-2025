@@ -81,7 +81,9 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "r4ds" "strings.html" "14" >}}
 {{< readings "dataviz" "aesthetic-mapping.html" "2" >}}
 {{< readings "dataviz" "proportional-ink.html" "17" >}}
-{{< readings "jschwab" "https://www.google.com/books/edition/Better_Data_Visualizations/A7jeDwAAQBAJ?hl=en&gbpv=1" "1-2" >}}
+{{< readings "jschwab" "https://www.google.com/books/edition/Better_Data_Visualizations/A7jeDwAAQBAJ?hl=en&gbpv=1" "1" >}}
+{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap2.pdf" "2" >}}
+
   {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "" >}}
@@ -161,10 +163,9 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "dataviz" "visualizing-trends.html" "14" >}}
 {{< readings "dataviz" "visualizing-uncertainty.html" "16" >}}
 {{< readings "socviz" "groupfacettx.html" "4" >}}
+{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap5.pdf" "5" >}}
+{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap6.pdf" "6" >}}
 
-{{< readings "socviz" "refineplots.html#refineplots" "8" >}}
-{{< readings "dataviz" "redundant-coding.html" "20" >}}
-{{< readings "video" "https://www.youtube.com/watch?v=E1kSnWvqCw0&feature=youtu.be" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "" >}}
@@ -193,6 +194,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "dataviz" "balance-data-context.html" "23" >}}
 {{< readings "dataviz" "telling-a-story.html" "29" >}}
 {{< readings "other" "https://gt.rstudio.com/articles/intro-creating-gt-tables.html" "gt" >}}
+{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap8.pdf" "8" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -219,6 +221,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "dataviz" "geospatial-data.html" "15" >}}
 {{< readings "other" "https://docs.mapbox.com/help/tutorials/aa-standard-in-studio/" "" >}}
 {{< readings "other" "https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4" "" >}}
+{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap7.pdf" "7" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
