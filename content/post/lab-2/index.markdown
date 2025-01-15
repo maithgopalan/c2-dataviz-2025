@@ -50,9 +50,9 @@ Start with looking at the first few rows of the data to see what we’re working
 
 # Make Bar Plot of Total births by Weekdays
 
-# Learn to play with the fill color to highlight the most salient trends  
+* Learn to play with the fill color to highlight the most salient trends  
 
-# Use one (or two other) type(s) of plot we learned in class today on this data that you think will be appropriate  
+* Use one (or two other) type(s) of plot we learned in class today on this data that you think will be appropriate  
 
 ## Finishing up
 When you have finished the above, upload your R code/rendered (knit) HTML/pdf file to canvas.
