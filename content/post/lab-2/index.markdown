@@ -23,7 +23,7 @@ The purpose of this lab is to get you to try different methods of visualizing th
 
 ## Lab Tasks
 
-# Load Data
+### Load Data
 
 There are two CSV files:
 
@@ -34,7 +34,7 @@ Since the two datasets overlap in 2000–2003, we use Social Security Administra
 
 You can downloaded the data from GitHub or from the class repo. You’ll then load them with read_csv() and combine them into one data frame.
 
-# Wrangle Data 
+### Wrangle Data 
 
 Start with looking at the first few rows of the data to see what we’re working with
 
@@ -42,13 +42,13 @@ Start with looking at the first few rows of the data to see what we’re working
 
 * The columns for month and day of the week could be improved if we changed them to text (i.e. January instead of 1; Tuesday instead of 3).
 
-# To fix this, convert these columns to categorical variables, or factors in R. 
+### To fix this, convert these columns to categorical variables, or factors in R. 
 
 * Hint 1 - You can use c() function to make a list of values for both months and day names
 
 * Hint 2 - You can then make month and days as ordered factors using rhe labels
 
-# Make Bar Plot of Total births by Days in the week
+### Make Bar Plot of Total births by Days in the week
 
 * Learn to play with the fill color to highlight the most salient trends  
 
