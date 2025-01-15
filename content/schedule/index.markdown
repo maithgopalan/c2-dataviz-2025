@@ -39,15 +39,16 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-even "01-15" >}}
-  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio" "We will start with a quick R Markdown refresher. We will then look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. If time permits, we will then move to string data more specifically and methods for quickly visualizing a corpus. We will then practice these topics with our second lab." >}}
+  {{< description "Intro to visualizations and Quick refresher for R Markdown/R Studio" "We will look at different types of visualizations with a specific focus on continuous variables. We will explore how different choices with these visualizations can change your inferences. We will re-visit string data more specifically and then end with a quick R Markdown refresher. We will then practice these topics with our second lab." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w2" >}}
 {{< /wrap >}}
   {{< wrap >}}
+{{< assigned "lab-2" "Lab2" >}}
 {{< assigned "lab-ps1" "LabPS1" >}}
 {{< /wrap >}}
   {{< wrap >}}
-
+{{< due "lab-2" "Lab 2" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "gettingstarted.html" "2" >}}
@@ -80,10 +81,6 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "r4ds" "strings.html" "14" >}}
 {{< readings "dataviz" "aesthetic-mapping.html" "2" >}}
 {{< readings "dataviz" "proportional-ink.html" "17" >}}
-{{< readings "dataviz" "figure-titles-captions.html" "22" >}}
-{{< readings "dataviz" "balance-data-context.html" "23" >}}
-{{< readings "dataviz" "small-axis-labels.html" "24" >}}
-{{< readings "other" "https://www.tidytextmining.com/tidytext.html" "1" >}}
 {{< readings "jschwab" "https://www.google.com/books/edition/Better_Data_Visualizations/A7jeDwAAQBAJ?hl=en&gbpv=1" "1-2" >}}
   {{< /wrap >}}
   {{< wrap >}}
@@ -136,6 +133,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "dataviz" "visualizing-amounts.html" "6" >}}
 {{< readings "dataviz" "visualizing-proportions.html" "10" >}}
 {{< readings "dataviz" "nested-proportions.html" "11" >}}
+{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap4.pdf" "4" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
