@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Visual Perception!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Maithreyi Gopalan" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/countdown-0.4.0/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown-0.4.0/countdown.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="new.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Visual Perception!
+]
+.author[
+### Maithreyi Gopalan
+]
+.date[
+### Week 3
+]
+
+---
+
+
+
+
+layout: true
+
+  &lt;script&gt;
+    feather.replace()
+  &lt;/script&gt;
+  
+  &lt;div class="slides-footer"&gt;
+  &lt;span&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://github.com/maithgopalan/c2-dataviz-2025/tree/main/static/slides/w3.pdf"&gt;
+    &lt;i class = "footer-icon" data-feather="download"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://dataviz-win2025.netlify.app/slides/w3.html"&gt;
+    &lt;i class = "footer-icon" data-feather="link"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://github.com/maithgopalan/c2-dataviz-2025"&gt;
+    &lt;i class = "footer-icon" data-feather="github"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;/span&gt;
+  &lt;/div&gt;
+  
+
+---
+class: inverse-red middle
+# Reminder
+
+Your final project proposals are due next Monday at midnight. Like I mentioned, there is some flexibility in those deadlines. Please look at the syllabus for the requirements and come and talk to me after class today during the lab session if you want to discuss this.
+
+---
+# Agenda 
+
+* Finish up on some text pattern matching/replacement stuff + R-Markdown Refresher
+
+* Guidelines of Better Visualizations
+
+* Aesthetic mappings and visual encodings of data
+
+* data/ink ratio
+
+* Some do's and don't's (which are all rules of 👍)
+
+* Review Lab 2 and then move onto Lab-PS1 and Lab 3, if time permits 
+
+
+
+
+
+
+---
+# Learning Objectives
+* Understand and reflect on some of the basic guidelines for better visualizations
+
+* Understand how decisions you make with your visualizations may help or hinder comprehension
+
+* Refresh the various ways in which data can be accessed in R-Environment 
+
+* Refresh basic understanding of R-Markdowns
+
+---
+class: inverse-orange middle
+# String manipulations
+
+---
+# Reminder: base vs tidyverse
+The tidyverse package is [{stringr}](https://stringr.tidyverse.org/)
+
+It is more consistent than base functions and occassionally faster
+
+However, I tend to prefer the base functions, and they are still more commonly seen "in the wild" than **stringr**.
+
+We'll therefore briefly cover both.
+
+---
+# Special characters
+
+* `^`: Anchor - matches the start of a string
+* `$`: Anchor - matches the end of a string
+* `*`: Matches the preceding character **zero or more** times
+* `?`: Matches the preceding character **zero or one** times
+* `+`: Matches the preceding character **one or more** times
+* `{`: Used to specify number of matches, `a{n}`, `a{n,}`, and `a{n, m}`
+* `.`: Wildcard - matches any character
+* `|`: OR operator
+* `[`: Alternates, also used for character matching (e.g., `[:digit:]`)
+* `(`: Used for backreferencing, look aheads, or groups
+* `\`: Used to escape special characters
+
+---
+# More detail
+Both of the below are good places to get more comprehensive information
+
+* [RStudio cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/strings.pdf)
+
+* [Regular expression](https://stringr.tidyverse.org/articles/regular-expressions.html) vignette
+
+
+---
+# A few quick examples
+
+Please follow along
+
+* Because we had some troubles accessing this data directly from the edld652 user-written package, I also downloaded and saved the data in class repo (acgr_lea_2019.rds)
+
+
+
+
+``` r
+library(edld652)
+d &lt;- get_data("EDFacts_acgr_lea_2011_2019")
+d
+```
+
+
+```
+## # A tibble: 11,326 × 29
+##   ALL_COHORT ALL_RATE CWD_COHORT CWD_RATE DATE_CUR ECD_COHORT ECD_RATE FIPST FILEURL  LEAID LEANM
+##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
+## 1        252 80                3 PS       03OCT15         121 65-69    01    https:/… 0100… Albe…
+## 2        398 75               47 70-79    03OCT15         233 65-69    01    https:/… 0100… Mars…
+## 3       1020 89               51 40-49    03OCT15         175 75-79    01    https:/… 0100… Hoov…
+## 4        750 91               35 60-69    03OCT15         102 80-84    01    https:/… 0100… Madi…
+## 5        128 55-59            15 LT50     03OCT15          68 40-44    01    https:/… 0100… Leed…
+## 6        166 90-94             9 GE50     03OCT15          53 70-79    01    https:/… 0100… Boaz…
+## # ℹ 11,320 more rows
+## # ℹ 18 more variables: LEP_COHORT &lt;dbl&gt;, LEP_RATE &lt;chr&gt;, MAM_COHORT &lt;dbl&gt;, MAM_RATE &lt;chr&gt;,
+## #   MAS_COHORT &lt;dbl&gt;, MAS_RATE &lt;chr&gt;, MBL_COHORT &lt;dbl&gt;, MBL_RATE &lt;chr&gt;, MHI_COHORT &lt;dbl&gt;,
+## #   MHI_RATE &lt;chr&gt;, MTR_COHORT &lt;dbl&gt;, MTR_RATE &lt;chr&gt;, MWH_COHORT &lt;dbl&gt;, MWH_RATE &lt;chr&gt;,
+## #   STNAM &lt;chr&gt;, YEAR &lt;dbl&gt;, PIPELINE &lt;chr&gt;, DL_INGESTION_DATETIME &lt;dttm&gt;
+```
+
+---
+# Challenge
+### Do three things:
+
+* Create a new variable that identifies if the LEA is associated with a city or a county
+
+* Drop "City" or "County" from the LEA name (e.g., "Albertville City" would be "Albertville")
+
+* Replace all `.` with `--DOT--` in `FILEURL` (so they are not actual links)
+
+You'll need `base::gsub()` or `stringr::str_replace_all()`
+
+<div class="countdown" id="timer_a3a26088" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+# City or county
+
+Ideas?
+
+--
+
+
+``` r
+d &lt;- d %&gt;% 
+  mutate(county = grepl("county$", tolower(LEANM)))
+```
+
+
+--
+
+Another option
+
+
+``` r
+d &lt;- d %&gt;% 
+  mutate(county = grepl("[Cc]ounty$", LEANM))
+```
+
+
+---
+# Quick Check
+
+
+``` r
+d %&gt;% 
+  select(LEANM, county) %&gt;% 
+  print(n = 15)
+```
+
+```
+## # A tibble: 11,326 × 2
+##    LEANM            county
+##    &lt;chr&gt;            &lt;lgl&gt; 
+##  1 Albertville City FALSE 
+##  2 Marshall County  TRUE  
+##  3 Hoover City      FALSE 
+##  4 Madison City     FALSE 
+##  5 Leeds City       FALSE 
+##  6 Boaz City        FALSE 
+##  7 Trussville City  FALSE 
+##  8 Alexander City   FALSE 
+##  9 Andalusia City   FALSE 
+## 10 Anniston City    FALSE 
+## 11 Arab City        FALSE 
+## 12 Athens City      FALSE 
+## 13 Attalla City     FALSE 
+## 14 Auburn City      FALSE 
+## 15 Autauga County   TRUE  
+## # ℹ 11,311 more rows
+```
+
+---
+# Remove city/county
+
+* Lots of ways to do this. Use `base::gsub()` or `stringr::str_replace_all()`
+
+* Replace everything after the space with nothing
+
+--
+
+``` r
+d %&gt;% 
+  select(LEANM) %&gt;% 
+  mutate(new_name = gsub(" .+", "", LEANM))
+```
+
+```
+## # A tibble: 11,326 × 2
+##   LEANM            new_name   
+##   &lt;chr&gt;            &lt;chr&gt;      
+## 1 Albertville City Albertville
+## 2 Marshall County  Marshall   
+## 3 Hoover City      Hoover     
+## 4 Madison City     Madison    
+## 5 Leeds City       Leeds      
+## 6 Boaz City        Boaz       
+## # ℹ 11,320 more rows
+```
+
+--
+You can also use `"\\s"` to mean "space"
+
+---
+# Another way
+There are other ways too, of course
+
+
+``` r
+d %&gt;% 
+  select(LEANM) %&gt;% 
+  mutate(new_name = gsub(" City$| County$", "", LEANM))
+```
+
+```
+## # A tibble: 11,326 × 2
+##   LEANM            new_name   
+##   &lt;chr&gt;            &lt;chr&gt;      
+## 1 Albertville City Albertville
+## 2 Marshall County  Marshall   
+## 3 Hoover City      Hoover     
+## 4 Madison City     Madison    
+## 5 Leeds City       Leeds      
+## 6 Boaz City        Boaz       
+## # ℹ 11,320 more rows
+```
+
+
+
+---
+# Final step
+
+Handling the URLs. This is a bit artificial, but it illustrates escaping, which is important.
+
+* Remember `.` is a special character, so needs to be escaped
+
+* `\` itself is a special character so it needs to be escaped. Functionally, then, you escape special characters with `\\`, not `\`.
+
+---
+
+``` r
+d %&gt;% 
+  select(FILEURL) 
+```
+
+```
+## # A tibble: 11,326 × 1
+##   FILEURL                                                                     
+##   &lt;chr&gt;                                                                       
+## 1 https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11.csv
+## 2 https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11.csv
+## 3 https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11.csv
+## 4 https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11.csv
+## 5 https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11.csv
+## 6 https://www2.ed.gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11.csv
+## # ℹ 11,320 more rows
+```
+
+---
+
+``` r
+d %&gt;% 
+  select(FILEURL) %&gt;% 
+  mutate(FILEURL = gsub("\\.", "--DOT--", FILEURL)) %&gt;% 
+  as.data.frame()
+```
+
+```
+##                                                                                             FILEURL
+## 1    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 2    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 3    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 4    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 5    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 6    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 7    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 8    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 9    https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 10   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 11   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 12   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 13   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 14   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 15   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 16   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 17   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 18   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 19   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 20   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 21   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 22   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 23   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 24   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 25   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 26   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 27   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 28   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 29   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 30   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 31   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 32   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 33   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 34   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 35   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 36   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 37   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 38   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 39   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 40   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 41   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 42   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 43   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 44   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 45   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 46   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 47   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 48   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 49   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 50   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 51   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 52   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 53   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 54   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 55   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 56   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 57   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 58   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 59   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 60   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 61   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 62   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 63   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 64   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 65   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 66   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 67   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 68   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 69   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 70   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 71   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 72   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 73   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 74   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 75   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 76   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 77   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 78   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 79   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 80   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 81   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 82   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 83   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 84   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 85   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 86   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 87   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 88   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 89   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 90   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 91   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 92   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 93   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 94   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 95   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 96   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 97   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 98   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 99   https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 100  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 101  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 102  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 103  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 104  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 105  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 106  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 107  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 108  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 109  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 110  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 111  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 112  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 113  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 114  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 115  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 116  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 117  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 118  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 119  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 120  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 121  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 122  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 123  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 124  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 125  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 126  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 127  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 128  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 129  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 130  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 131  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 132  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 133  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 134  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 135  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 136  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 137  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 138  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 139  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 140  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 141  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 142  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 143  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 144  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 145  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 146  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 147  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 148  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 149  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 150  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 151  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 152  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 153  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 154  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 155  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 156  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 157  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 158  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 159  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 160  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 161  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 162  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 163  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 164  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 165  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 166  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 167  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 168  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 169  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 170  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 171  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 172  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 173  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 174  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 175  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 176  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 177  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 178  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 179  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 180  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 181  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 182  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 183  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 184  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 185  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 186  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 187  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 188  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 189  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 190  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 191  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 192  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 193  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 194  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 195  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 196  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 197  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 198  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 199  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 200  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 201  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 202  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 203  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 204  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 205  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 206  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 207  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 208  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 209  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 210  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 211  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 212  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 213  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 214  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 215  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 216  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 217  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 218  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 219  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 220  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 221  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 222  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 223  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 224  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 225  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 226  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 227  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 228  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 229  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 230  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 231  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 232  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 233  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 234  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 235  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 236  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 237  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 238  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 239  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 240  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 241  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 242  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 243  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 244  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 245  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 246  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 247  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 248  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 249  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 250  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 251  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 252  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 253  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 254  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 255  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 256  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 257  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 258  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 259  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 260  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 261  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 262  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 263  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 264  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 265  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 266  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 267  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 268  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 269  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 270  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 271  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 272  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 273  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 274  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 275  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 276  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 277  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 278  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 279  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 280  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 281  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 282  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 283  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 284  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 285  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 286  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 287  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 288  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 289  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 290  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 291  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 292  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 293  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 294  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 295  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 296  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 297  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 298  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 299  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 300  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 301  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 302  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 303  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 304  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 305  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 306  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 307  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 308  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 309  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 310  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 311  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 312  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 313  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 314  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 315  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 316  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 317  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 318  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 319  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 320  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 321  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 322  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 323  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 324  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 325  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 326  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 327  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 328  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 329  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 330  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 331  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 332  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 333  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 334  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 335  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 336  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 337  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 338  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 339  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 340  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 341  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 342  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 343  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 344  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 345  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 346  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 347  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 348  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 349  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 350  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 351  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 352  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 353  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 354  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 355  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 356  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 357  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 358  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 359  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 360  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 361  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 362  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 363  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 364  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 365  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 366  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 367  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 368  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 369  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 370  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 371  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 372  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 373  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 374  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 375  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 376  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 377  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 378  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 379  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 380  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 381  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 382  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 383  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 384  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 385  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 386  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 387  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 388  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 389  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 390  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 391  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 392  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 393  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 394  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 395  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 396  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 397  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 398  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 399  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 400  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 401  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 402  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 403  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 404  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 405  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 406  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 407  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 408  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 409  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 410  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 411  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 412  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 413  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 414  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 415  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 416  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 417  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 418  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 419  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 420  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 421  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 422  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 423  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 424  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 425  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 426  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 427  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 428  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 429  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 430  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 431  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 432  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 433  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 434  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 435  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 436  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 437  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 438  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 439  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 440  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 441  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 442  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 443  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 444  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 445  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 446  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 447  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 448  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 449  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 450  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 451  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 452  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 453  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 454  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 455  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 456  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 457  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 458  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 459  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 460  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 461  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 462  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 463  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 464  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 465  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 466  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 467  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 468  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 469  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 470  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 471  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 472  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 473  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 474  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 475  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 476  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 477  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 478  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 479  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 480  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 481  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 482  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 483  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 484  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 485  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 486  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 487  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 488  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 489  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 490  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 491  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 492  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 493  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 494  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 495  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 496  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 497  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 498  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 499  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 500  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 501  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 502  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 503  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 504  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 505  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 506  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 507  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 508  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 509  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 510  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 511  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 512  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 513  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 514  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 515  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 516  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 517  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 518  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 519  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 520  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 521  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 522  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 523  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 524  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 525  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 526  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 527  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 528  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 529  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 530  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 531  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 532  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 533  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 534  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 535  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 536  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 537  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 538  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 539  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 540  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 541  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 542  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 543  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 544  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 545  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 546  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 547  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 548  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 549  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 550  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 551  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 552  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 553  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 554  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 555  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 556  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 557  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 558  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 559  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 560  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 561  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 562  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 563  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 564  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 565  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 566  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 567  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 568  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 569  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 570  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 571  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 572  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 573  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 574  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 575  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 576  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 577  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 578  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 579  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 580  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 581  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 582  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 583  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 584  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 585  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 586  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 587  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 588  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 589  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 590  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 591  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 592  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 593  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 594  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 595  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 596  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 597  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 598  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 599  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 600  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 601  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 602  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 603  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 604  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 605  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 606  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 607  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 608  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 609  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 610  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 611  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 612  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 613  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 614  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 615  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 616  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 617  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 618  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 619  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 620  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 621  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 622  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 623  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 624  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 625  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 626  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 627  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 628  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 629  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 630  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 631  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 632  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 633  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 634  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 635  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 636  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 637  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 638  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 639  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 640  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 641  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 642  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 643  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 644  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 645  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 646  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 647  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 648  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 649  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 650  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 651  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 652  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 653  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 654  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 655  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 656  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 657  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 658  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 659  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 660  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 661  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 662  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 663  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 664  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 665  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 666  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 667  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 668  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 669  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 670  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 671  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 672  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 673  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 674  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 675  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 676  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 677  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 678  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 679  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 680  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 681  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 682  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 683  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 684  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 685  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 686  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 687  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 688  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 689  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 690  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 691  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 692  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 693  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 694  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 695  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 696  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 697  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 698  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 699  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 700  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 701  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 702  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 703  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 704  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 705  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 706  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 707  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 708  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 709  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 710  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 711  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 712  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 713  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 714  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 715  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 716  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 717  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 718  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 719  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 720  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 721  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 722  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 723  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 724  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 725  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 726  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 727  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 728  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 729  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 730  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 731  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 732  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 733  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 734  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 735  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 736  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 737  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 738  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 739  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 740  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 741  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 742  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 743  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 744  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 745  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 746  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 747  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 748  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 749  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 750  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 751  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 752  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 753  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 754  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 755  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 756  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 757  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 758  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 759  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 760  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 761  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 762  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 763  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 764  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 765  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 766  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 767  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 768  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 769  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 770  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 771  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 772  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 773  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 774  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 775  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 776  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 777  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 778  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 779  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 780  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 781  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 782  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 783  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 784  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 785  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 786  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 787  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 788  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 789  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 790  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 791  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 792  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 793  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 794  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 795  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 796  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 797  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 798  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 799  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 800  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 801  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 802  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 803  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 804  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 805  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 806  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 807  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 808  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 809  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 810  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 811  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 812  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 813  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 814  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 815  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 816  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 817  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 818  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 819  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 820  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 821  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 822  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 823  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 824  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 825  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 826  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 827  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 828  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 829  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 830  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 831  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 832  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 833  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 834  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 835  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 836  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 837  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 838  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 839  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 840  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 841  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 842  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 843  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 844  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 845  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 846  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 847  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 848  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 849  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 850  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 851  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 852  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 853  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 854  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 855  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 856  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 857  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 858  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 859  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 860  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 861  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 862  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 863  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 864  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 865  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 866  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 867  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 868  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 869  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 870  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 871  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 872  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 873  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 874  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 875  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 876  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 877  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 878  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 879  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 880  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 881  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 882  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 883  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 884  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 885  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 886  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 887  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 888  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 889  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 890  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 891  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 892  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 893  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 894  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 895  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 896  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 897  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 898  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 899  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 900  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 901  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 902  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 903  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 904  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 905  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 906  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 907  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 908  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 909  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 910  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 911  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 912  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 913  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 914  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 915  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 916  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 917  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 918  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 919  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 920  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 921  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 922  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 923  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 924  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 925  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 926  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 927  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 928  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 929  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 930  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 931  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 932  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 933  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 934  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 935  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 936  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 937  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 938  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 939  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 940  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 941  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 942  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 943  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 944  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 945  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 946  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 947  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 948  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 949  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 950  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 951  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 952  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 953  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 954  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 955  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 956  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 957  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 958  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 959  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 960  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 961  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 962  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 963  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 964  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 965  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 966  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 967  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 968  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 969  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 970  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 971  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 972  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 973  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 974  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 975  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 976  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 977  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 978  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 979  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 980  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 981  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 982  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 983  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 984  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 985  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 986  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 987  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 988  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 989  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 990  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 991  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 992  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 993  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 994  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 995  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 996  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 997  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 998  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 999  https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+## 1000 https://www2--DOT--ed--DOT--gov/about/inits/ed/edfacts/data-files/acgr-lea-sy2010-11--DOT--csv
+##  [ reached 'max' / getOption("max.print") -- omitted 10326 rows ]
+```
+
+---
+# A few more examples
+
+
+``` r
+some_strings &lt;- c("abc", "a23", "def", "Ad6")
+```
+
+--
+Remove the digits
+
+
+``` r
+gsub("\\d", "", some_strings)
+```
+
+```
+## [1] "abc" "a"   "def" "Ad"
+```
+
+--
+Extract the digits
+
+
+``` r
+gsub("\\D", "", some_strings)
+```
+
+```
+## [1] ""   "23" ""   "6"
+```
+
+---
+Starts with A
+
+
+``` r
+grepl("^[aA]", some_strings)
+```
+
+```
+## [1]  TRUE  TRUE FALSE  TRUE
+```
+
+---
+# There's lots more
+
+* Please checkout the vignette, in particular
+
+* I end up using back-referencing a lot
+
+--
+
+``` r
+cities &lt;- c("Eugene, Oregon", "Denver, Colorado")
+gsub(
+  "^(.+), (.+)$", # pattern with two groupings
+  "The state of \\2 includes the city of \\1", # reference the groups
+  cities)
+```
+
+```
+## [1] "The state of Oregon includes the city of Eugene"  
+## [2] "The state of Colorado includes the city of Denver"
+```
+---
+class: inverse-green middle 
+# R-Markdown Quick refresher and check-in 
+
+---
+# R-Markdown Quick refresher and check-in 
+
+* Level setting - let's watch this brief [video](https://vimeo.com/178485416)
+
+* Let's quickly browse this [cheatsheet](https://rmarkdown.rstudio.com/lesson-15.HTML)
+
+---
+class: inverse-red middle
+# Five Guidelines of Data Visualization
+
+---
+# Guidelines from Jonathan Schwabish
+
+* Show the data
+
+* Reduce the clutter
+
+* Integrate the graphics and text
+
+* Avoid the spaghetti chart :) 
+
+* Start with grey
+
+---
+class: inverse-blue
+# Data viz in the wild
+
+* Aden 
+
+## Elizabeth and Erick on deck
+
+---
+class: inverse-red middle
+# Visual perception
+
+---
+class: inverse-red center middle
+# Disclaimer
+### I'm not a (cognitive) psychologist
+I don't really know why we perceive things certain ways.
+
+I mainly care that we do, and that your visualizations should account for them.
+
+---
+# Visual Cues
+.footnote[Taken from *Modern Data Science with R*, p. 15]
+
+* **Position:** *Numeric*. Where in relation to other things?
+
+* **Length:** *Numeric*. How big (in one dimension)?
+
+* **Angle:** *Numeric*. How wide? Parallel to something else?
+
+* **Direction:** *Numeric*. At what slope? In a time series, going up or down?
+
+
+---
+# Visual Cues
+
+.footnote[Taken from *Modern Data Science with R*, p. 15]
+
+* **Shape:** *Categorical*. Belonging to which group?
+
+* **Area:** *Numeric*. How big (in two dimensions)?
+
+* **Volume:** *Numeric*. How big (in three dimensions)?
+
+* **Shade:** *Numeric or Categorical*. To what extent? How Severely?
+
+* **Color:** *Numeric or Categorical*. To what extent? How Severely?
+
+---
+class: middle center
+# Encoding data
+
+![](w3_files/figure-html/data-encoding-1.png)&lt;!-- --&gt;
+
+---
+# Other elements to consider
+
+* Text
+  + How is the text displayed (e.g., font, face, location)? 
+  + What is the purpose of the text?
+
+--
+* Transparency
+  + Are there overlapping pieces? 
+  + Can transparency help?
+
+--
+* Type of data
+  + Continuous/categorical
+  + Which can be mapped to each aesthetic?
+    - e.g., shape and line type can only be mapped to categorical data, whereas
+    color and size can be mapped to either.
+
+---
+# Talk with a neighbor
+How would you encode each column of data?
+
+| Month | Day | Location     | Station ID  | Temperature |
+|:-----:|:---:|:-------------|-------------| :----------:|
+|  Jan  |  1  | Chicago      | USW00014819 | 25.6        |
+|  Jan  |  1  | San Diego    | USW00093107 | 55.2        |
+|  Jan  |  1  | Houston      | USW00012918 | 53.9        |
+|  Jan  |  1  | Death Valley | USC00042319 | 51.0        |
+|  Jan  |  2  | Chicago      | USW00014819 | 25.5        |
+|  Jan  |  2  | San Diego    | USW00093107 | 55.3        |
+|  Jan  |  2  | Houston      | USW00012918 | 53.8        |
+|  Jan  |  2  | Death Valley | USC00042319 | 51.2        |
+|  Jan  |  3  | Chicago      | USW00014819 | 25.3        |
+
+.footnote[You can assume that month and day can be collapsed to a single *date* column]
+
+---
+# Scales
+&gt; A scale defines a unique mapping between data and aesthetics. Importantly, a scale must be one-to-one, such that for each specific data value there is exactly one aesthetics value and vice versa. If a scale isn't one-to-one, then the data visualization becomes ambiguous.
+
+--
+
+* Which data values correspond to specific aesthetic values?
+
+---
+# Putting it to practice
+
+* Changing colors, shapes, and sizes with `scale_*()`
+
+* Grammar of graphic uses a set of layers to define elements of plots 
+
+![](img/ggplot-layers-4x.png)
+
+---
+class: middle center
+# Basic Scales
+
+![](w3_files/figure-html/scales-wilke-1.png)&lt;!-- --&gt;
+
+---
+# Putting it to practice
+
+All functions that deal with scales conveniently follow the same namming pattern: 
+
+`scale_AESTHETIC_DETAILS()`
+
+---
+# Putting it to practice
+* Common Scale Functions
+
+`scale_x_continuous()`
+`scale_x_date()`
+`scale_y_reverse()`
+`scale_color_viridis_c()`
+`scale_shape_manual(values = c(19, 13, 15))`
+`scale_fill_manual(values = c("red", "orange", "blue"))` 
+
+* You can see a list of all of the possible scale functions [here](https://ggplot2.tidyverse.org/reference/index.html#section-scales), and you should reference that documentation (and the excellent examples) often when working with these functions.
+
+* You can check the documentation for [scales](https://scales.r-lib.org/reference/index.html) for details about all the labeling functions it has, including dates, percentages, p-values
+
+
+---
+# Putting it to practice
+
+As long as you have mapped a variable to an aesthetic with `aes()`, you can use the `scale_*()` functions to deal with it. 
+
+---
+# Putting it to practice
+
+![](w3_files/figure-html/temp-change-1.png)&lt;!-- --&gt;
+
+---
+# Basic code for previous plot
+
+
+``` r
+ggplot(temps_long, aes(date, temperature)) +
+  geom_line(aes(color = location))
+```
+
+![](w3_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+
+---
+# Change colors
+If you want to change the colors on the previous plot, you have to change the colors of the scale for the color mapping.
+
+--
+
+In other words, color is being mapped to data, and you have to change the color scale.
+
+--
+
+
+``` r
+ggplot(temps_long, aes(date, temperature)) +
+  geom_line(aes(color = location)) +
+  scale_color_brewer(palette = "Dark2")
+```
+
+---
+![](w3_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+
+---
+# One more note on colors
+There are lots of different scales and some work better than others. We'll talk about them more next week.
+
+
+--
+You **do not** use `scale_color_*()` if you are not mapping data to color
+
+
+--
+Make sure to keep straight `scale_color_*()` and `scale_fill_*()`
+
+
+---
+class: inverse-orange middle
+
+# Alternative represenation
+Can you think of other ways to show this relation? 
+
+
+---
+# Alternative representation
+### Same plot as before, but with different scales
+
+![](w3_files/figure-html/temp-change2-1.png)&lt;!-- --&gt;
+
+
+---
+# Basic code for previous plot
+
+
+``` r
+temps_long %&gt;% 
+  group_by(location, month) %&gt;% 
+  summarize(temp = mean(temperature)) %&gt;% 
+  ggplot(aes(month, location)) +
+  geom_tile(aes(fill = temp),
+            color = "white") +
+  coord_fixed()
+```
+
+![](w3_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+
+---
+# Change the fill
+
+
+``` r
+temps_long %&gt;% 
+  group_by(location, month) %&gt;% 
+  summarize(temp = mean(temperature)) %&gt;% 
+  ggplot(aes(month, location)) +
+  geom_tile(aes(fill = temp),
+            color = "white") +
+  coord_fixed() +
+  scico::scale_fill_scico(palette = "tokyo")
+```
+
+![](w3_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+
+---
+# Comparison
+
+* Both represent three scales
+
+  + Two position scales (x/y axis)
+  + One color scale (categorical for the first, continuous for the second)
+
+* More scales are possible
+
+---
+
+class: center middle
+![](w3_files/figure-html/five-scales-1.png)&lt;!-- --&gt;
+
+---
+background-image:url(http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-multichannel-1.png)
+background-size:contain
+
+## Additional scales can become lost without high structure in the data
+
+
+---
+class: inverse-blue center middle
+# Data ink ratio
+
+---
+# What is it?
+
+--
+&gt; ## Above all else,  show the data
+
+&lt;br&gt;
+\-Edward Tufte
+
+
+--
+* Data-Ink Ratio = Ink devoted to the data / total ink used to produce the
+figure
+
+
+--
+* Common goal: Maximize the data-ink ratio
+
+---
+# Example
+
+![](img/six-boxplots.png)
+
+--
+
+* First thought might be - Cool!
+
+---
+class: inverse-red
+background-image:url(https://theamericanreligion.files.wordpress.com/2012/10/lee-corso-sucks.jpeg?w=660)
+background-size:cover
+
+---
+# Minimize cognitive load
+* Empirically, Tufte's plot was **the most difficult** for viewers to
+interpret.
+
+
+--
+* Visual cues (labels, gridlines) *reduce* the data-ink ratio, but can also 
+reduce cognitive load.
+
+---
+# Another example
+### Which do you prefer?
+
+.pull-left[
+![](w3_files/figure-html/h3_bad-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+![](w3_files/figure-html/h3_good-1.png)&lt;!-- --&gt;
+]
+
+
+---
+# Advice from Wilke
+
+&gt; Whenever possible, visualize your data with solid, colored shapes rather than with lines that outline those shapes. Solid shapes are more easily perceived, are less likely to create visual artifacts or optical illusions, and do more immediately convey amounts than do outlines.
+
+---
+# Another example
+
+.pull-left[
+![](w3_files/figure-html/iris_lines-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+![](w3_files/figure-html/iris_colored_lines-1.png)&lt;!-- --&gt;
+]
+
+---
+class: center middle
+
+![](w3_files/figure-html/iris_filled-1.png)&lt;!-- --&gt;
+
+---
+class: inverse-red middle
+background-image:url(img/monstrous-costs.png)
+background-size: contain
+
+## This?
+
+---
+# The takeaway?
+* It can often be helpful to remove "chart junk"
+  + Remove background
+  + Unnecessary frills
+  + Certainly don't use 3D when it's not clearly warranted 
+
+
+--
+### But...
+
+* Infographics can often be more memorable
+
+
+---
+# Compromise?
+In some cases, it may be easy and more memorable to use glyphs instead of points or squares
+
+--
+
+* Install packages
+
+
+``` r
+install.packages("extrafont")
+remotes::install_github("wch/extrafontdb")
+remotes::install_github("wch/Rttf2pt1")
+remotes::install_github("hrbrmstr/waffle")
+```
+
+--
+
+* Create data
+
+
+``` r
+parts &lt;- c(`Un-breached\nUS Population` = (318 - 11 - 79), 
+           `Premera` = 11,
+           `Anthem` = 79)
+```
+
+---
+# Basic plot
+
+
+``` r
+library(waffle)
+waffle(parts, 
+       rows = 8, 
+       colors = c("#969696", "#1879bf", "#009bda"))
+```
+
+![](w3_files/figure-html/waffle1-1.png)&lt;!-- --&gt;
+
+---
+# Glyph plot
+Doesn't seem to work anymore...🤷‍♂️
+
+* Download and install `fontawesome-webfont.ttf` on your machine locally (see [here](https://fontawesome.com/v4.7.0/))
+
+* Import new fonts (including glyphs, via font awesome)
+
+
+``` r
+library(extrafont)
+font_import()
+loadfonts()
+```
+
+
+
+``` r
+waffle(parts/10, 
+       rows = 3, 
+       colors = c("#969696", "#1879bf", "#009bda"),
+       use_glyph = "medkit", 
+       size = 8
+       ) +
+  expand_limits(
+    y=c(0,4)
+  )
+```
+
+---
+# Should look like this
+
+![](https://github.com/hrbrmstr/waffle/blob/master/README_files/figure-commonmark/medkit-1.png)
+
+--
+Despite glyphs not (easily) working anymore, I still recommend you [check it out](https://github.com/hrbrmstr/waffle). It's a neat package and does have some integration with ggplot2 now.
+
+---
+class: inverse center middle
+background-image: url(https://pbs.twimg.com/media/DxiychAVYAAJ4CY.jpg)
+background-size: 100% 100%
+
+---
+# You can create them!
+* Create plots
+
+* Use illustrator or similar to put them together
+
+* Add some annotations
+
+* Consider using glyphs for greater memory
+
+* You can do a lot in R without going to illustrator etc. by just using [**{patchwork}**](https://patchwork.data-imaginist.com) or [**{cowplot}**](https://wilkelab.org/cowplot/index.html)
+
+
+---
+class: center middle
+# More visual properties
+![](http://socviz.co/assets/ch-01-perception-adelson-checkershow.jpg)
+
+---
+# Or in real life
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/z9Sen1HTu5o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+background-image:url(http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-dual-search-1.png)
+background-size:contain
+
+## Where's the blue circle in each plot?
+
+---
+background-image:url(http://socviz.co/assets/ch-01-cleveland-task-types.png)
+background-size:contain
+
+# What are we good at perceiving?
+
+---
+background-image:url(http://socviz.co/assets/ch-01-heer-bostock-results.png)
+background-size:contain
+
+
+---
+background-image:url(http://socviz.co/assets/ch-01-channels-for-cont-data-vertical.png)
+background-size:contain
+
+## Ordered 
+## data 
+## mappings: 
+## Ranked
+
+
+
+---
+# Unordered data mappings
+
+![](http://socviz.co/assets/ch-01-channels-for-cat-data-vertical.png)
+
+---
+class: inverse-blue center middle
+# Some things to avoid
+
+---
+# Line drawings
+### As discussed earlier
+
+.pull-left[
+![](w3_files/figure-html/iris_lines2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+![](w3_files/figure-html/iris_filled2-1.png)&lt;!-- --&gt;
+]
+
+---
+# Much worse
+### Unnecessary 3D
+
+.pull-left[
+![](img/3d-pie-10-v2.png)
+]
+
+.pull-right[
+![](img/3d-pie-20-v2.png)
+]
+
+---
+# Much worse
+### Unnecessary 3D
+
+.pull-left[
+![](img/3d-pie-40-v2.png)
+]
+
+.pull-right[
+![](img/3d-pie-80-v2.png)
+]
+
+
+---
+# Horrid example
+### Used relatively regularly
+![](img/3d_bar.png)
+
+
+---
+# Pie charts w/lots of categories
+
+![](img/pie_lots_categories.png)
+
+---
+# Alternative representation
+
+![](img/pie_lots_alt.png)
+
+
+---
+# A case for pie charts
+* `\(n\)` categories low,
+* differences are relatively large
+* familiar for some audiences 
+
+![](w3_files/figure-html/pie-1.png)&lt;!-- --&gt;
+
+---
+# The anatomy of a pie chart
+Pie charts are just stacked bar charts with a radial coordinate system
+
+![](w3_files/figure-html/stacked_bars_nopie-1.png)&lt;!-- --&gt;
+
+---
+# Alternative represenation
+
+![](w3_files/figure-html/horiz_stacked-1.png)&lt;!-- --&gt;
+
+---
+# Or one of these
+
+![](w3_files/figure-html/dodged_bars-1.png)&lt;!-- --&gt;![](w3_files/figure-html/dodged_bars-2.png)&lt;!-- --&gt;
+
+---
+# Dual axes
+* One exception - if second axis is a direct transformation of the first
+  + e.g., Miles/Kilometers, Fahrenheit/Celsius 
+
+![](img/dual_axes.png)
+
+---
+# Another example
+
+![](img/bedsheet-tangled.png)
+
+.footnote[See more examples [here](http://www.tylervigen.com/spurious-correlations)]
+---
+# Truncated axes
+![](img/truncated_axes.png)
+
+---
+class: middle
+![](img/truncated_axes2.png)
+
+
+---
+# Not always a bad thing
+&gt; It is tempting to lay down inflexible rules about what to do in terms of producing your graphs, and to dismiss people who don’t follow them as producing junk charts or lying with statistics. But **being honest with your data is a bigger problem than can be solved by rules of thumb** about making graphs. In this case there is a moderate level of agreement that bar charts should generally include a zero baseline (or equivalent) given that bars encode their variables as lengths. But it would be a mistake to think that a dot plot was by the same token deliberately misleading, just because it kept itself to the range of the data instead.
+
+---
+# Bars
+![](http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-bar-simple-1.png)
+---
+# Points
+
+![](http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-bar-simple-2.png)
+
+---
+# Law school enrollments
+
+![](http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-law-enrollments-1.png)
+
+---
+# Start at zero
+
+![](http://socviz.co/dataviz-pdfl_files/figure-html4/ch-01-law-enrollments-2.png)
+
+---
+# Scaling issues
+![](img/area_size.png)
+
+---
+class: middle center
+# Poor binning choices
+![](img/poor_binning.png)
+
+---
+class: inverse-blue middle
+# Conclusions
+
+---
+# Essentially never
+
+* Use dual axes (unles they are direct transformations, just produce separate plots instead)
+
+* Use 3D unnecessarily
+
+
+--
+# Be wary of
+
+  + Truncated axes
+
+
+--
+# Do
+
+* Minimize cognitive load
+
+* Be as clear as possible
+
+---
+class: inverse-green
+
+# Let's wrap Lab 2 and then move onto Lab PS-1 and Lab 3(if time permits) 
+
+---
+class: inverse-blue middle
+# Review Lab 2
+
+---
+class: inverse-red middle
+# Jump onto Lab PS1
+
+---
+class: inverse-green middle
+# Lab 3 - if time permits 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"navigation": {
+"scroll": false
+},
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
