@@ -66,7 +66,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-odd "01-22" >}}
   {{< description "Visual processing and perceptual rankings" "Aesthetic mappings and visual encodings of data. The data-ink ratio and the pitfall of rigid rules. Some general rule of thumb recommendations. For the lab, we will use ggplot2 to replicate plots produced by [fivethirtyeight](https://fivethirtyeight.com) ![](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F13%2FBlack-Lives-Matter-Fist-Transparent-PNG.png&f=1&nofb=1)" >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w3" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-ps2" "Lab PS2" >}}
