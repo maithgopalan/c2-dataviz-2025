@@ -22,19 +22,21 @@ You will use the `gapminder.csv` dataset. This is a cross-national dataset relea
 
 ## Tasks
 
-### Create a bar chart showing the number of distinct countries in each continent
+### 1. Create a bar chart showing the number of distinct countries in each continent
 
 Think carefully about how you are mapping the variables in the data to x, y, and fill to show in the bar chart
 
-### Use the discrete viridis color palette instead to see if this is better?  
+### 2. Use the discrete viridis color palette instead to see if this is better?  
 
-### Use arguments in the scale function, for instance, use the plasma palette from the viridis package as an option
+### 3. Use arguments in the scale function, for instance, use the plasma palette from the viridis package as an option
 
 ### Would you change anything in the colors you see to improve he visualization? 
 
 Hint: You can tell ggplot to not use the full range of the palette
 
-### Instead of letting R calculate the colors from a general palette, you can also specify your own colors with scale_fill_manual() and feeding it a list of values—generally as hex codes or a name from a list of built-in R colors
+### 4. Specify your own colors
+
+Instead of letting R calculate the colors from a general palette, you can also specify your own colors with scale_fill_manual() and feeding it a list of values—generally as hex codes or a name from a list of built-in R colors
 
 Hint: Use `scale_fill_manual()`
 
