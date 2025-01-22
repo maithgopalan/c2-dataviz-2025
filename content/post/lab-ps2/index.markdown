@@ -22,7 +22,7 @@ You will use the same `gapminder.csv` dataset we used in Lab 3.
 
 ## Tasks
 
-# You got to work primarily just with color in lab 3. But scale functions also work for other aesthetics like shape or size. To see that, create a scatter plot with just one year 
+### 1. You got to work primarily just with color in lab 3. But scale functions also work for other aesthetics like shape or size. To see that, create a scatter plot with just one year 
 
 Hint: Note the Aesthtic Mappings below for Scatter Plot
 
@@ -32,14 +32,14 @@ color and shape mapped to continent and
 size mapped to pop
 Show x-axis scale to be shown in log-scale (Hint: use scale_x_log10) 
 
-# Change colors and shapes of the point 
+### 2. Change colors and shapes of the point 
 
 Hint 1: Use `scale_color_*()` and with `scale_shape_*()`
 Hint 2: If you run `?pch` in your console or search for `pch` in the help, you will see possible shapes
 
-# Try changing the size next 
+### 3. Try changing the size next 
 
-# Finally, Load the {scales} library (which is installed as part of {tidyverse} but isn’t automatically loaded),
+### 4. Finally, load the {scales} library (which is installed as part of {tidyverse} but isn’t automatically loaded),
 
 You can then use some neat helper functions to reformat the text that shows up in plots. 
 
