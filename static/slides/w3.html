@@ -148,19 +148,18 @@ d
 
 ```
 ## # A tibble: 11,326 × 29
-##   ALL_COHORT ALL_RATE CWD_COHORT CWD_RATE DATE_CUR ECD_COHORT ECD_RATE FIPST FILEURL  LEAID LEANM
-##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
-## 1        252 80                3 PS       03OCT15         121 65-69    01    https:/… 0100… Albe…
-## 2        398 75               47 70-79    03OCT15         233 65-69    01    https:/… 0100… Mars…
-## 3       1020 89               51 40-49    03OCT15         175 75-79    01    https:/… 0100… Hoov…
-## 4        750 91               35 60-69    03OCT15         102 80-84    01    https:/… 0100… Madi…
-## 5        128 55-59            15 LT50     03OCT15          68 40-44    01    https:/… 0100… Leed…
-## 6        166 90-94             9 GE50     03OCT15          53 70-79    01    https:/… 0100… Boaz…
+##   ALL_COHORT ALL_RATE CWD_COHORT CWD_RATE DATE_CUR ECD_COHORT ECD_RATE FIPST FILEURL      LEAID LEANM LEP_COHORT LEP_RATE MAM_COHORT
+##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
+## 1        252 80                3 PS       03OCT15         121 65-69    01    https://www… 0100… Albe…         10 LT50             NA
+## 2        398 75               47 70-79    03OCT15         233 65-69    01    https://www… 0100… Mars…         10 LT50              6
+## 3       1020 89               51 40-49    03OCT15         175 75-79    01    https://www… 0100… Hoov…         12 LT50              2
+## 4        750 91               35 60-69    03OCT15         102 80-84    01    https://www… 0100… Madi…         12 GE50              9
+## 5        128 55-59            15 LT50     03OCT15          68 40-44    01    https://www… 0100… Leed…          3 PS               NA
+## 6        166 90-94             9 GE50     03OCT15          53 70-79    01    https://www… 0100… Boaz…          6 GE50             NA
 ## # ℹ 11,320 more rows
-## # ℹ 18 more variables: LEP_COHORT &lt;dbl&gt;, LEP_RATE &lt;chr&gt;, MAM_COHORT &lt;dbl&gt;, MAM_RATE &lt;chr&gt;,
-## #   MAS_COHORT &lt;dbl&gt;, MAS_RATE &lt;chr&gt;, MBL_COHORT &lt;dbl&gt;, MBL_RATE &lt;chr&gt;, MHI_COHORT &lt;dbl&gt;,
-## #   MHI_RATE &lt;chr&gt;, MTR_COHORT &lt;dbl&gt;, MTR_RATE &lt;chr&gt;, MWH_COHORT &lt;dbl&gt;, MWH_RATE &lt;chr&gt;,
-## #   STNAM &lt;chr&gt;, YEAR &lt;dbl&gt;, PIPELINE &lt;chr&gt;, DL_INGESTION_DATETIME &lt;dttm&gt;
+## # ℹ 15 more variables: MAM_RATE &lt;chr&gt;, MAS_COHORT &lt;dbl&gt;, MAS_RATE &lt;chr&gt;, MBL_COHORT &lt;dbl&gt;, MBL_RATE &lt;chr&gt;, MHI_COHORT &lt;dbl&gt;,
+## #   MHI_RATE &lt;chr&gt;, MTR_COHORT &lt;dbl&gt;, MTR_RATE &lt;chr&gt;, MWH_COHORT &lt;dbl&gt;, MWH_RATE &lt;chr&gt;, STNAM &lt;chr&gt;, YEAR &lt;dbl&gt;, PIPELINE &lt;chr&gt;,
+## #   DL_INGESTION_DATETIME &lt;dttm&gt;
 ```
 
 ---
@@ -175,7 +174,7 @@ d
 
 You'll need `base::gsub()` or `stringr::str_replace_all()`
 
-<div class="countdown" id="timer_a3a26088" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_f8c4fb4a" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1399,8 +1398,7 @@ gsub(
 ```
 
 ```
-## [1] "The state of Oregon includes the city of Eugene"  
-## [2] "The state of Colorado includes the city of Denver"
+## [1] "The state of Oregon includes the city of Eugene"   "The state of Colorado includes the city of Denver"
 ```
 ---
 class: inverse-green middle 
@@ -1864,7 +1862,7 @@ waffle(parts/10,
 ---
 # Should look like this
 
-![](https://github.com/hrbrmstr/waffle/blob/master/README_files/figure-commonmark/medkit-1.png)
+![](img/medkit-1.png)
 
 --
 Despite glyphs not (easily) working anymore, I still recommend you [check it out](https://github.com/hrbrmstr/waffle). It's a neat package and does have some integration with ggplot2 now.
