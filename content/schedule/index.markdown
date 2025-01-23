@@ -70,6 +70,8 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-ps2" "Lab PS2" >}}
+{{< assigned "lab-3" "Lab 3" >}}
+
 
 {{< /wrap >}}
   {{< wrap >}}
