@@ -26,7 +26,7 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 ## Final Project
 
-The final project includes multiple components and is worth 70 points total (35% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least three data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You must use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
+The final project includes multiple components and is worth 70 points total (35% of your totalgrade), culminating in a data visualization portfolio. Your final project must be completed in groups of 2-3 and must include at least four data visualizations. You will build a web-deployed product (likely a dashboard or a website with blog posts) that not only displays the final visuals, but also clearly communicates the history of each visualization, how they evolved, and why you made the changes you did. You can use the [course data](../2021-12-10-accessing-the-data/index.html) for this project. The due dates for each component are as follows:
 
 {{< bootstrap-table "table table-hover" >}}
 
