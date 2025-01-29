@@ -622,35 +622,10 @@ library(tigris)
 options(tigris_use_cache = TRUE)
 options(tigris_class="sf")
 
-#census_api_key("57878ac2a009c05cc3f232f348b88d1434839be2", install=TRUE)
+#census_api_key("Insert your key", install=TRUE)
 
 vars_pl_2020 &lt;-  load_variables(2020, "pl")
 #View(vars)
-```
-
-
-``` r
-lane &lt;- get_decennial(geography = "tract", variables = "P1_003N", 
-                  state = "OR", county = "Lane", geometry = TRUE,
-                  summary_var = "P1_001N")
-
-or &lt;- get_decennial(geography = "county", variables = "P1_003N", 
-                  state = "OR", geometry = TRUE,
-                  summary_var = "P1_001N")
-
-ca &lt;- get_decennial(geography = "county", variables = "P1_003N", 
-                  state = "CA", geometry = TRUE,
-                  summary_var = "P1_001N")
-
-lane %&gt;%
-  mutate(pct = 100 * (value / summary_value)) %&gt;%
-  ggplot(aes(fill = pct, color = pct)) +
-  geom_sf() +
-  coord_sf(crs = 26915) + 
-  theme_dviz_map(font_size = 25, font_family = "Roboto") +
-  labs(title = "Percentage of people identifying as White",
-       subtitle = "Lane County",
-       caption = "US Census Decennial Tract Data")
 ```
 
 ![](w4_files/figure-html/lane1-1.png)&lt;!-- --&gt;
@@ -948,6 +923,9 @@ ggplot(mpg, aes(displ, hwy)) +
 
 ---
 # Back to our states plot
+
+
+
 ### Highlight Oregon and Washington
 
 ``` r
@@ -955,21 +933,39 @@ popgrowth_df &lt;- popgrowth_df %&gt;%
   arrange(desc(popgrowth)) %&gt;%
   mutate(state = factor(state, levels = state))
 
-ggplot(popgrowth_df, aes(x = popgrowth, y = state)) + 
-  geom_col(data = filter(popgrowth_df,
-                        !(state %in% c("Oregon", "Washington"))),
-           aes(fill = region),
-           alpha = 0.9) + 
-	geom_col(data = filter(popgrowth_df,
-	                       state == "Oregon" |
-	                       state == "Washington"),
-           fill = "#C55644") +
-  scale_fill_OkabeIto() 
+ggplot(popgrowth_df, aes(x=popgrowth, y=state)) + 
+  geom_col(aes(fill = region), alpha = 0.9) + 
+  geom_col(data=filter(popgrowth_df, state == 'Oregon' | state == 'Washington'), 
+           fill = NA, 
+           color = '#C55644',
+           linewidth = 1,
+           width = 0.9) +  # Added width parameter to make it slightly narrower
+  scale_fill_OkabeIto()
 ```
 
 ---
 
 ![](w4_files/figure-html/basic-highlight-or-eval-1.png)&lt;!-- --&gt;
+
+```
+## List of 1
+##  $ axis.text.y:List of 11
+##   ..$ family       : NULL
+##   ..$ face         : NULL
+##   ..$ colour       : NULL
+##   ..$ size         : num 11
+##   ..$ hjust        : NULL
+##   ..$ vjust        : NULL
+##   ..$ angle        : NULL
+##   ..$ lineheight   : NULL
+##   ..$ margin       : NULL
+##   ..$ debug        : NULL
+##   ..$ inherit.blank: logi FALSE
+##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+##  - attr(*, "class")= chr [1:2] "theme" "gg"
+##  - attr(*, "complete")= logi FALSE
+##  - attr(*, "validate")= logi TRUE
+```
 
 ---
 # Color labels
@@ -984,13 +980,9 @@ label_color
 ```
 
 ```
-##  [1] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-##  [9] "gray30"  "gray30"  "gray30"  "gray30"  "#C55644" "gray30"  "gray30"  "gray30" 
-## [17] "gray30"  "#C55644" "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-## [25] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-## [33] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-## [41] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-## [49] "gray30"  "gray30"  "gray30"
+##  [1] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "#C55644" "gray30"  "gray30"  "gray30"  "gray30"  "#C55644"
+## [19] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
+## [37] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"
 ```
 
 ``` r
@@ -1002,27 +994,22 @@ label_face
 ```
 
 ```
-##  [1] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
-## [11] "plain" "plain" "bold"  "plain" "plain" "plain" "plain" "bold"  "plain" "plain"
-## [21] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
-## [31] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
-## [41] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
-## [51] "plain"
+##  [1] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "bold"  "plain" "plain" "plain" "plain" "bold"  "plain" "plain" "plain" "plain"
+## [23] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
+## [45] "plain" "plain" "plain" "plain" "plain" "plain" "plain"
 ```
 
 ---
 
 ``` r
-ggplot(popgrowth_df, aes(x = popgrowth, y = state)) + 
-  geom_col(data = filter(popgrowth_df,
-                        !(state %in% c("Oregon", "Washington"))),
-           aes(fill = region),
-           alpha = 0.9) + 
-	geom_col(data = filter(popgrowth_df,
-	                       state == "Oregon" |
-	                       state == "Washington"),
-           fill = "#C55644") +
-  scale_fill_OkabeIto() +
+ggplot(popgrowth_df, aes(x=popgrowth, y=state)) + 
+  geom_col(aes(fill = region), alpha = 0.9) + 
+  geom_col(data=filter(popgrowth_df, state == 'Oregon' | state == 'Washington'), 
+           fill = NA, 
+           color = '#C55644',
+           linewidth = 1,
+           width = 0.9) +  # Added width parameter to make it slightly narrower
+  scale_fill_OkabeIto()+
   theme(
     axis.text.y = element_text(
 *     color = label_color,
@@ -1052,15 +1039,13 @@ gg_color_swatches(7) +
 ---
 
 ``` r
-ggplot(popgrowth_df, aes(x = popgrowth, y = state)) + 
-  geom_col(data = filter(popgrowth_df,
-                        !(state %in% c("Oregon", "Washington"))),
-           aes(fill = region),
-           alpha = 0.9) + 
-	geom_col(data = filter(popgrowth_df,
-	                       state == "Oregon" |
-	                       state == "Washington"),
-           fill = "#C55644") +
+ggplot(popgrowth_df, aes(x=popgrowth, y=state)) + 
+  geom_col(aes(fill = region), alpha = 0.9) + 
+  geom_col(data=filter(popgrowth_df, state == 'Oregon' | state == 'Washington'), 
+           fill = NA, 
+           color = '#C55644',
+           linewidth = 1,
+           width = 0.9) +  
 * scale_fill_manual(values = accent_OkabeIto) +
   theme(axis.text.y = element_text(color = label_color,
                                    face = label_face)) 
@@ -1076,15 +1061,13 @@ ggplot(popgrowth_df, aes(x = popgrowth, y = state)) +
 
 ``` r
 *library(ggtext)
-ggplot(popgrowth_df, aes(x = popgrowth, y = state)) + 
-  geom_col(data = filter(popgrowth_df,
-                        !(state %in% c("Oregon", "Washington"))),
-           aes(fill = region),
-           alpha = 0.9) + 
-	geom_col(data = filter(popgrowth_df,
-	                       state == "Oregon" |
-	                       state == "Washington"),
-           fill = "#C55644") +
+ggplot(popgrowth_df, aes(x=popgrowth, y=state)) + 
+  geom_col(aes(fill = region), alpha = 0.9) + 
+  geom_col(data=filter(popgrowth_df, state == 'Oregon' | state == 'Washington'), 
+           fill = NA, 
+           color = '#C55644',
+           linewidth = 1,
+           width = 0.9) +  # Added width parameter to make it slightly narrower
   scale_fill_manual(values = accent_OkabeIto) +
 * scale_x_continuous(expand = c(0, 0)) +
   labs(title = "Population growth by region",
