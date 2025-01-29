@@ -99,14 +99,14 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-even "01-29" >}}
   {{< description "Use of Color and Inclusive Design Principles that go beyond Compliance (e.g., Alt-texts, inclusive design)" "We will discuss the three primary means by which color can aid interpretation. Color blindness considerations and color palettes that work well for the visualy impaired will be discussed along with the Common pitfalls with the use of color in the lab. We will also have a very special guest visit." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w4" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "" "" >}}
+{{< assigned "lab-4" "Lab-4" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#proposal" "Prop" >}}
-{{< due "lab-ps1" "Lab PS1" >}}
+{{< due "lab-4" "Lab 4" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "dataviz" "color-basics.html" "4" >}}
