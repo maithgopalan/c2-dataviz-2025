@@ -318,15 +318,15 @@ popgrowth_df
 ```
 
 ```
-## # A tibble: 51 × 8
-##   region division           state           pop2000  pop2010 popgrowth    area fill_color
-##   &lt;fct&gt;  &lt;chr&gt;              &lt;fct&gt;             &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
-## 1 West   Mountain           Nevada          1998257  2700551     0.351 109781. West      
-## 2 West   Mountain           Arizona         5130632  6392017     0.246 113594. West      
-## 3 West   Mountain           Utah            2233169  2763885     0.238  82170. West      
-## 4 West   Mountain           Idaho           1293953  1567582     0.211  82643. West      
-## 5 South  West South Central Texas          20851820 25145561     0.206 261232. South     
-## 6 South  South Atlantic     North Carolina  8049313  9535483     0.185  48618. South     
+## # A tibble: 51 × 7
+##   region    division           state          pop2000  pop2010 popgrowth   area
+##   &lt;fct&gt;     &lt;chr&gt;              &lt;fct&gt;            &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Midwest   East North Central Michigan       9938444  9883640  -0.00551 56539.
+## 2 Northeast New England        Rhode Island   1048319  1052567   0.00405  1034.
+## 3 South     West South Central Louisiana      4468976  4533372   0.0144  43204.
+## 4 Midwest   East North Central Ohio          11353140 11536504   0.0162  40861.
+## 5 Northeast Middle Atlantic    New York      18976457 19378102   0.0212  47126.
+## 6 South     South Atlantic     West Virginia  1808344  1852994   0.0247  24038.
 ## # ℹ 45 more rows
 ```
 
@@ -980,10 +980,14 @@ label_color
 ```
 
 ```
-##  [1] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "#C55644" "gray30" 
-## [15] "gray30"  "gray30"  "gray30"  "#C55644" "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-## [29] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
-## [43] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"
+##  [1] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
+##  [8] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
+## [15] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
+## [22] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
+## [29] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "#C55644" "gray30" 
+## [36] "gray30"  "gray30"  "gray30"  "#C55644" "gray30"  "gray30"  "gray30" 
+## [43] "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30"  "gray30" 
+## [50] "gray30"  "gray30"
 ```
 
 ``` r
@@ -995,9 +999,12 @@ label_face
 ```
 
 ```
-##  [1] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "bold"  "plain" "plain" "plain" "plain" "bold" 
-## [19] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
-## [37] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
+##  [1] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
+## [10] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
+## [19] "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain" "plain"
+## [28] "plain" "plain" "plain" "plain" "plain" "plain" "bold"  "plain" "plain"
+## [37] "plain" "plain" "bold"  "plain" "plain" "plain" "plain" "plain" "plain"
+## [46] "plain" "plain" "plain" "plain" "plain" "plain"
 ```
 
 ---
