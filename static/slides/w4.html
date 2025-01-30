@@ -929,9 +929,9 @@ ggplot(mpg, aes(displ, hwy)) +
 ### Highlight Oregon and Washington
 
 ``` r
-popgrowth_df &lt;- popgrowth_df %&gt;%
-  arrange(desc(popgrowth)) %&gt;%
-  mutate(state = factor(state, levels = state))
+#popgrowth_df &lt;- popgrowth_df %&gt;%
+ # arrange(desc(popgrowth)) %&gt;%
+ # mutate(state = factor(state, levels = state))
 
 ggplot(popgrowth_df, aes(x=popgrowth, y=state)) + 
   geom_col(aes(fill = region), alpha = 0.9) + 
