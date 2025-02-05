@@ -125,7 +125,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-odd "02-05" >}}
   {{< description "Visualizations for comparing categories" "We will learn to use various refinements to plots to enable better communication of various changes in your data. We'll discuss annotating plots, aspect ratios, scales, and wrap up theming" >}}
   {{< wrap >}}
-{{< slides "w6" >}}
+{{< slides "w5" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-ps3" "Lab PS3" >}}
