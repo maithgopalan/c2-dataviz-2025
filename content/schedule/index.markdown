@@ -102,7 +102,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< slides "w4" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-4" "Lab-4" >}}
+{{< assigned "lab-4" "Lab 4" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "assignments/#proposal" "Prop" >}}
@@ -123,9 +123,9 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-odd "02-05" >}}
-  {{< description "Visualizations for comparing categories" "We will learn to use various plots such as bar plots, grouped and stacked charts etc. to visualize comparisons across various categories" >}}
+  {{< description "Visualizations for comparing categories" "We will learn to use various refinements to plots to enable better communication of various changes in your data. We'll discuss annotating plots, aspect ratios, scales, and wrap up theming" >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w6" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-ps3" "Lab PS3" >}}
@@ -149,7 +149,7 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-even "02-12" >}}
-  {{< description "Visualizations for change over time; Visualizations for distributions" "Refining your plots for communication of various changes in your data. We'll discuss annotating plots, aspect ratios, scales, and a bit on theming." >}}
+  {{< description "Visualizations for change over time; Visualizations for distributions and Intro to Websites/Flexdashboards/Shiny" "I will introduce building flexboards/shinyapps and websites with [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -163,10 +163,10 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "dataviz" "histograms-density-plots.html" "7" >}}
 {{< readings "dataviz" "time-series.html" "13" >}}
 {{< readings "dataviz" "visualizing-trends.html" "14" >}}
-{{< readings "dataviz" "visualizing-uncertainty.html" "16" >}}
 {{< readings "socviz" "groupfacettx.html" "4" >}}
 {{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap5.pdf" "5" >}}
 {{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap6.pdf" "6" >}}
+{{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -188,14 +188,13 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "lab-ps3" "Lab ps3" >}}
-
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "workgeoms.html" "5" >}}
 {{< readings "dataviz" "visualizing-associations.html" "12" >}}
 {{< readings "dataviz" "balance-data-context.html" "23" >}}
 {{< readings "dataviz" "telling-a-story.html" "29" >}}
-{{< readings "other" "https://gt.rstudio.com/articles/intro-creating-gt-tables.html" "gt" >}}
+{{< readings "dataviz" "visualizing-uncertainty.html" "16" >}}
 {{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap8.pdf" "8" >}}
 
 {{< /wrap >}}
@@ -221,6 +220,7 @@ Each of the below links to the full book, except the last one. I will upload cha
   {{< wrap >}}
 {{< readings "socviz" "maps.html" "7" >}}
 {{< readings "dataviz" "geospatial-data.html" "15" >}}
+{{< readings "other" "https://gt.rstudio.com/articles/intro-creating-gt-tables.html" "gt" >}}
 {{< readings "other" "https://docs.mapbox.com/help/tutorials/aa-standard-in-studio/" "" >}}
 {{< readings "other" "https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4" "" >}}
 {{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap7.pdf" "7" >}}
@@ -235,7 +235,7 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-odd "03-05" >}}
-  {{< description "Websites, flex dashbaords, fonts, and some customization with CSS" "Websites with [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication. Also building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
+  {{< description "Wrap up Websites, presentations, and some customization with CSS" "Wrap up building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
@@ -246,7 +246,6 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
 {{< readings "other" "https://bookdown.org/yihui/rmarkdown/websites.html" "sites" >}}
 
 {{< /wrap >}}
