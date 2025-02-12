@@ -152,10 +152,10 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-even "02-12" >}}
   {{< description "Visualizations for change over time; Visualizations for distributions and Intro to Websites/Flexdashboards/Shiny" "I will introduce building flexboards/shinyapps and websites with [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w6" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "" "" >}}
+{{< assigned "lab-6" "Lab-6" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "" "" >}}
