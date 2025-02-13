@@ -194,6 +194,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "video" "https://www.youtube.com/watch?v=X7Cl3lwxXi4" "" >}}
 {{< readings "other" "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" "" >}}
 {{< readings "happygit" "install-git" "" >}}
+{{< readings "happygit" "hello-git" "" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
