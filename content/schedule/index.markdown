@@ -150,12 +150,12 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-even "02-12" >}}
-  {{< description "Visualizations for change over time; Visualizations for distributions and Intro to Websites/Flexdashboards/Shiny" "I will introduce building flexboards/shinyapps and websites with [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication." >}}
+  {{< description "Wrap up week 5 + Intro to Flexdashboard" "I will introduce building flexboards" >}}
   {{< wrap >}}
 {{< slides "w6" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "lab-6" "Lab-6" >}}
+{{< assigned "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "" "" >}}
@@ -167,7 +167,6 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "socviz" "groupfacettx.html" "4" >}}
 {{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap5.pdf" "5" >}}
 {{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap6.pdf" "6" >}}
-{{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
@@ -180,23 +179,20 @@ Each of the below links to the full book, except the last one. I will upload cha
  {{< schedule >}}
 
 {{< week-odd "02-19" >}}
-  {{< description "Visualization for Relationships + Uncertainty" "Common methods for visualizing uncertainty (and their implementation w/{ggplot2}). Framing uncertainty as relative frequencies. Non-standard methods for visualizing standard errors, boostrapping, and a brief foray into hypothetical outcomes plots. We'll also discuss changing fonts, both within websites/applications, as well as with {ggplot2}." >}}
+  {{< description "Deployment for websites" "Intro to [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication">}}
   {{< wrap >}}
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "" "" >}}
+{{< assigned "lab-6" "Lab-6" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "lab-ps3" "Lab ps3" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "socviz" "workgeoms.html" "5" >}}
-{{< readings "dataviz" "visualizing-associations.html" "12" >}}
-{{< readings "dataviz" "balance-data-context.html" "23" >}}
-{{< readings "dataviz" "telling-a-story.html" "29" >}}
-{{< readings "dataviz" "visualizing-uncertainty.html" "16" >}}
-{{< readings "jschwab" "https://github.com/maithgopalan/c2-dataviz-2025/blob/main/static/readings_other/jschwabchap8.pdf" "8" >}}
+{{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
+{{< readings "video" "https://www.youtube.com/watch?v=X7Cl3lwxXi4" "" >}}
+{{< readings "other" "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" "" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
