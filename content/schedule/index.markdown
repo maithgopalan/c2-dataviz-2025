@@ -30,7 +30,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "happygit" "https://happygitwithr.com/git-branches.html" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< lecture "https://youtu.be/CeobEaNT0Mo" >}}
+{{< lecture "" >}}
 {{< /wrap >}}
 {{< /week-odd >}}
 
