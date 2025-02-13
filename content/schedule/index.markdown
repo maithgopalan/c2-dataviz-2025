@@ -193,7 +193,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
 {{< readings "video" "https://www.youtube.com/watch?v=X7Cl3lwxXi4" "" >}}
 {{< readings "other" "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" "" >}}
-{{< readings "happygit" "happygitwithr.com/install-git" "" >}}
+{{< readings "happygit" "install-git" "" >}}
 
 {{< /wrap >}}
   {{< wrap >}}
