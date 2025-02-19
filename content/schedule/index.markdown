@@ -181,13 +181,14 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-odd "02-19" >}}
   {{< description "Deployment for websites" "Intro to [{distill}](https://rstudio.github.io/distill), which help you create relatively simple yet customizable blogs, optimized for scientific communication">}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w7" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-6" "Lab-6" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "lab-ps3" "Lab ps3" >}}
+{{< due "lab-6" "Lab-6" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "other" "https://rstudio.github.io/distill/" "distill" >}}
