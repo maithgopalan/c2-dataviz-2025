@@ -209,13 +209,13 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-even "02-26" >}}
   {{< description "Tables and Visualizations for Geospatial Data" "We will focus primarily on two packages for creating tables: [{gt}](https://gt.rstudio.com) for static tables, and [{reactable}](https://glin.github.io/reactable/index.html) for interactive tables. We will also discuss the differences between vector and raster data, producing basic maps, getting data for producing different types of maps, and understandin the basics of the R geospatial ecosystem (which is consistently and rapidly evolving)" >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w8" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< assigned "assignments/#peer-review" "PR" >}}
+{{< assigned "lab-7" "Lab-7" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< due "PR" "PR" >}}
+{{< due "lab-7" "Lab-7" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "socviz" "maps.html" "7" >}}
@@ -229,7 +229,6 @@ Each of the below links to the full book, except the last one. I will upload cha
   {{< wrap >}}
 {{< /wrap >}}
 {{< /week-even >}}
-
 {{< /schedule >}}
  ## Week 9 
  {{< schedule >}}
@@ -240,7 +239,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< slides "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-
+{{< assigned "lab-8" "Lab-8-PR" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< due "" "" >}}
