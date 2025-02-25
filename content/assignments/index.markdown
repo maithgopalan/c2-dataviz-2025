@@ -53,7 +53,7 @@ The proposal process is a chance for you to get feedback  from me on your plans 
 * The intended message to be communicated for each plot. 
 
 ### Peer Review
-You will be assigned to three groups to review their code as part of an in-class lab session on Week 8. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communication. Peer review is a chance to learn from your peers both by reviewing their work and by having your work reviewed.
+You will be assigned to three groups to review their code as part of an in-class lab session on Week 9. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communication. Peer review is a chance to learn from your peers both by reviewing their work and by having your work reviewed.
 
 During your peer review, you must (at minimum) note the following:
 
@@ -68,7 +68,7 @@ Be constructive in your feedback. Be kind. We are all learning.
 
 
 ### Presentation
-Week 10 will include each group sharing their portfolio with the class. If you opt-out of the data visualization competition, you will present early in the class period before the judges arrive. Those participating in the competition will present with the judges in attendance. Note that I hope to also invite others from the COE and will invite others from around the COE to attend as well.
+Week 10 will include each group sharing their portfolio with the class. 
 
 I encourage you to present using HTML slides produced via R Markdown 
 (specifically [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)), but this is not required. If you are interested in doing so but feel uncertain about the process, please get in touch with me and I can meet with you individually (or with a small group if there is sufficient interest) to help get you started. This is what I use for my course slides.
