@@ -26,4 +26,4 @@ Any task that you think is appropriate to get you started on your final projects
 Submit a bulleted list of what you have accomplished as part of your final projects
 
 ## Finishing up
-When you have finished the above, just share the deployed link and/or github repo on Canvas
+When you have finished the above, just share the progress report on Canvas. Note that by the beginning of next week's class, you will need to share your work-in-progress github repo with a colleague for peer review
