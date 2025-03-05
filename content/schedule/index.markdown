@@ -236,7 +236,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< week-odd "03-05" >}}
   {{< description "Wrap up Websites, presentations, and some customization with CSS" "Wrap up building (static) data dashboards with the [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/) package. Finally, we will discuss customization with CSS, and changing the fonts in both web-based documents, as well as ggplot2 plots." >}}
   {{< wrap >}}
-{{< slides "" >}}
+{{< slides "w9" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< assigned "lab-8" "Lab-8-PR" >}}
@@ -245,7 +245,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< due "" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
-{{< readings "other" "https://bookdown.org/yihui/rmarkdown/websites.html" "sites" >}}
+
 
 {{< /wrap >}}
   {{< wrap >}}
